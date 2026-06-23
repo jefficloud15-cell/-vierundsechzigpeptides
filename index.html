@@ -780,6 +780,32 @@ section,footer,#testimonios{content-visibility:auto;contain-intrinsic-size:auto 
 .tcard{contain:layout style paint}
 #hl{backface-visibility:hidden}
 
+
+/* ── BARRA INFERIOR MÓVIL ────────────────────────────────── */
+#mbar{display:none}
+@media(max-width:960px){
+  #mbar{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:1400;
+    background:rgba(10,10,10,.96);backdrop-filter:blur(12px);
+    border-top:1px solid var(--br);
+    padding:8px 4px calc(8px + env(safe-area-inset-bottom,0px));
+    justify-content:space-around;align-items:stretch}
+  body.light #mbar{background:rgba(250,247,240,.97)}
+  .mbar-item{position:relative;flex:1;background:none;border:none;cursor:pointer;
+    display:flex;flex-direction:column;align-items:center;gap:3px;
+    padding:4px 2px;color:var(--mu);transition:color .2s;font-family:'Montserrat',sans-serif}
+  .mbar-item svg{width:22px;height:22px;stroke:currentColor}
+  .mbar-item span{font-size:9px;letter-spacing:.5px;text-transform:uppercase;font-weight:500}
+  .mbar-item.active,.mbar-item:active{color:var(--go)}
+  .mbar-cart-count{position:absolute;top:0;right:50%;margin-right:-22px;
+    background:var(--go);color:var(--bk);font-size:9px;font-weight:700;
+    min-width:15px;height:15px;border-radius:8px;display:none;
+    align-items:center;justify-content:center;padding:0 3px}
+  .mbar-cart-count.show{display:flex}
+  /* Espacio para que la barra no tape el contenido ni el botón de WA */
+  body{padding-bottom:62px}
+  #wa-float{bottom:74px!important}
+}
+
 </style>
 </head>
 <body>
@@ -2896,6 +2922,9 @@ function toggleMobileMenu(){
         document.querySelectorAll('.sn-dot').forEach(d=>{
           d.classList.toggle('active', d.getAttribute('data-target')===id);
         });
+        document.querySelectorAll('#mbar .mbar-item[data-sec]').forEach(b=>{
+          b.classList.toggle('active', b.getAttribute('data-sec')===id);
+        });
       }
     });
   },{threshold:0.4});
@@ -2929,6 +2958,32 @@ function closeMsnPhoto(){
 }
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMsnPhoto();});
 </script>
+
+
+<!-- ── BARRA INFERIOR MÓVIL ───────────────────────────────── -->
+<nav id="mbar" aria-label="Navegación rápida">
+  <button class="mbar-item" data-sec="hero" onclick="scrollToSec('hero')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 11l9-8 9 8M5 9.5V21h14V9.5"/></svg>
+    <span data-es="Inicio" data-en="Home">Inicio</span>
+  </button>
+  <button class="mbar-item" data-sec="cat" onclick="scrollToSec('cat')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+    <span data-es="Catálogo" data-en="Shop">Catálogo</span>
+  </button>
+  <button class="mbar-item" onclick="openSearch()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+    <span data-es="Buscar" data-en="Search">Buscar</span>
+  </button>
+  <button class="mbar-item" onclick="openCart()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="21" r="1.4"/><circle cx="18" cy="21" r="1.4"/><path d="M2 3h3l2.4 12.4a1.5 1.5 0 0 0 1.5 1.2h9a1.5 1.5 0 0 0 1.5-1.2L22 7H6"/></svg>
+    <span data-es="Carrito" data-en="Cart">Carrito</span>
+    <span class="mbar-cart-count" id="mbar-cart-count"></span>
+  </button>
+  <button class="mbar-item" data-sec="contact" onclick="scrollToSec('contact')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+    <span data-es="Contacto" data-en="Contact">Contacto</span>
+  </button>
+</nav>
 
 <!-- ── WHATSAPP FLOTANTE ─────────────────────────────────── -->
 <a id="wa-float" href="https://wa.me/50688789080?text=Hola%2C%20me%20gustar%C3%ADa%20hacer%20una%20consulta" target="_blank" rel="noopener" aria-label="WhatsApp">
@@ -3005,9 +3060,9 @@ function changeQty(key, delta){
 function updateCartBadge(){
   const n = cartCount();
   const badge = document.getElementById('cart-count');
-  if(!badge) return;
-  badge.textContent = n;
-  badge.classList.toggle('show', n > 0);
+  if(badge){ badge.textContent = n; badge.classList.toggle('show', n > 0); }
+  const mbadge = document.getElementById('mbar-cart-count');
+  if(mbadge){ mbadge.textContent = n; mbadge.classList.toggle('show', n > 0); }
 }
 
 function cartTotal(){
