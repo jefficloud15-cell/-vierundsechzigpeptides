@@ -11,7 +11,7 @@ html{scroll-behavior:smooth}
 :root{
   --go:#B8972A;--gl:#D4AF37;
   --bk:#080808;--d1:#111;--d2:#171717;--d3:#1f1f1f;
-  --tx:#EDE5D5;--mu:#8A7E6A;--br:rgba(184,151,42,.2);
+  --tx:#F2ECDF;--mu:#A89C84;--br:rgba(184,151,42,.26);
   --hero-grad-1:#1c0808;--hero-grad-2:#080808;
   --tile-bg-1:#f4f1ea;--tile-bg-2:#e6dfd2;
   --shadow:rgba(0,0,0,.5);
@@ -1048,6 +1048,17 @@ body.light #toast{background:rgba(250,247,240,.98);color:var(--bk)}
   background:rgba(212,175,55,.06)!important;
 }
 .cbtn-keep:hover span{color:var(--gl)!important}
+
+
+/* ── FIX: panel de categorías siempre con texto claro (su fondo siempre es oscuro) ── */
+#catnav .catnav-label{color:#ece6d8!important}
+#catnav .catnav-head{color:var(--gl)!important}
+#catnav .catnav-item:hover .catnav-label{color:var(--gl)!important}
+#catnav .catnav-item.active .catnav-label,#catnav .catnav-item.active-cat .catnav-label{color:var(--gl)!important}
+/* Asegurar contraste del botón cerrar y textos del panel en modo claro */
+body.light #catnav .catnav-label{color:#ece6d8!important}
+body.light #catnav .catnav-close{color:#ece6d8!important}
+body.light #catnav{background:rgba(12,12,12,.98)!important}
 
 </style>
   <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,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">
