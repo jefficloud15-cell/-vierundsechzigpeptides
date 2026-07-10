@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://vierundsechzigpeptides.com/sitemap.xml
