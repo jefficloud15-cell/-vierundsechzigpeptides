@@ -94,7 +94,7 @@ body{background:var(--bk);color:var(--tx);font-family:'Montserrat',sans-serif;fo
 #modal-img-side::before{
   content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
   width:100px;height:70px;
-  background:var(--modal-cap,#d4af37);opacity:.2;filter:blur(20px);
+  background:var(--modal-cap,#d4af37);opacity:.2;filter:blur(8px);
   border-radius:10px 10px 0 0;pointer-events:none;
 }
 #modal-vial{
@@ -187,7 +187,7 @@ body{background:var(--bk);color:var(--tx);font-family:'Montserrat',sans-serif;fo
 /* Mobile dropdown menu */
 #mobile-menu{
   position:fixed;top:0;right:0;bottom:0;width:280px;max-width:80vw;z-index:199;
-  background:rgba(12,12,12,.98);backdrop-filter:blur(20px);
+  background:rgba(12,12,12,.98);backdrop-filter:blur(8px);
   border-left:1px solid var(--br);
   display:flex;flex-direction:column;gap:4px;
   padding:90px 32px 32px;
@@ -254,7 +254,7 @@ body{background:var(--bk);color:var(--tx);font-family:'Montserrat',sans-serif;fo
 }
 .vtile::before{
   content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
-  width:70px;height:50px;background:var(--cap,#3a6ad4);opacity:.1;filter:blur(18px);
+  width:70px;height:50px;background:var(--cap,#3a6ad4);opacity:.1;filter:blur(0px);
   border-radius:8px;pointer-events:none;
 }
 .vtile img{
@@ -299,7 +299,7 @@ body{background:var(--bk);color:var(--tx);font-family:'Montserrat',sans-serif;fo
 }
 
 .hgrid{position:absolute;inset:0;pointer-events:none;transform:translateZ(0);background-image:linear-gradient(rgba(184,151,42,.032) 1px,transparent 1px),linear-gradient(90deg,rgba(184,151,42,.032) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black,transparent)}
-.orb{position:absolute;border-radius:50%;pointer-events:none;filter:blur(55px);will-change:transform;transform:translateZ(0)}
+.orb{position:absolute;border-radius:50%;pointer-events:none}
 .o1{width:800px;height:800px;background:radial-gradient(circle,rgba(184,151,42,.07),transparent 65%);top:-200px;left:-250px;animation:od 14s ease-in-out infinite alternate}
 .o2{width:600px;height:600px;background:radial-gradient(circle,rgba(139,26,26,.08),transparent 65%);bottom:-120px;right:-120px;animation:od 18s ease-in-out infinite alternate-reverse}
 .o3{width:450px;height:450px;background:radial-gradient(circle,rgba(184,151,42,.05),transparent 65%);top:35%;right:8%;animation:od 11s ease-in-out infinite alternate}
@@ -363,10 +363,10 @@ body{background:var(--bk);color:var(--tx);font-family:'Montserrat',sans-serif;fo
 .pc-img{position:relative;overflow:hidden;background:linear-gradient(160deg,var(--vialbg-1) 0%,var(--vialbg-2) 55%,var(--vialbg-3) 100%);padding:28px 16px 16px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--br);min-height:215px;cursor:pointer;border-radius:14px 14px 0 0}
 .pc-img-hint{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--gl);background:rgba(8,8,8,.7);padding:4px 12px;border:1px solid var(--br);opacity:0;transition:opacity .3s;pointer-events:none;z-index:3}
 .pc:hover .pc-img-hint{opacity:1}
-.pc-img::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:80px;height:55px;background:var(--cap,#d4af37);opacity:.18;filter:blur(16px);border-radius:8px 8px 0 0;z-index:1;pointer-events:none}
+.pc-img::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:80px;height:55px;background:var(--cap,#d4af37);opacity:.18;filter:none;border-radius:8px 8px 0 0;z-index:1;pointer-events:none}
 .pc-img img{width:125px;position:relative;z-index:2;filter:drop-shadow(0 10px 28px rgba(0,0,0,.75));transition:transform .4s ease}
 .pc:hover .pc-img img{transform:translateY(-7px) scale(1.05)}
-.pc-glow{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:80px;height:24px;background:var(--cap,#d4af37);opacity:.07;filter:blur(16px);border-radius:50%}
+.pc-glow{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:80px;height:24px;background:var(--cap,#d4af37);opacity:.07;filter:none;border-radius:50%}
 .pc-body{padding:18px 16px 16px;flex:1;display:flex;flex-direction:column;gap:10px}
 .pc-name{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;color:var(--tx);line-height:1.3}
 .pc-short{font-size:12.5px;color:var(--mu);line-height:1.7;flex:1}
@@ -418,7 +418,7 @@ body{background:var(--bk);color:var(--tx);font-family:'Montserrat',sans-serif;fo
 
 /* ── HOW IT WORKS ─────────────────────────────────────────── */
 #how{padding:140px 48px;background:var(--bk);position:relative;overflow:hidden}
-#how .hl{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(184,151,42,.04),transparent 70%);top:20%;right:-150px;filter:blur(60px);pointer-events:none}
+#how .hl{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(184,151,42,.04),transparent 70%);top:20%;right:-150px;filter:blur(0px);pointer-events:none}
 .how-inner{max-width:1280px;margin:0 auto;position:relative;z-index:1}
 .how-head{text-align:center;margin-bottom:70px}
 .how-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:60px}
@@ -450,7 +450,7 @@ body{background:var(--bk);color:var(--tx);font-family:'Montserrat',sans-serif;fo
 /* ── FEATURED PRODUCT ─────────────────────────────────────── */
 #featured{padding:140px 48px;background:var(--bk);position:relative;overflow:hidden}
 .feat-inner{max-width:1100px;margin:0 auto;border:1px solid var(--br);border-radius:18px;background:linear-gradient(135deg,var(--d2),var(--d1));display:grid;grid-template-columns:1fr 1.2fr;position:relative;overflow:hidden}
-.feat-inner::before{content:'';position:absolute;top:-50%;left:-20%;width:400px;height:400px;background:radial-gradient(circle,rgba(184,151,42,.08),transparent 70%);filter:blur(40px);pointer-events:none}
+.feat-inner::before{content:'';position:absolute;top:-50%;left:-20%;width:400px;height:400px;background:radial-gradient(circle,rgba(184,151,42,.08),transparent 70%);filter:blur(0px);pointer-events:none}
 .feat-vial{display:flex;align-items:center;justify-content:center;padding:60px 40px;background:linear-gradient(160deg,var(--vialbg-1),var(--vialbg-3));position:relative;border-right:1px solid var(--br)}
 .feat-vial img{width:180px;filter:drop-shadow(0 16px 40px rgba(0,0,0,.8));position:relative;z-index:1;transition:transform .5s}
 .feat-vial:hover img{transform:translateY(-8px) scale(1.04)}
@@ -529,7 +529,7 @@ body{background:var(--bk);color:var(--tx);font-family:'Montserrat',sans-serif;fo
 #catnav-toggle .cnt-ico{writing-mode:horizontal-tb;font-size:15px;margin-bottom:4px}
 #catnav{
   position:fixed;left:0;top:0;bottom:0;width:300px;max-width:85vw;z-index:300;
-  background:rgba(12,12,12,.98);backdrop-filter:blur(20px);
+  background:rgba(12,12,12,.98);backdrop-filter:blur(8px);
   border-right:1px solid var(--br);
   transform:translateX(-100%);transition:transform .4s cubic-bezier(.16,1,.3,1);
   display:flex;flex-direction:column;
@@ -809,7 +809,7 @@ section,footer,#testimonios{content-visibility:auto;contain-intrinsic-size:auto 
 @media(max-width:960px){
   #mbar{display:flex;position:fixed;bottom:calc(14px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);z-index:1400;
     width:auto;max-width:calc(100% - 28px);
-    background:rgba(14,14,14,.82);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+    background:rgba(14,14,14,.82);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
     border:1px solid rgba(212,175,55,.18);
     border-radius:30px;
     padding:8px 10px;gap:4px;
@@ -3713,4 +3713,7 @@ document.addEventListener('keydown', e=>{
 </script>
 
 <div id="toast"><span class="toast-ico">✓</span><span id="toast-msg"></span></div>
-</body></html>
+<script>
+(function(){function fill(){try{if(typeof PRODUCTS==='undefined')return;var ims=document.querySelectorAll('.pc img');for(var i=0;i<ims.length;i++){var a=ims[i].getAttribute('alt');if(a&&PRODUCTS[a]&&!PRODUCTS[a].img){var s=ims[i].getAttribute('src')||'';PRODUCTS[a].img=s.replace(/^data:image\/[^;]+;base64,/,'');}}}catch(e){}}
+if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',fill);}else{fill();}})();
+</script></body></html>
