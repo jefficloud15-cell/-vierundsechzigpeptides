@@ -100,6 +100,19 @@
 /* ficha técnica (reusa .tech-* de site.css) */
 .pp-tech{max-width:820px}
 
+/* Cuerpo de la ficha, solo en escritorio.
+   Móvil (≤860px) queda exactamente como está: la regla nunca se activa ahí. */
+@media(min-width:861px){
+  .pp-tech .tech-sec p,
+  .pp-tech .tech-sec li{font-size:14px;line-height:1.85}
+  .pp-tech .tech-warn p{font-size:13px;line-height:1.8}
+  .pp-tech .tech-note{font-size:12px;line-height:1.75}
+  /* los encabezados suben apenas para no quedar por debajo del cuerpo */
+  .pp-tech .tech-sec h4{font-size:11px}
+  .pp-tech .tech-warn-h{font-size:11px}
+  .pp-tech .tech-sec{margin-bottom:26px}
+}
+
 /* relacionados */
 .rel-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px}
 .rel-card{
