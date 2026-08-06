@@ -59,6 +59,11 @@
         <a class="pp-wa" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20SLU-PP-332%2010mg" target="_blank" rel="noopener">💬 Pedir por WhatsApp</a>
       </div>
       <div class="pp-note">Envíos a todo Costa Rica · SINPE Móvil · Transferencia</div>
+      <div id="pp-coa" class="pp-coa" hidden>
+        <div class="pp-coa-h">📄 Certificado de análisis</div>
+        <p>Análisis por HPLC del lote de referencia de este compuesto.</p>
+        <a id="pp-coa-link" class="pp-coa-btn" href="#" download>Descargar CoA (PDF)</a>
+      </div>
     </div>
   </div>
 
@@ -138,6 +143,25 @@
 </div>
 
 <script>
+/* Certificado de análisis: el botón aparece solo si el PDF existe.
+   Busca primero el del SKU y, si no está, el del compuesto.
+   Así se pueden ir subiendo CoAs sin regenerar las páginas. */
+(function(){
+  const rutas = ['../coa/slu-pp-332-10mg.pdf', '../coa/slu-pp-332.pdf'];
+  (async function(){
+    for (const r of rutas){
+      try{
+        const res = await fetch(r, {method:'HEAD'});
+        if (res.ok && (res.headers.get('content-type')||'').indexOf('pdf') !== -1){
+          document.getElementById('pp-coa-link').href = r;
+          document.getElementById('pp-coa').hidden = false;
+          return;
+        }
+      }catch(e){}
+    }
+  })();
+})();
+
 /* ampliar la imagen */
 function ppZoom(){
   const lb=document.getElementById('pp-lb');
