@@ -1193,6 +1193,63 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
   #lightbox{padding:16px}
   #lightbox-close{top:14px;right:16px}
 }
+
+/* ═══ FICHA TÉCNICA RUO ═══════════════════════════════════ */
+#modal-tech{margin-top:26px}
+.tech-toggle{
+  width:100%;display:flex;align-items:center;justify-content:space-between;
+  background:transparent;border:1px solid var(--br);border-radius:10px;
+  padding:14px 18px;cursor:pointer;transition:.25s;
+  font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;color:var(--go);
+}
+.tech-toggle:hover{background:rgba(184,151,42,.07)}
+.tech-toggle .chev{transition:transform .3s;font-size:13px;line-height:1}
+.tech-toggle.open .chev{transform:rotate(180deg)}
+.tech-body{display:none;padding-top:20px}
+.tech-body.open{display:block;animation:techIn .35s ease}
+@keyframes techIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+.tech-warn{
+  background:rgba(196,40,70,.07);border:1px solid rgba(196,40,70,.3);
+  border-left:3px solid #c42846;border-radius:8px;padding:14px 16px;margin-bottom:22px;
+}
+.tech-warn-h{
+  font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;
+  letter-spacing:1.4px;text-transform:uppercase;color:#e05a75;margin-bottom:8px;
+  display:flex;align-items:center;gap:7px;
+}
+.tech-warn p{font-size:11.5px;line-height:1.75;color:var(--mu);margin:0}
+
+.tech-sec{margin-bottom:20px}
+.tech-sec h4{
+  font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;
+  letter-spacing:1.6px;text-transform:uppercase;color:var(--tx);
+  margin:0 0 9px;padding-bottom:6px;border-bottom:1px solid var(--br);
+}
+.tech-sec p{font-size:12px;line-height:1.8;color:var(--mu);margin:0 0 8px}
+.tech-sec ul{margin:0;padding-left:17px}
+.tech-sec li{font-size:12px;line-height:1.8;color:var(--mu);margin-bottom:5px}
+.tech-sec li b{color:var(--tx);font-weight:600}
+.tech-mono{
+  font-family:'Space Grotesk','Courier New',monospace;
+  color:var(--go);word-break:break-all;letter-spacing:.3px;
+}
+.tech-mono sub{font-size:.72em;letter-spacing:0}
+.tech-note{font-size:10.5px;line-height:1.7;color:#7a7266;font-style:italic}
+@media(max-width:660px){
+  .tech-sec li,.tech-sec p{font-size:11.5px}
+  .tech-warn p{font-size:11px}
+}
+
+.modal-full{
+  display:block;margin-top:16px;text-align:center;
+  font-family:'Montserrat',sans-serif;font-size:10px;font-weight:600;
+  letter-spacing:2px;text-transform:uppercase;color:var(--go);
+  text-decoration:none;border:1px solid var(--br);border-radius:26px;
+  padding:13px 18px;transition:.25s;
+}
+.modal-full:hover{border-color:var(--go);background:rgba(184,151,42,.07)}
 </style>
   <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,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">
   <link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,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">
@@ -1273,6 +1330,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
       <div class="modal-divider"></div>
       <div id="modal-desc-label" data-es="Descripción del compuesto" data-en="Compound description">Descripción del compuesto</div>
       <div id="modal-desc"></div>
+      <div id="modal-tech"></div>
       <div id="modal-price-row">
         <div id="modal-price-box">
           <div class="price" id="modal-price"></div>
@@ -1513,7 +1571,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Retatrutide 10mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Retatrutide 10mg</div>
     <div class="pc-short" data-es="El péptido triple agonista más potente. Pérdida de peso acelerada y regulación metabólica superior." data-en="The most potent triple agonist peptide. Accelerated weight loss and superior metabolic regulation.">El péptido triple agonista más potente. Pérdida de peso acelerada y regulación metabólica superior.</div>
     <div class="pc-foot">
       <div>
@@ -1521,7 +1579,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Retatrutide 10mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Retatrutide%2010mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('Retatrutide 10mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/retatrutide-10mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#e63946" onclick="openModal('Retatrutide 20mg')">
@@ -1530,7 +1588,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Retatrutide 20mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Retatrutide 20mg</div>
     <div class="pc-short" data-es="Dosis media para protocolos avanzados. Eficiencia óptima en quema de grasa corporal." data-en="Mid-dose for advanced protocols. Optimal efficiency in body fat burning.">Dosis media para protocolos avanzados. Eficiencia óptima en quema de grasa corporal.</div>
     <div class="pc-foot">
       <div>
@@ -1538,7 +1596,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Retatrutide 20mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Retatrutide%2020mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('Retatrutide 20mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/retatrutide-20mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc en-oferta" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#e63946" onclick="openModal('Retatrutide 30mg')">
@@ -1548,7 +1606,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Retatrutide 30mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Retatrutide 30mg</div>
     <div class="pc-short" data-es="Alta dosis para investigación clínica avanzada. Resultados contundentes en composición corporal." data-en="High dose for advanced clinical research. Decisive results in body composition.">Alta dosis para investigación clínica avanzada. Resultados contundentes en composición corporal.</div>
     <div class="pc-foot">
       <div>
@@ -1556,7 +1614,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Retatrutide 30mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Retatrutide%2030mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('Retatrutide 30mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/retatrutide-30mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#e63946" onclick="openModal('Retatrutide 40mg')">
@@ -1565,7 +1623,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Retatrutide 40mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Retatrutide 40mg</div>
     <div class="pc-short" data-es="La dosis más alta disponible. Para protocolos de investigación de élite." data-en="The highest available dose. For elite research protocols.">La dosis más alta disponible. Para protocolos de investigación de élite.</div>
     <div class="pc-foot">
       <div>
@@ -1573,7 +1631,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Retatrutide 40mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Retatrutide%2040mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('Retatrutide 40mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/retatrutide-40mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#e63946" onclick="openModal('Tirzepatide 15mg')">
@@ -1582,7 +1640,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Tirzepatide 15mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Tirzepatide 15mg</div>
     <div class="pc-short" data-es="Doble agonista GIP/GLP-1 de nueva generación. Control glucémico y composición corporal." data-en="Next-gen dual GIP/GLP-1 agonist. Glycemic control and body composition.">Doble agonista GIP/GLP-1 de nueva generación. Control glucémico y composición corporal.</div>
     <div class="pc-foot">
       <div>
@@ -1590,7 +1648,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Tirzepatide 15mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Tirzepatide%2015mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('Tirzepatide 15mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/tirzepatide-15mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#e63946" onclick="openModal('Tirzepatide 30mg')">
@@ -1599,7 +1657,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Tirzepatide 30mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Tirzepatide 30mg</div>
     <div class="pc-short" data-es="Dosis avanzada del doble agonista. Estándar de referencia en péptidos metabólicos." data-en="Advanced dual agonist dose. Reference standard in metabolic peptides.">Dosis avanzada del doble agonista. Estándar de referencia en péptidos metabólicos.</div>
     <div class="pc-foot">
       <div>
@@ -1607,7 +1665,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Tirzepatide 30mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Tirzepatide%2030mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('Tirzepatide 30mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/tirzepatide-30mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div>
 <div class="pc" data-aos>
@@ -1617,7 +1675,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Tirzepatide 40mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Tirzepatide 40mg</div>
     <div class="pc-short" data-es="Doble agonista GLP-1/GIP. Investigación metabólica de alta concentración." data-en="Dual GLP-1/GIP agonist. High-concentration metabolic research.">Doble agonista GLP-1/GIP. Investigación metabólica de alta concentración.</div>
     <div class="pc-foot">
       <div>
@@ -1626,7 +1684,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Tirzepatide 40mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Tirzepatide%2040mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div>
     </div>
-    <button class="pc-more" onclick="openModal('Tirzepatide 40mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/tirzepatide-40mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#e63946" onclick="openModal('Retatrutide 50mg')">
@@ -1635,7 +1693,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Retatrutide 50mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Retatrutide 50mg</div>
     <div class="pc-short" data-es="Presentación de altísima concentración para protocolos de investigación avanzados." data-en="Ultra-high concentration presentation for advanced research protocols.">Presentación de altísima concentración para protocolos de investigación avanzados.</div>
     <div class="pc-foot">
       <div>
@@ -1643,7 +1701,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Retatrutide 50mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Retatrutide%2050mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('Retatrutide 50mg')" data-es="M&aacute;s informaci&oacute;n" data-en="More information">M&aacute;s informaci&oacute;n</button>
+    <a class="pc-more" href="producto/retatrutide-50mg.html" data-es="M&aacute;s informaci&oacute;n" data-en="More information">M&aacute;s informaci&oacute;n</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#e63946" onclick="openModal('Retatrutide 60mg')">
@@ -1652,7 +1710,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Retatrutide 60mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Retatrutide 60mg</div>
     <div class="pc-short" data-es="La concentración más alta del catálogo. Para investigación de máximo nivel." data-en="The highest concentration in the catalogue. For top-level research.">La concentración más alta del catálogo. Para investigación de máximo nivel.</div>
     <div class="pc-foot">
       <div>
@@ -1660,7 +1718,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Retatrutide 60mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Retatrutide%2060mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('Retatrutide 60mg')" data-es="M&aacute;s informaci&oacute;n" data-en="More information">M&aacute;s informaci&oacute;n</button>
+    <a class="pc-more" href="producto/retatrutide-60mg.html" data-es="M&aacute;s informaci&oacute;n" data-en="More information">M&aacute;s informaci&oacute;n</a>
   </div>
 </div></div>
 </div>
@@ -1679,7 +1737,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Semaglutide 10mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Semaglutide 10mg</div>
     <div class="pc-short" data-es="Agonista GLP-1 de referencia mundial. Control glucémico y pérdida de peso probados." data-en="World-reference GLP-1 agonist. Proven glycemic control and weight loss.">Agonista GLP-1 de referencia mundial. Control glucémico y pérdida de peso probados.</div>
     <div class="pc-foot">
       <div>
@@ -1687,7 +1745,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Semaglutide 10mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Semaglutide%2010mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('Semaglutide 10mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/semaglutide-10mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#52b788" onclick="openModal('Semaglutide 20mg')">
@@ -1696,7 +1754,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Semaglutide 20mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Semaglutide 20mg</div>
     <div class="pc-short" data-es="Dosis avanzada del agonista GLP-1. Para protocolos intensivos de pérdida de peso." data-en="Advanced GLP-1 agonist dose. For intensive weight loss protocols.">Dosis avanzada del agonista GLP-1. Para protocolos intensivos de pérdida de peso.</div>
     <div class="pc-foot">
       <div>
@@ -1704,7 +1762,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Semaglutide 20mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Semaglutide%2020mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('Semaglutide 20mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/semaglutide-20mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#52b788" onclick="openModal('Cagrilintide 5mg')">
@@ -1713,7 +1771,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Cagrilintide 5mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Cagrilintide 5mg</div>
     <div class="pc-short" data-es="Análogo de amilina de acción prolongada. Control del apetito de nueva era." data-en="Long-acting amylin analogue. New-era appetite control.">Análogo de amilina de acción prolongada. Control del apetito de nueva era.</div>
     <div class="pc-foot">
       <div>
@@ -1721,7 +1779,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Cagrilintide 5mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Cagrilintide%205mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('Cagrilintide 5mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/cagrilintide-5mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div></div>
 </div>
@@ -1740,7 +1798,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">AOD-9604 5mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">AOD-9604 5mg</div>
     <div class="pc-short" data-es="Fragmento lipolítico de GH. Reducción de grasa localizada sin efectos sistémicos." data-en="Lipolytic GH fragment. Localized fat reduction without systemic effects.">Fragmento lipolítico de GH. Reducción de grasa localizada sin efectos sistémicos.</div>
     <div class="pc-foot">
       <div>
@@ -1748,7 +1806,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('AOD-9604 5mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20AOD-9604%205mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('AOD-9604 5mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/aod-9604-5mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#e67e22" onclick="openModal('AOD-9604 10mg')">
@@ -1757,7 +1815,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">AOD-9604 10mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">AOD-9604 10mg</div>
     <div class="pc-short" data-es="Dosis clínica completa del fragmento lipolítico. Máxima eficiencia en reducción de grasa." data-en="Full clinical dose of lipolytic fragment. Maximum fat reduction efficiency.">Dosis clínica completa del fragmento lipolítico. Máxima eficiencia en reducción de grasa.</div>
     <div class="pc-foot">
       <div>
@@ -1765,7 +1823,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('AOD-9604 10mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20AOD-9604%2010mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('AOD-9604 10mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/aod-9604-10mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#e67e22" onclick="openModal('5-amino-1MQ 5mg')">
@@ -1774,7 +1832,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">5-amino-1MQ 5mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">5-amino-1MQ 5mg</div>
     <div class="pc-short" data-es="Inhibidor de NNMT. Acelera el metabolismo y promueve la pérdida de grasa." data-en="NNMT inhibitor. Accelerates metabolism and promotes fat loss.">Inhibidor de NNMT. Acelera el metabolismo y promueve la pérdida de grasa.</div>
     <div class="pc-foot">
       <div>
@@ -1782,7 +1840,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('5-amino-1MQ 5mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%205-amino-1MQ%205mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('5-amino-1MQ 5mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/5-amino-1mq-5mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#e67e22" onclick="openModal('5-amino-1MQ 10mg')">
@@ -1791,7 +1849,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">5-amino-1MQ 10mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">5-amino-1MQ 10mg</div>
     <div class="pc-short" data-es="Dosis extendida del inhibidor NNMT. Optimización metabólica profunda." data-en="Extended dose NNMT inhibitor. Deep metabolic optimization.">Dosis extendida del inhibidor NNMT. Optimización metabólica profunda.</div>
     <div class="pc-foot">
       <div>
@@ -1799,7 +1857,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('5-amino-1MQ 10mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%205-amino-1MQ%2010mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('5-amino-1MQ 10mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/5-amino-1mq-10mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#e67e22" onclick="openModal('Melanotan 2 10mg')">
@@ -1808,7 +1866,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Melanotan 2 10mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Melanotan 2 10mg</div>
     <div class="pc-short" data-es="Análogo de alfa-MSH. Pigmentación natural y activación de melanocortinas." data-en="Alpha-MSH analogue. Natural pigmentation and melanocortin activation.">Análogo de alfa-MSH. Pigmentación natural y activación de melanocortinas.</div>
     <div class="pc-foot">
       <div>
@@ -1816,7 +1874,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Melanotan 2 10mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Melanotan%202%2010mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('Melanotan 2 10mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/melanotan-2-10mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#e67e22" onclick="openModal('L-Carnitine 1200mg')">
@@ -1825,7 +1883,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">L-Carnitine 1200mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">L-Carnitine 1200mg</div>
     <div class="pc-short" data-es="Transportador de ácidos grasos. Quema de grasa eficiente y energía sostenida." data-en="Fatty acid transporter. Efficient fat burning and sustained energy.">Transportador de ácidos grasos. Quema de grasa eficiente y energía sostenida.</div>
     <div class="pc-foot">
       <div>
@@ -1833,7 +1891,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('L-Carnitine 1200mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20L-Carnitine%201200mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('L-Carnitine 1200mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/l-carnitine-1200mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#e67e22" onclick="openModal('Tesamorelin 10mg')">
@@ -1842,7 +1900,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Tesamorelin 10mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Tesamorelin 10mg</div>
     <div class="pc-short" data-es="Análogo de GHRH aprobado. Reducción de grasa visceral certificada." data-en="Approved GHRH analogue. Certified visceral fat reduction.">Análogo de GHRH aprobado. Reducción de grasa visceral certificada.</div>
     <div class="pc-foot">
       <div>
@@ -1850,7 +1908,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Tesamorelin 10mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Tesamorelin%2010mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('Tesamorelin 10mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/tesamorelin-10mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div>
 <div class="pc" data-aos>
@@ -1860,7 +1918,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">AICAR 50mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">AICAR 50mg</div>
     <div class="pc-short" data-es="Activador de la AMPK, regulador maestro del metabolismo energético. Compuesto de investigación." data-en="AMPK activator, master regulator of energy metabolism. Research compound.">Activador de la AMPK, regulador maestro del metabolismo energético. Compuesto de investigación.</div>
     <div class="pc-foot">
       <div>
@@ -1869,7 +1927,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('AICAR 50mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20AICAR%2050mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div>
     </div>
-    <button class="pc-more" onclick="openModal('AICAR 50mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/aicar-50mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div></div>
 </div>
@@ -1888,7 +1946,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Ipamorelin 10mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Ipamorelin 10mg</div>
     <div class="pc-short" data-es="Secretagogo de GH altamente selectivo. Estimulación pulso a pulso sin efectos secundarios." data-en="Highly selective GH secretagogue. Pulse-by-pulse stimulation without side effects.">Secretagogo de GH altamente selectivo. Estimulación pulso a pulso sin efectos secundarios.</div>
     <div class="pc-foot">
       <div>
@@ -1896,7 +1954,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Ipamorelin 10mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Ipamorelin%2010mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('Ipamorelin 10mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/ipamorelin-10mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#c0392b" onclick="openModal('CJC-1295 No DAC 10mg')">
@@ -1905,7 +1963,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">CJC-1295 No DAC 10mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">CJC-1295 No DAC 10mg</div>
     <div class="pc-short" data-es="Análogo de GHRH de acción corta. Pulsos fisiológicos de GH para composición corporal óptima." data-en="Short-acting GHRH analogue. Physiological GH pulses for optimal body composition.">Análogo de GHRH de acción corta. Pulsos fisiológicos de GH para composición corporal óptima.</div>
     <div class="pc-foot">
       <div>
@@ -1913,7 +1971,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('CJC-1295 No DAC 10mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20CJC-1295%20No%20DAC%2010mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('CJC-1295 No DAC 10mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/cjc-1295-no-dac-10mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#c0392b" onclick="openModal('CJC-1295 with DAC 5mg')">
@@ -1922,7 +1980,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">CJC-1295 with DAC 5mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">CJC-1295 with DAC 5mg</div>
     <div class="pc-short" data-es="Análogo de GHRH de acción prolongada. Elevación sostenida de GH e IGF-1." data-en="Long-acting GHRH analogue. Sustained GH and IGF-1 elevation.">Análogo de GHRH de acción prolongada. Elevación sostenida de GH e IGF-1.</div>
     <div class="pc-foot">
       <div>
@@ -1930,7 +1988,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('CJC-1295 with DAC 5mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20CJC-1295%20with%20DAC%205mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('CJC-1295 with DAC 5mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/cjc-1295-with-dac-5mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#c0392b" onclick="openModal('Ipamorelin + CJC-1295 No DAC 10mg')">
@@ -1939,7 +1997,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Ipamorelin + CJC-1295 No DAC 10mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Ipamorelin + CJC-1295 No DAC 10mg</div>
     <div class="pc-short" data-es="Stack sinérgico de élite. El combo más potente en secretagogos de GH." data-en="Elite synergistic stack. The most potent GH secretagogue combo.">Stack sinérgico de élite. El combo más potente en secretagogos de GH.</div>
     <div class="pc-foot">
       <div>
@@ -1947,7 +2005,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Ipamorelin + CJC-1295 No DAC 10mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Ipamorelin%20+%20CJC-1295%20No%20DAC%2010mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('Ipamorelin + CJC-1295 No DAC 10mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/ipamorelin-plus-cjc-1295-no-dac-10mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#c0392b" onclick="openModal('Ipamorelin + CJC-1295 No DAC 20mg')">
@@ -1956,7 +2014,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Ipamorelin + CJC-1295 No DAC 20mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Ipamorelin + CJC-1295 No DAC 20mg</div>
     <div class="pc-short" data-es="Stack sinérgico de doble dosis. Máxima potencia en secretagogos de GH." data-en="Double-dose synergistic stack. Maximum potency in GH secretagogues.">Stack sinérgico de doble dosis. Máxima potencia en secretagogos de GH.</div>
     <div class="pc-foot">
       <div>
@@ -1964,7 +2022,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Ipamorelin + CJC-1295 No DAC 20mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Ipamorelin%20+%20CJC-1295%20No%20DAC%2020mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('Ipamorelin + CJC-1295 No DAC 20mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/ipamorelin-plus-cjc-1295-no-dac-20mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#c0392b" onclick="openModal('IGF-1 LR3 1mg')">
@@ -1973,7 +2031,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">IGF-1 LR3 1mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">IGF-1 LR3 1mg</div>
     <div class="pc-short" data-es="Factor de crecimiento insulínico de acción prolongada. Anabolismo y recuperación de élite." data-en="Long-acting insulin-like growth factor. Elite anabolism and recovery.">Factor de crecimiento insulínico de acción prolongada. Anabolismo y recuperación de élite.</div>
     <div class="pc-foot">
       <div>
@@ -1981,7 +2039,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('IGF-1 LR3 1mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20IGF-1%20LR3%201mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('IGF-1 LR3 1mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/igf-1-lr3-1mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#c0392b" onclick="openModal('SLU-PP-332 5mg')">
@@ -1990,7 +2048,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">SLU-PP-332 5mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">SLU-PP-332 5mg</div>
     <div class="pc-short" data-es="Activador ERR. Mejora del rendimiento aeróbico y función mitocondrial." data-en="ERR activator. Improved aerobic performance and mitochondrial function.">Activador ERR. Mejora del rendimiento aeróbico y función mitocondrial.</div>
     <div class="pc-foot">
       <div>
@@ -1998,7 +2056,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('SLU-PP-332 5mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20SLU-PP-332%205mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('SLU-PP-332 5mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/slu-pp-332-5mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#c0392b" onclick="openModal('SLU-PP-332 10mg')">
@@ -2007,7 +2065,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">SLU-PP-332 10mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">SLU-PP-332 10mg</div>
     <div class="pc-short" data-es="Dosis completa del activador ERR. Máximo potencial en resistencia y eficiencia energética." data-en="Full dose ERR activator. Maximum potential in endurance and energy efficiency.">Dosis completa del activador ERR. Máximo potencial en resistencia y eficiencia energética.</div>
     <div class="pc-foot">
       <div>
@@ -2015,7 +2073,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('SLU-PP-332 10mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20SLU-PP-332%2010mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('SLU-PP-332 10mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/slu-pp-332-10mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#c0392b" onclick="openModal('Follistatin 344 1mg')">
@@ -2024,7 +2082,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Follistatin 344 1mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Follistatin 344 1mg</div>
     <div class="pc-short" data-es="Inhibidor natural de la miostatina. Compuesto de referencia en investigaci&oacute;n sobre crecimiento muscular." data-en="Natural myostatin inhibitor. A reference compound in muscle growth research.">Inhibidor natural de la miostatina. Compuesto de referencia en investigaci&oacute;n sobre crecimiento muscular.</div>
     <div class="pc-foot">
       <div>
@@ -2032,7 +2090,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Follistatin 344 1mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Follistatin%20344%201mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('Follistatin 344 1mg')" data-es="M&aacute;s informaci&oacute;n" data-en="More information">M&aacute;s informaci&oacute;n</button>
+    <a class="pc-more" href="producto/follistatin-344-1mg.html" data-es="M&aacute;s informaci&oacute;n" data-en="More information">M&aacute;s informaci&oacute;n</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#7263A8" onclick="openModal('Sermorelin 10mg')">
@@ -2041,7 +2099,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Sermorelin 10mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Sermorelin 10mg</div>
     <div class="pc-short" data-es="Análogo de GHRH. Estimula la liberación natural de hormona de crecimiento." data-en="GHRH analogue. Stimulates natural growth hormone release.">Análogo de GHRH. Estimula la liberación natural de hormona de crecimiento.</div>
     <div class="pc-foot">
       <div>
@@ -2049,7 +2107,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Sermorelin 10mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Sermorelin%2010mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('Sermorelin 10mg')" data-es="M&aacute;s informaci&oacute;n" data-en="More information">M&aacute;s informaci&oacute;n</button>
+    <a class="pc-more" href="producto/sermorelin-10mg.html" data-es="M&aacute;s informaci&oacute;n" data-en="More information">M&aacute;s informaci&oacute;n</a>
   </div>
 </div></div>
 </div>
@@ -2068,7 +2126,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Epithalone 10mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Epithalone 10mg</div>
     <div class="pc-short" data-es="El péptido de la longevidad. Alargamiento telomérico y activación de telomerasa." data-en="The longevity peptide. Telomeric lengthening and telomerase activation.">El péptido de la longevidad. Alargamiento telomérico y activación de telomerasa.</div>
     <div class="pc-foot">
       <div>
@@ -2076,7 +2134,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Epithalone 10mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Epithalone%2010mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('Epithalone 10mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/epithalone-10mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#9b59b6" onclick="openModal('Epithalone 20mg')">
@@ -2085,7 +2143,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Epithalone 20mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Epithalone 20mg</div>
     <div class="pc-short" data-es="Dosis intermedia del péptido telomérico. Protocolo extendido de longevidad." data-en="Intermediate dose of telomeric peptide. Extended longevity protocol.">Dosis intermedia del péptido telomérico. Protocolo extendido de longevidad.</div>
     <div class="pc-foot">
       <div>
@@ -2093,7 +2151,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Epithalone 20mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Epithalone%2020mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('Epithalone 20mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/epithalone-20mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#9b59b6" onclick="openModal('Epithalone 50mg')">
@@ -2102,7 +2160,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Epithalone 50mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Epithalone 50mg</div>
     <div class="pc-short" data-es="La presentación más completa de Epithalon. Para protocolos de máxima intensidad." data-en="The most complete Epithalon presentation. For maximum intensity protocols.">La presentación más completa de Epithalon. Para protocolos de máxima intensidad.</div>
     <div class="pc-foot">
       <div>
@@ -2110,7 +2168,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Epithalone 50mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Epithalone%2050mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('Epithalone 50mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/epithalone-50mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div>
 <div class="pc" data-aos>
@@ -2120,7 +2178,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Cartalax 20mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Cartalax 20mg</div>
     <div class="pc-short" data-es="Bioregulador peptídico (familia Khavinson). Investigación en tejido conectivo y cartilaginoso." data-en="Peptide bioregulator (Khavinson family). Connective and cartilage tissue research.">Bioregulador peptídico (familia Khavinson). Investigación en tejido conectivo y cartilaginoso.</div>
     <div class="pc-foot">
       <div>
@@ -2129,7 +2187,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Cartalax 20mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Cartalax%2020mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div>
     </div>
-    <button class="pc-more" onclick="openModal('Cartalax 20mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/cartalax-20mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div>
 <div class="pc" data-aos>
@@ -2139,7 +2197,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">NAD+ 1000mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">NAD+ 1000mg</div>
     <div class="pc-short" data-es="Cofactor esencial del metabolismo energético celular. Referencia en investigación de longevidad y función mitocondrial." data-en="Essential cofactor of cellular energy metabolism. A reference in longevity and mitochondrial function research.">Cofactor esencial del metabolismo energético celular. Referencia en investigación de longevidad y función mitocondrial.</div>
     <div class="pc-foot">
       <div>
@@ -2148,7 +2206,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('NAD+ 1000mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20NAD%2B%201000mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div>
     </div>
-    <button class="pc-more" onclick="openModal('NAD+ 1000mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/nad-plus-1000mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#9b59b6" onclick="openModal('Mots-C 10mg')">
@@ -2157,7 +2215,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Mots-C 10mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Mots-C 10mg</div>
     <div class="pc-short" data-es="Péptido mitocondrial revolucionario. Optimiza el metabolismo energético celular." data-en="Revolutionary mitochondrial peptide. Optimizes cellular energy metabolism.">Péptido mitocondrial revolucionario. Optimiza el metabolismo energético celular.</div>
     <div class="pc-foot">
       <div>
@@ -2165,7 +2223,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Mots-C 10mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Mots-C%2010mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('Mots-C 10mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/mots-c-10mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div>
 <div class="pc" data-aos>
@@ -2175,7 +2233,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Mots-C 20mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Mots-C 20mg</div>
     <div class="pc-short" data-es="Péptido mitocondrial (MOTS-c). Referencia en investigación del metabolismo energético." data-en="Mitochondrial peptide (MOTS-c). A reference in energy metabolism research.">Péptido mitocondrial (MOTS-c). Referencia en investigación del metabolismo energético.</div>
     <div class="pc-foot">
       <div>
@@ -2184,7 +2242,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Mots-C 20mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Mots-C%2020mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div>
     </div>
-    <button class="pc-more" onclick="openModal('Mots-C 20mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/mots-c-20mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div>
 <div class="pc" data-aos>
@@ -2194,7 +2252,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Mots-C 40mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Mots-C 40mg</div>
     <div class="pc-short" data-es="Péptido mitocondrial (MOTS-c), alta concentración. Investigación del metabolismo energético." data-en="Mitochondrial peptide (MOTS-c), high concentration. Energy metabolism research.">Péptido mitocondrial (MOTS-c), alta concentración. Investigación del metabolismo energético.</div>
     <div class="pc-foot">
       <div>
@@ -2203,7 +2261,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Mots-C 40mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Mots-C%2040mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div>
     </div>
-    <button class="pc-more" onclick="openModal('Mots-C 40mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/mots-c-40mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#9b59b6" onclick="openModal('SS-31 10mg')">
@@ -2212,7 +2270,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">SS-31 10mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">SS-31 10mg</div>
     <div class="pc-short" data-es="Péptido cardioprotector mitocondrial. Protección celular y anti-envejecimiento." data-en="Cardioprotective mitochondrial peptide. Cellular protection and anti-aging.">Péptido cardioprotector mitocondrial. Protección celular y anti-envejecimiento.</div>
     <div class="pc-foot">
       <div>
@@ -2220,7 +2278,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('SS-31 10mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20SS-31%2010mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('SS-31 10mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/ss-31-10mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#9b59b6" onclick="openModal('Thymalin 10mg')">
@@ -2229,7 +2287,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Thymalin 10mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Thymalin 10mg</div>
     <div class="pc-short" data-es="Péptido tímico inmunomodulador. Restauración inmune y vitalidad sistémica." data-en="Immunomodulatory thymic peptide. Immune restoration and systemic vitality.">Péptido tímico inmunomodulador. Restauración inmune y vitalidad sistémica.</div>
     <div class="pc-foot">
       <div>
@@ -2237,7 +2295,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Thymalin 10mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Thymalin%2010mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('Thymalin 10mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/thymalin-10mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#9b59b6" onclick="openModal('NAD+ 500mg')">
@@ -2246,7 +2304,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">NAD+ 500mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">NAD+ 500mg</div>
     <div class="pc-short" data-es="El coenzima de la longevidad. Restauración del metabolismo energético celular." data-en="The longevity coenzyme. Restoring cellular energy metabolism.">El coenzima de la longevidad. Restauración del metabolismo energético celular.</div>
     <div class="pc-foot">
       <div>
@@ -2254,7 +2312,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('NAD+ 500mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20NAD+%20500mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('NAD+ 500mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/nad-plus-500mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div></div>
 </div>
@@ -2273,7 +2331,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">KLOW 80mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">KLOW 80mg</div>
     <div class="pc-short" data-es="Formulación premium de alta concentración. Protocolo exclusivo de rendimiento." data-en="Premium high-concentration formulation. Exclusive performance protocol.">Formulación premium de alta concentración. Protocolo exclusivo de rendimiento.</div>
     <div class="pc-foot">
       <div>
@@ -2281,7 +2339,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('KLOW 80mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20KLOW%2080mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('KLOW 80mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/klow-80mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#16a085" onclick="openModal('GHK-Cu 50mg')">
@@ -2290,7 +2348,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">GHK-Cu 50mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">GHK-Cu 50mg</div>
     <div class="pc-short" data-es="Péptido de cobre regenerador. Activación de genes de reparación y rejuvenecimiento." data-en="Regenerative copper peptide. Activation of repair and rejuvenation genes.">Péptido de cobre regenerador. Activación de genes de reparación y rejuvenecimiento.</div>
     <div class="pc-foot">
       <div>
@@ -2298,7 +2356,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('GHK-Cu 50mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20GHK-Cu%2050mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('GHK-Cu 50mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/ghk-cu-50mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#16a085" onclick="openModal('GHK-Cu 100mg')">
@@ -2307,7 +2365,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">GHK-Cu 100mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">GHK-Cu 100mg</div>
     <div class="pc-short" data-es="Doble concentración del péptido de cobre. Rejuvenecimiento profundo y regeneración avanzada." data-en="Double concentration copper peptide. Deep rejuvenation and advanced regeneration.">Doble concentración del péptido de cobre. Rejuvenecimiento profundo y regeneración avanzada.</div>
     <div class="pc-foot">
       <div>
@@ -2315,7 +2373,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('GHK-Cu 100mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20GHK-Cu%20100mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('GHK-Cu 100mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/ghk-cu-100mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#16a085" onclick="openModal('Glutathione 1500mg')">
@@ -2324,7 +2382,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Glutathione 1500mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Glutathione 1500mg</div>
     <div class="pc-short" data-es="El antioxidante maestro. Desintoxicación celular profunda y luminosidad." data-en="The master antioxidant. Deep cellular detoxification and radiance.">El antioxidante maestro. Desintoxicación celular profunda y luminosidad.</div>
     <div class="pc-foot">
       <div>
@@ -2332,7 +2390,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Glutathione 1500mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Glutathione%201500mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('Glutathione 1500mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/glutathione-1500mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#16a085" onclick="openModal('GLOW 70mg')">
@@ -2341,7 +2399,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">GLOW 70mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">GLOW 70mg</div>
     <div class="pc-short" data-es="Complejo peptídico de luminosidad. Belleza y vitalidad desde adentro." data-en="Peptide complex for radiance. Beauty and vitality from within.">Complejo peptídico de luminosidad. Belleza y vitalidad desde adentro.</div>
     <div class="pc-foot">
       <div>
@@ -2349,7 +2407,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('GLOW 70mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20GLOW%2070mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('GLOW 70mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/glow-70mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div></div>
 </div>
@@ -2368,7 +2426,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Selank 10mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Selank 10mg</div>
     <div class="pc-short" data-es="Ansiolítico nootrópico ruso. Claridad mental sin sedación." data-en="Russian nootropic anxiolytic. Mental clarity without sedation.">Ansiolítico nootrópico ruso. Claridad mental sin sedación.</div>
     <div class="pc-foot">
       <div>
@@ -2376,7 +2434,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Selank 10mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Selank%2010mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('Selank 10mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/selank-10mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#2980b9" onclick="openModal('Semax 10mg')">
@@ -2385,7 +2443,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Semax 10mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Semax 10mg</div>
     <div class="pc-short" data-es="Nootrópico peptídico ruso. Función cognitiva superior y neuroprotección." data-en="Russian peptide nootropic. Superior cognitive function and neuroprotection.">Nootrópico peptídico ruso. Función cognitiva superior y neuroprotección.</div>
     <div class="pc-foot">
       <div>
@@ -2393,7 +2451,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Semax 10mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Semax%2010mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('Semax 10mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/semax-10mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#2980b9" onclick="openModal('Adamax 5mg')">
@@ -2402,7 +2460,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Adamax 5mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Adamax 5mg</div>
     <div class="pc-short" data-es="Nootrópico de élite. Función cognitiva máxima y neuroprotección avanzada." data-en="Elite nootropic. Maximum cognitive function and advanced neuroprotection.">Nootrópico de élite. Función cognitiva máxima y neuroprotección avanzada.</div>
     <div class="pc-foot">
       <div>
@@ -2410,7 +2468,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Adamax 5mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Adamax%205mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('Adamax 5mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/adamax-5mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#2980b9" onclick="openModal('Pinealon 10mg')">
@@ -2419,7 +2477,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Pinealon 10mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Pinealon 10mg</div>
     <div class="pc-short" data-es="Péptido nootrópico para protección neuronal y agudeza mental. Apoyo cognitivo de nueva generación." data-en="Nootropic peptide for neuronal protection and mental sharpness. Next-generation cognitive support.">Péptido nootrópico para protección neuronal y agudeza mental. Apoyo cognitivo de nueva generación.</div>
     <div class="pc-foot">
       <div>
@@ -2428,7 +2486,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Pinealon 10mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Pinealon%2010mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div>
     </div>
-    <button class="pc-more" onclick="openModal('Pinealon 10mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/pinealon-10mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#9E4076" onclick="openModal('Pinealon 20mg')">
@@ -2437,7 +2495,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Pinealon 20mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Pinealon 20mg</div>
     <div class="pc-short" data-es="Biorregulador peptídico de la glándula pineal. Doble concentración." data-en="Pineal gland peptide bioregulator. Double concentration.">Biorregulador peptídico de la glándula pineal. Doble concentración.</div>
     <div class="pc-foot">
       <div>
@@ -2445,7 +2503,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Pinealon 20mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Pinealon%2020mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('Pinealon 20mg')" data-es="M&aacute;s informaci&oacute;n" data-en="More information">M&aacute;s informaci&oacute;n</button>
+    <a class="pc-more" href="producto/pinealon-20mg.html" data-es="M&aacute;s informaci&oacute;n" data-en="More information">M&aacute;s informaci&oacute;n</a>
   </div>
 </div></div>
 </div>
@@ -2464,7 +2522,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">DSIP 10mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">DSIP 10mg</div>
     <div class="pc-short" data-es="Péptido inductor del sueño delta. Restauración del ritmo circadiano." data-en="Delta sleep-inducing peptide. Circadian rhythm restoration.">Péptido inductor del sueño delta. Restauración del ritmo circadiano.</div>
     <div class="pc-foot">
       <div>
@@ -2472,7 +2530,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('DSIP 10mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20DSIP%2010mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('DSIP 10mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/dsip-10mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#5b6abf" onclick="openModal('DSIP 15mg')">
@@ -2481,7 +2539,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">DSIP 15mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">DSIP 15mg</div>
     <div class="pc-short" data-es="Dosis extendida del péptido del sueño. Para protocolos intensivos de restauración." data-en="Extended dose sleep peptide. For intensive restoration protocols.">Dosis extendida del péptido del sueño. Para protocolos intensivos de restauración.</div>
     <div class="pc-foot">
       <div>
@@ -2489,7 +2547,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('DSIP 15mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20DSIP%2015mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('DSIP 15mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/dsip-15mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div></div>
 </div>
@@ -2508,7 +2566,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">BPC-157 10mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">BPC-157 10mg</div>
     <div class="pc-short" data-es="El péptido protector del cuerpo. Regeneración acelerada de tejidos y tendones." data-en="The body protective peptide. Accelerated tissue and tendon regeneration.">El péptido protector del cuerpo. Regeneración acelerada de tejidos y tendones.</div>
     <div class="pc-foot">
       <div>
@@ -2516,7 +2574,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('BPC-157 10mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20BPC-157%2010mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('BPC-157 10mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/bpc-157-10mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#27ae60" onclick="openModal('TB-500 10mg')">
@@ -2525,15 +2583,15 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">TB-500 10mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">TB-500 10mg</div>
     <div class="pc-short" data-es="Dosis clínica de Timosina Beta-4. Recuperación integral y regeneración profunda." data-en="Clinical dose of Thymosin Beta-4. Comprehensive recovery and deep regeneration.">Dosis clínica de Timosina Beta-4. Recuperación integral y regeneración profunda.</div>
     <div class="pc-foot">
       <div>
-        <div class="pc-price" data-crc="₡55.000" data-usd="$96">₡55.000</div>
+        <div class="pc-price" data-crc="₡55.000" data-usd="$115">₡55.000</div>
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('TB-500 10mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20TB-500%2010mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('TB-500 10mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/tb-500-10mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#27ae60" onclick="openModal('TB-4 10mg')">
@@ -2542,7 +2600,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">TB-4 10mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">TB-4 10mg</div>
     <div class="pc-short" data-es="Timosina Beta-4 completa. La molécula original de reparación tisular de élite." data-en="Complete Thymosin Beta-4. The original elite tissue repair molecule.">Timosina Beta-4 completa. La molécula original de reparación tisular de élite.</div>
     <div class="pc-foot">
       <div>
@@ -2550,7 +2608,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('TB-4 10mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20TB-4%2010mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('TB-4 10mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/tb-4-10mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#27ae60" onclick="openModal('KPV 10mg')">
@@ -2559,7 +2617,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">KPV 10mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">KPV 10mg</div>
     <div class="pc-short" data-es="Tripéptido antiinflamatorio de precisión. Modulador inmune con acción intestinal." data-en="Precision anti-inflammatory tripeptide. Immune modulator with intestinal action.">Tripéptido antiinflamatorio de precisión. Modulador inmune con acción intestinal.</div>
     <div class="pc-foot">
       <div>
@@ -2567,7 +2625,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('KPV 10mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20KPV%2010mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('KPV 10mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/kpv-10mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div></div>
 </div>
@@ -2586,7 +2644,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">PT-141 10mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">PT-141 10mg</div>
     <div class="pc-short" data-es="Melanocortina activadora del deseo. Respuesta fisiológica sin acción vascular directa." data-en="Desire-activating melanocortin. Physiological response without direct vascular action.">Melanocortina activadora del deseo. Respuesta fisiológica sin acción vascular directa.</div>
     <div class="pc-foot">
       <div>
@@ -2594,7 +2652,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('PT-141 10mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20PT-141%2010mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('PT-141 10mg')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/pt-141-10mg.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#d4af37" onclick="openModal('HCG 10,000 IU')">
@@ -2603,7 +2661,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">HCG 10,000 IU</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">HCG 10,000 IU</div>
     <div class="pc-short" data-es="Gonadotropina coriónica de alta potencia. Restauración hormonal y fertilidad." data-en="High-potency chorionic gonadotropin. Hormonal restoration and fertility.">Gonadotropina coriónica de alta potencia. Restauración hormonal y fertilidad.</div>
     <div class="pc-foot">
       <div>
@@ -2611,7 +2669,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('HCG 10,000 IU')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20HCG%2010%2C000%20IU" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('HCG 10,000 IU')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/hcg-10000-iu.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#A17C33" onclick="openModal('Kisspeptin 10mg')">
@@ -2620,7 +2678,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Kisspeptin 10mg</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Kisspeptin 10mg</div>
     <div class="pc-short" data-es="Regulador maestro del eje reproductivo. Señal previa a la GnRH." data-en="Master regulator of the reproductive axis. Upstream GnRH signal.">Regulador maestro del eje reproductivo. Señal previa a la GnRH.</div>
     <div class="pc-foot">
       <div>
@@ -2628,7 +2686,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Kisspeptin 10mg')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Kisspeptin%2010mg" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('Kisspeptin 10mg')" data-es="M&aacute;s informaci&oacute;n" data-en="More information">M&aacute;s informaci&oacute;n</button>
+    <a class="pc-more" href="producto/kisspeptin-10mg.html" data-es="M&aacute;s informaci&oacute;n" data-en="More information">M&aacute;s informaci&oacute;n</a>
   </div>
 </div></div>
 </div>
@@ -2647,7 +2705,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">HGH 12 IU</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">HGH 12 IU</div>
     <div class="pc-short" data-es="Hormona de crecimiento humana. El estándar dorado para recuperación y composición corporal." data-en="Human growth hormone. The gold standard for recovery and body composition.">Hormona de crecimiento humana. El estándar dorado para recuperación y composición corporal.</div>
     <div class="pc-foot">
       <div>
@@ -2655,7 +2713,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('HGH 12 IU')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20HGH%2012%20IU" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('HGH 12 IU')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/hgh-12-iu.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#1abc9c" onclick="openModal('HGH 24 IU')">
@@ -2664,7 +2722,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">HGH 24 IU</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">HGH 24 IU</div>
     <div class="pc-short" data-es="Dosis intermedia de HGH. Para protocolos avanzados de composición corporal." data-en="Intermediate HGH dose. For advanced body composition protocols.">Dosis intermedia de HGH. Para protocolos avanzados de composición corporal.</div>
     <div class="pc-foot">
       <div>
@@ -2672,7 +2730,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('HGH 24 IU')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20HGH%2024%20IU" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('HGH 24 IU')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/hgh-24-iu.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#1abc9c" onclick="openModal('HGH 50 IU — Pfizer Genotropin')">
@@ -2681,7 +2739,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">HGH 50 IU — Pfizer Genotropin</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">HGH 50 IU — Pfizer Genotropin</div>
     <div class="pc-short" data-es="La marca más prestigiosa en HGH. Pureza farmacéutica absoluta respaldada por Pfizer." data-en="The most prestigious HGH brand. Absolute pharmaceutical purity backed by Pfizer.">La marca más prestigiosa en HGH. Pureza farmacéutica absoluta respaldada por Pfizer.</div>
     <div class="pc-foot">
       <div>
@@ -2689,7 +2747,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('HGH 50 IU — Pfizer Genotropin')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20HGH%2050%20IU%20—%20Pfizer%20Genotropin" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('HGH 50 IU — Pfizer Genotropin')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/hgh-50-iu-pfizer-genotropin.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div></div>
 </div>
@@ -2708,7 +2766,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Agua Bacteriostática 3ml</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Agua Bacteriostática 3ml</div>
     <div class="pc-short" data-es="Agua estéril para reconstitución segura de péptidos." data-en="Sterile water for safe peptide reconstitution.">Agua estéril para reconstitución segura de péptidos.</div>
     <div class="pc-foot">
       <div>
@@ -2716,7 +2774,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Agua Bacteriostática 3ml')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Agua%20Bacteriostática%203ml" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('Agua Bacteriostática 3ml')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/agua-bacteriostatica-3ml.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#7f8c8d" onclick="openModal('Agua Estéril 10ml')">
@@ -2725,7 +2783,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Agua Estéril 10ml</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Agua Estéril 10ml</div>
     <div class="pc-short" data-es="Agua para inyección de alta pureza. Reconstitución limpia y libre de pirógenos." data-en="High-purity water for injection. Clean, pyrogen-free reconstitution.">Agua para inyección de alta pureza. Reconstitución limpia y libre de pirógenos.</div>
     <div class="pc-foot">
       <div>
@@ -2733,7 +2791,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Agua Estéril 10ml')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Agua%20Estéril%2010ml" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('Agua Estéril 10ml')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/agua-esteril-10ml.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#7f8c8d" onclick="openModal('Agua Bacteriostática 10ml')">
@@ -2742,7 +2800,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Agua Bacteriostática 10ml</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Agua Bacteriostática 10ml</div>
     <div class="pc-short" data-es="Frasco mayor para protocolos intensivos. Reconstitución múltiple garantizada." data-en="Larger vial for intensive protocols. Guaranteed multiple reconstitution.">Frasco mayor para protocolos intensivos. Reconstitución múltiple garantizada.</div>
     <div class="pc-foot">
       <div>
@@ -2750,7 +2808,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Agua Bacteriostática 10ml')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Agua%20Bacteriostática%2010ml" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('Agua Bacteriostática 10ml')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/agua-bacteriostatica-10ml.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div>
 <div class="pc" data-aos>
@@ -2760,7 +2818,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Agua Bacteriostática 30ml</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Agua Bacteriostática 30ml</div>
     <div class="pc-short" data-es="Presentación de máximo rendimiento para laboratorios y protocolos extensos. Esterilidad certificada." data-en="Maximum yield presentation for laboratories and extensive protocols. Certified sterility.">Presentación de máximo rendimiento para laboratorios y protocolos extensos. Esterilidad certificada.</div>
     <div class="pc-foot">
       <div>
@@ -2768,7 +2826,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Agua Bacteriostática 30ml')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Agua%20Bacteriostática%2030ml" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('Agua Bacteriostática 30ml')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/agua-bacteriostatica-30ml.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#7f8c8d" onclick="openModal('DMSO 5ml')">
@@ -2777,7 +2835,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">DMSO 5ml</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">DMSO 5ml</div>
     <div class="pc-short" data-es="Dimetilsulfóxido farmacéutico. Potenciador de penetración para uso tópico." data-en="Pharmaceutical dimethylsulfoxide. Penetration enhancer for topical use.">Dimetilsulfóxido farmacéutico. Potenciador de penetración para uso tópico.</div>
     <div class="pc-foot">
       <div>
@@ -2785,7 +2843,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('DMSO 5ml')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20DMSO%205ml" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('DMSO 5ml')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/dmso-5ml.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div></div>
 </div>
@@ -2804,7 +2862,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Inyectadora Automática V2 Tipo Lapicero</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Inyectadora Automática V2 Tipo Lapicero</div>
     <div class="pc-short" data-es="Dispositivo de administración de precisión. Inyección indolora y dosificación exacta." data-en="Precision administration device. Painless injection and exact dosing.">Dispositivo de administración de precisión. Inyección indolora y dosificación exacta.</div>
     <div class="pc-foot">
       <div>
@@ -2812,7 +2870,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Inyectadora Automática V2 Tipo Lapicero')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Inyectadora%20Automática%20V2%20Tipo%20Lapicero" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('Inyectadora Automática V2 Tipo Lapicero')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/inyectadora-automatica-v2-tipo-lapicero.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#95a5a6" onclick="openModal('Jeringa 1ml x 10 unidades')">
@@ -2821,7 +2879,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Jeringa 1ml x 10 unidades</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Jeringa 1ml x 10 unidades</div>
     <div class="pc-short" data-es="Jeringas de insulina de alta precisión. Estándar para administración subcutánea." data-en="High-precision insulin syringes. Standard for subcutaneous administration.">Jeringas de insulina de alta precisión. Estándar para administración subcutánea.</div>
     <div class="pc-foot">
       <div>
@@ -2829,7 +2887,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Jeringa 1ml x 10 unidades')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Jeringa%201ml%20x%2010%20unidades" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('Jeringa 1ml x 10 unidades')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/jeringa-1ml-x-10-unidades.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#95a5a6" onclick="openModal('Aguja Tipo Lapicero')">
@@ -2838,7 +2896,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Aguja Tipo Lapicero</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Aguja Tipo Lapicero</div>
     <div class="pc-short" data-es="Agujas intercambiables ultrafinas. Máxima comodidad en la inyección." data-en="Ultra-fine interchangeable pen needles. Maximum injection comfort.">Agujas intercambiables ultrafinas. Máxima comodidad en la inyección.</div>
     <div class="pc-foot">
       <div>
@@ -2846,7 +2904,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Aguja Tipo Lapicero')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Aguja%20Tipo%20Lapicero" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('Aguja Tipo Lapicero')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/aguja-tipo-lapicero.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#95a5a6" onclick="openModal('Vial Recargable 3ml x 5')">
@@ -2855,7 +2913,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Vial Recargable 3ml x 5</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Vial Recargable 3ml x 5</div>
     <div class="pc-short" data-es="Set de viales de vidrio estéril. Almacenamiento seguro de péptidos." data-en="Sterile glass vial set. Safe peptide storage.">Set de viales de vidrio estéril. Almacenamiento seguro de péptidos.</div>
     <div class="pc-foot">
       <div>
@@ -2863,7 +2921,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Vial Recargable 3ml x 5')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Vial%20Recargable%203ml%20x%205" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('Vial Recargable 3ml x 5')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/vial-recargable-3ml-x-5.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#95a5a6" onclick="openModal('Pads con Alcohol x 100 uds')">
@@ -2872,7 +2930,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Pads con Alcohol x 100 uds</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Pads con Alcohol x 100 uds</div>
     <div class="pc-short" data-es="Toallitas antisépticas individuales. Esterilización de zona de punción." data-en="Individual antiseptic wipes. Puncture site sterilization.">Toallitas antisépticas individuales. Esterilización de zona de punción.</div>
     <div class="pc-foot">
       <div>
@@ -2880,7 +2938,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Pads con Alcohol x 100 uds')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Pads%20con%20Alcohol%20x%20100%20uds" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('Pads con Alcohol x 100 uds')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/pads-con-alcohol-x-100-uds.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div><div class="pc" data-aos>
   <div class="pc-img" data-fullbleed style="--cap:#95a5a6" onclick="openModal('Botella para Spray Nasal')">
@@ -2889,7 +2947,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
     <div class="pc-img-hint" data-es="Ver detalles" data-en="View details">Ver detalles</div>
   </div>
   <div class="pc-body">
-    <div class="pc-name">Botella para Spray Nasal</div>
+    <div class="pc-name" onclick="openModal(this.closest('.pc').querySelector('.pc-add').getAttribute('onclick').match(/'(.+)'/)[1])" style="cursor:pointer">Botella para Spray Nasal</div>
     <div class="pc-short" data-es="Atomizador nasal de precisión. Para administración intranasal de nootrópicos." data-en="Precision nasal atomizer. For intranasal nootropic administration.">Atomizador nasal de precisión. Para administración intranasal de nootrópicos.</div>
     <div class="pc-foot">
       <div>
@@ -2897,7 +2955,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         <div class="pc-curr" data-es="Colones" data-en="US Dollars">Colones</div>
       </div>
       <div class="pc-btns"><button class="pc-btn pc-add" onclick="addToCart('Botella para Spray Nasal')" style="background:var(--go);color:var(--bk);border-color:var(--go);margin-right:6px" data-es="+ Carrito" data-en="+ Cart">+ Carrito</button><a class="pc-btn" href="https://wa.me/50688789080?text=Hola%2C%20me%20interesa%20Botella%20para%20Spray%20Nasal" target="_blank" data-es="Pedir" data-en="Order">Pedir</a></div></div>
-    <button class="pc-more" onclick="openModal('Botella para Spray Nasal')" data-es="Más información" data-en="More information">Más información</button>
+    <a class="pc-more" href="producto/botella-para-spray-nasal.html" data-es="Más información" data-en="More information">Más información</a>
   </div>
 </div></div>
 </div>
@@ -3998,6 +4056,221 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
       e.stopPropagation(); closeLightbox();
     }
   }, true);
+})();
+</script>
+
+<script>
+/* ═══════════════════════════════════════════════════════════
+   FICHA TÉCNICA RUO
+   El dato químico es por COMPUESTO, no por SKU: los seis
+   Retatrutide comparten molécula y sólo cambia el mg.
+   Por eso TECH se indexa por compuesto y el texto largo vive
+   una sola vez en la plantilla, no repetido en cada producto.
+   Un compuesto sin datos simplemente no muestra ese bloque.
+   ═══════════════════════════════════════════════════════════ */
+
+/* Área de investigación por categoría del catálogo */
+const TECH_AREA = {
+  glp1:'Metabolics', apetito:'Metabolics', 'quema-grasa':'Metabolics',
+  musculo:'Growth & Performance', hgh:'Growth & Performance',
+  longevidad:'Longevity & Cellular Research',
+  piel:'Dermatological & Tissue Research',
+  cognitivo:'Neuroscience', sueno:'Neuroscience',
+  hormonal:'Endocrinology', recuperacion:'Tissue Repair'
+};
+
+/* Datos por compuesto.
+   area  – opcional, sobrescribe el de la categoría
+   mf    – fórmula molecular (los dígitos se pasan a subíndice solos)
+   mw    – peso molecular
+   seq   – secuencia
+   note  – true si la secuencia usa la notación 1,2,3,4
+   ref   – referencia de compliance: nombre del compuesto en investigación clínica */
+const TECH = {
+  'Retatrutide': {
+    mf:'C221H342N46O68', mw:'4731.33 g/mol',
+    seq:'YA1QGTFTSDYSIL2LDKK4AQA1AFIEYLLEGGPSSGAPPPS3.', note:true,
+    ref:'LY3437943, a synthetic multi-receptor agonist (GLP-1/GIP/glucagon receptor) currently under clinical investigation and not approved by the FDA for any indication'
+  },
+  'Tirzepatide': {
+    mf:'C225H348N48O68', mw:'4813.45 g/mol', cas:'2023788-19-2',
+    seq:'YX1EGTFTSDYSIX2LDKIAQKAFVQWLIAGGPSSGAPPPS', note:true,
+    ref:'LY3298176, a synthetic dual GIP/GLP-1 receptor agonist'
+  },
+  'Semaglutide': {
+    mf:'C187H291N45O59', mw:'4113.58 g/mol', cas:'910463-68-2',
+    seq:'H-{Aib}-EGTFTSDVSSYLEGQAA-{C18 diacid-\u03b3Glu-(AEEA)2-Lys}-EFIAWLVRGRG',
+    ref:'NN9535, a synthetic GLP-1 receptor agonist'
+  },
+  'BPC-157': {
+    mf:'C62H98N16O22', mw:'1419.54 g/mol', cas:'137525-51-0',
+    seq:'GEPPPGKPADDAGLV',
+    ref:'the synthetic pentadecapeptide BPC-157 (PL 14736), a compound not approved for any indication'
+  },
+  'TB-500': {
+    mf:'C39H67N9O13', mw:'877.99 g/mol', cas:'885340-08-9',
+    seq:'Ac-LKKTETQ',
+    ref:'the acetylated 17\u201323 actin-binding fragment of human thymosin beta-4, a compound not approved for any indication'
+  },
+  'TB-4': {
+    mf:'C212H350N56O78S', mw:'4963.44 g/mol',
+    seq:'Full-length thymosin beta-4 (43 amino acids)',
+    ref:'full-length human thymosin beta-4 (T\u03b24), a compound not approved for any indication'
+  }
+  /* ── pendientes: añadir aquí el resto de compuestos ──
+     'Tirzepatide': { mf:'', mw:'', seq:'', note:true, ref:'' },
+     'Semaglutide': { ... },
+     ...
+     Sin entrada, el producto muestra la ficha sin el bloque químico. */
+};
+
+/* Compuesto a partir del nombre del SKU: quita la dosis */
+function techBase(key){
+  return key
+    .replace(/\s*\d{1,3}(,\d{3})+\s*(IU|UI)\b.*$/i,'')
+    .replace(/\s*\d+[.,]?\d*\s*(mg|IU|UI|ml)\b.*$/i,'')
+    .trim();
+}
+
+/* C221H342N46O68 -> C<sub>221</sub>H<sub>342</sub>… */
+function techFormula(mf){
+  return mf.replace(/([A-Za-z])(\d+)/g,'$1<sub>$2</sub>');
+}
+
+function techEsc(s){
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function renderTech(){
+  const host = document.getElementById('modal-tech');
+  if (!host || !currentProduct) return;
+  const p = currentProduct;
+  const cat = (p.cats && p.cats[0]) || '';
+
+  /* insumos y accesorios no son péptidos: sin ficha */
+  if (cat === 'insumos' || cat === 'accesorios'){ host.innerHTML=''; return; }
+
+  const d    = TECH[techBase(currentProductKey)] || {};
+  const area = d.area || TECH_AREA[cat] || 'Research Chemicals';
+  const isES = lang === 'es';
+
+  /* ── bloque químico: sólo si hay datos ── */
+  let chem = '';
+  if (d.mf || d.mw || d.seq){
+    let li = '';
+    if (d.mf)  li += '<li><b>Molecular Formula:</b> <span class="tech-mono">'+techFormula(techEsc(d.mf))+'</span></li>';
+    if (d.mw)  li += '<li><b>Molecular Weight:</b> '+techEsc(d.mw)+'</li>';
+    if (d.cas) li += '<li><b>CAS Number:</b> '+techEsc(d.cas)+'</li>';
+    if (d.seq) li += '<li><b>Sequence:</b> <span class="tech-mono">'+techEsc(d.seq)+'</span>'+(d.note?' *)':'')+'</li>';
+    if (d.note) li += '<li class="tech-note">*) <b>Notation Key:</b> 1, 2, 3, 4 denote specific structural modifications consistent with the compound specification and corresponding certificate of analysis.</li>';
+    chem = '<div class="tech-sec"><h4>Chemical Information</h4><ul>'+li+'</ul></div>';
+  }
+
+  /* ── aviso de uso: siempre visible al abrir la ficha ── */
+  const warn =
+    '<div class="tech-warn">'+
+      '<div class="tech-warn-h">⚠ '+(isES?'Uso del producto · No apto para uso humano ni veterinario'
+                                        :'Product Usage · Not for Human or Veterinary Use')+'</div>'+
+      '<p>'+(isES
+        ? 'Los productos de Vierundsechzig Peptides se suministran a profesionales de investigación y usuarios institucionales calificados, exclusivamente para investigación de laboratorio in vitro. Estos productos no son medicamentos, alimentos, cosméticos, productos de diagnóstico ni suplementos dietéticos, y no están destinados a uso humano ni animal. Cualquier uso de ese tipo está prohibido y puede infringir la legislación aplicable. Al comprar, el comprador declara y garantiza que el producto se utilizará únicamente para investigación in vitro.'
+        : 'Vierundsechzig Peptides products are supplied to qualified research professionals and institutional users for in vitro laboratory research only. These products are not drugs, foods, cosmetics, diagnostic products, or dietary supplements, and are not intended for human or animal use. Any such use is prohibited and may violate applicable law. By purchasing, the buyer represents and warrants that the product will be used solely for in vitro research.')+
+      '</p>'+
+    '</div>';
+
+  /* ── cuerpo técnico (inglés: convención del sector RUO) ── */
+  let body = warn +
+    '<div class="tech-sec"><h4>Research Area</h4><p>'+techEsc(area)+'</p></div>' + chem +
+
+    '<div class="tech-sec"><h4>Product Description</h4><p>This is a synthetic peptide analog supplied in lyophilized powder form for use in qualified laboratory environments. The compound is intended exclusively for in vitro and analytical research applications involving peptide interaction and assay-based systems under controlled experimental conditions. This material is provided strictly for research use only and has not been evaluated for clinical, therapeutic, or diagnostic use.</p></div>'+
+
+    '<div class="tech-sec"><h4>Product Designation Note</h4><p>This product is identified using an internal designation for cataloging and differentiation purposes. It is not marketed, labeled, or represented as any approved pharmaceutical or therapeutic compound.</p></div>'+
+
+    '<div class="tech-sec"><h4>Research Applications</h4>'+
+      '<p>In controlled laboratory research settings, this peptide analog is utilized to support investigation of:</p><ul>'+
+      '<li>Receptor binding interaction modeling involving modified peptide analogs</li>'+
+      '<li>Comparative evaluation of synthetic peptide conjugation strategies</li>'+
+      '<li>Structural integrity, degradation kinetics, and stability analysis</li>'+
+      '<li>Screening assay development and analytical evaluation in controlled experimental systems</li>'+
+      '</ul><p class="tech-note">All research activities are conducted in non-human, non-clinical experimental models.</p></div>'+
+
+    '<div class="tech-sec"><h4>Storage and Handling</h4><ul>'+
+      '<li>Store the lyophilized powder at −20 °C.</li>'+
+      '<li>Once reconstituted, store at 2–8 °C and use promptly.</li>'+
+      '<li>Maintain aseptic handling practices to ensure product quality and integrity.</li>'+
+      '</ul></div>'+
+
+    '<div class="tech-sec"><h4>Product Specifications</h4><ul>'+
+      '<li><b>Purity:</b> ≥99% (HPLC Certified)</li>'+
+      '<li><b>Appearance:</b> Lyophilized white powder</li>'+
+      '<li><b>Solubility:</b> Soluble in suitable laboratory agents</li>'+
+      '</ul></div>'+
+
+    '<div class="tech-sec"><h4>Compliance Notice</h4><p>This compound is <b>FOR RESEARCH USE ONLY</b> as an analytical reference material.'+
+      (d.ref ? ' The structural characteristics of this compound correspond to '+techEsc(d.ref)+'.' : '')+
+      ' This research material is not an investigational drug product, is not intended for human or veterinary use, and has not been independently evaluated as a research compound. Misuse of this product is strictly prohibited and may violate applicable law. By purchasing this product, buyer represents and warrants that it will be used only for in vitro research purposes.</p></div>';
+
+  const label = isES ? 'Ficha técnica' : 'Technical data sheet';
+  host.innerHTML =
+    '<button class="tech-toggle" type="button" onclick="toggleTech(this)" aria-expanded="false">'+
+      '<span>'+label+'</span><span class="chev">▾</span></button>'+
+    '<div class="tech-body">'+body+'</div>';
+}
+
+function toggleTech(btn){
+  const body = btn.nextElementSibling;
+  const open = body.classList.toggle('open');
+  btn.classList.toggle('open', open);
+  btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+
+/* engancha al render del modal existente */
+(function(){
+  const prev = window.renderModal;
+  if (typeof prev === 'function'){
+    window.renderModal = function(){
+      prev.apply(this, arguments);
+      try { renderTech(); } catch(e){}
+    };
+  }
+})();
+</script>
+
+<script>
+/* Slug unificado: idéntico al de las imágenes y a los nombres de página */
+function vpSlug(n){
+  return n.normalize('NFKD').replace(/[\u0300-\u036f]/g,'')
+    .replace(/\+/g,' plus ').replace(/,/g,'')
+    .replace(/[^a-zA-Z0-9]+/g,'-').replace(/^-+|-+$/g,'').toLowerCase();
+}
+
+/* Cualquier clic en un producto abre su página real.
+   Cubre de una sola vez las tarjetas, los tiles del hero, los resultados
+   del buscador y los enlaces con #producto/... que ya estuvieran compartidos. */
+window.openModal = function(key){
+  if (!key || !PRODUCTS[key]) return;
+  location.href = 'producto/' + vpSlug(key) + '.html';
+};
+
+/* el carrito sobrevive a la navegación entre páginas */
+(function(){
+  const K='vp_cart';
+  function guardar(){ try{ localStorage.setItem(K, JSON.stringify(CART)); }catch(e){} }
+  function cargar(){
+    try{
+      const g=JSON.parse(localStorage.getItem(K)||'{}');
+      let hay=false;
+      for(const k in g){ if(PRODUCTS[k]){ CART[k]=g[k]; hay=true; } }
+      if(hay && typeof renderCart==='function') renderCart();
+    }catch(e){}
+  }
+  ['addToCart','removeFromCart','changeQty','addToCartFromModal'].forEach(function(fn){
+    const f=window[fn];
+    if(typeof f==='function'){
+      window[fn]=function(){ const r=f.apply(this,arguments); guardar(); return r; };
+    }
+  });
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',cargar);
+  else cargar();
 })();
 </script>
 </body></html>
