@@ -4090,6 +4090,22 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
    ═══════════════════════════════════════════════════════════ */
 
 /* Área de investigación por categoría del catálogo */
+/* Naturaleza del compuesto: define que plantilla usa la ficha.
+   Sin entrada -> 'peptide'. Insumos y accesorios no llevan ficha. */
+const KIND = {
+  '5-amino-1MQ':'small', 'AICAR':'small', 'L-Carnitine':'small',
+  'NAD+':'small', 'SLU-PP-332':'small', 'Glutathione':'small',
+  'HGH':'pharma', 'HCG':'pharma'
+};
+
+/* El polvo no siempre es blanco. Sin entrada -> blanco. */
+const APPEARANCE = {
+  'GHK-Cu':'Lyophilized blue powder',
+  'GLOW':'Lyophilized blue powder',
+  'KLOW':'Lyophilized blue powder',
+  '5-amino-1MQ':'Lyophilized orange powder'
+};
+
 const TECH_AREA = {
   glp1:'Metabolics', apetito:'Metabolics', 'quema-grasa':'Metabolics',
   musculo:'Growth & Performance', hgh:'Growth & Performance',
@@ -4133,9 +4149,72 @@ const TECH = {
     ref:'the acetylated 17\u201323 actin-binding fragment of human thymosin beta-4, a compound not approved for any indication'
   },
   'TB-4': {
-    mf:'C212H350N56O78S', mw:'4963.44 g/mol',
+    mf:'C212H350N56O78S', mw:'4963.44 g/mol', cas:'77591-33-4',
     seq:'Full-length thymosin beta-4 (43 amino acids)',
     ref:'full-length human thymosin beta-4 (T\u03b24), a compound not approved for any indication'
+  },
+  /* ── Verificados contra la biblioteca de referencia de los CoAs (Liquilabs) ── */
+  'Tesamorelin': {
+    mf:'C221H366N72O67S', mw:'5135 g/mol', cas:'218949-48-5',
+    ref:'a synthetic analog of growth hormone-releasing factor (GRF 1-44), a compound not approved for any indication'
+  },
+  'SS-31': {
+    mf:'C32H49N9O5', mw:'639 g/mol', cas:'736992-21-5',
+    seq:'D-Arg-Dmt-Lys-Phe-NH2',
+    ref:'elamipretide, a synthetic mitochondria-targeted tetrapeptide currently under clinical investigation and not approved for any indication'
+  },
+  'Selank': {
+    mf:'C33H57N11O9', mw:'751 g/mol', cas:'129954-34-3',
+    seq:'TKPRPGP',
+    ref:'a synthetic heptapeptide analog of the endogenous tetrapeptide tuftsin, a compound not approved for any indication'
+  },
+  'PT-141': {
+    mf:'C50H68N14O10', mw:'1025 g/mol', cas:'189691-06-3',
+    ref:'bremelanotide, a synthetic cyclic heptapeptide melanocortin receptor agonist'
+  },
+  'NAD+': {
+    mf:'C21H27N7O14P2', mw:'664 g/mol', cas:'53-84-9',
+    ref:'nicotinamide adenine dinucleotide, an endogenous coenzyme, supplied as an analytical reference material'
+  },
+  'Mots-C': {
+    mf:'C101H152N28O22S2', mw:'2174 g/mol', cas:'162758-64-6',
+    seq:'MRWQEMGYIFYPRKLR',
+    ref:'a synthetic mitochondrial-derived peptide encoded in the mitochondrial 12S rRNA region, a compound not approved for any indication'
+  },
+  'Melanotan 2': {
+    mf:'C50H69N15O9', mw:'1024 g/mol', cas:'121062-08-6',
+    ref:'a synthetic cyclic analog of alpha-melanocyte-stimulating hormone, a compound not approved for any indication'
+  },
+  'KPV': {
+    mf:'C16H30N4O4', mw:'342 g/mol', cas:'67727-97-3',
+    seq:'KPV',
+    ref:'the C-terminal tripeptide fragment of alpha-melanocyte-stimulating hormone, a compound not approved for any indication'
+  },
+  'GHK-Cu': {
+    mf:'C14H24CuN6O4', mw:'401 g/mol', cas:'49557-75-7',
+    seq:'Gly-His-Lys \u00b7 Cu(II)',
+    ref:'the copper(II) complex of the endogenous tripeptide glycyl-L-histidyl-L-lysine'
+  },
+  'DSIP': {
+    mf:'C35H48N10O15', mw:'848 g/mol', cas:'62568-57-4',
+    seq:'WAGGDASGE',
+    ref:'delta sleep-inducing peptide, an endogenous nonapeptide, a compound not approved for any indication'
+  },
+  '5-amino-1MQ': {
+    mf:'C10H12N2+', mw:'159 g/mol', cas:'42464-96-0',
+    ref:'5-amino-1-methylquinolinium, a small-molecule NNMT inhibitor not approved for any indication'
+  },
+  'LL-37': {
+    mf:'C205H340N60O53', mw:'4493.3 g/mol', cas:'154947-66-7',
+    seq:'LLGDFFRKSKEKIGKEFKRIVQRIKDFLRNLVPRTES',
+    ref:'the C-terminal antimicrobial fragment of human cathelicidin hCAP18, a compound not approved for any indication'
+  },
+  /* Mezclas: no tienen formula propia, corresponde listar componentes */
+  'GLOW': {
+    ref:'a blend of GHK-Cu, BPC-157 and TB-500 (thymosin beta-4 fragment), supplied as a research preparation'
+  },
+  'KLOW': {
+    ref:'a blend of GHK-Cu, BPC-157, KPV and thymosin beta-4, supplied as a research preparation'
   }
   /* ── pendientes: añadir aquí el resto de compuestos ──
      'Tirzepatide': { mf:'', mw:'', seq:'', note:true, ref:'' },
@@ -4145,6 +4224,30 @@ const TECH = {
 };
 
 /* Compuesto a partir del nombre del SKU: quita la dosis */
+/* Tres plantillas segun la naturaleza del compuesto.
+   Antes todo decia "synthetic peptide analog", lo cual era falso
+   para las moleculas pequenas y para los productos farmaceuticos. */
+const TPL = {
+  peptide: {
+    desc:'This is a synthetic peptide analog supplied in lyophilized powder form for use in qualified laboratory environments. The compound is intended exclusively for in vitro and analytical research applications involving peptide interaction and assay-based systems under controlled experimental conditions. This material is provided strictly for research use only and has not been evaluated for clinical, therapeutic, or diagnostic use.',
+    subject:'this peptide analog',
+    b1:'Receptor binding interaction modeling involving modified peptide analogs',
+    b2:'Comparative evaluation of synthetic peptide conjugation strategies'
+  },
+  small: {
+    desc:'This is a synthetic small-molecule compound supplied in lyophilized powder form for use in qualified laboratory environments. The compound is intended exclusively for in vitro and analytical research applications involving biochemical and assay-based systems under controlled experimental conditions. This material is provided strictly for research use only and has not been evaluated for clinical, therapeutic, or diagnostic use.',
+    subject:'this compound',
+    b1:'Target engagement and binding interaction modeling',
+    b2:'Comparative evaluation of structurally related analogs'
+  },
+  pharma: {
+    desc:'This material is supplied in lyophilized powder form for use in qualified laboratory environments. It is intended exclusively for in vitro and analytical research applications under controlled experimental conditions. This material is provided strictly for research use only and has not been evaluated for clinical, therapeutic, or diagnostic use.',
+    subject:'this material',
+    b1:'Receptor binding interaction modeling',
+    b2:'Comparative analytical characterization against reference standards'
+  }
+};
+
 function techBase(key){
   return key
     .replace(/\s*\d{1,3}(,\d{3})+\s*(IU|UI)\b.*$/i,'')
@@ -4171,6 +4274,7 @@ function renderTech(){
   if (cat === 'insumos' || cat === 'accesorios'){ host.innerHTML=''; return; }
 
   const d    = TECH[techBase(currentProductKey)] || {};
+  const kind = KIND[techBase(currentProductKey)] || 'peptide';
   const area = d.area || TECH_AREA[cat] || 'Research Chemicals';
   const isES = lang === 'es';
 
@@ -4201,14 +4305,14 @@ function renderTech(){
   let body = warn +
     '<div class="tech-sec"><h4>Research Area</h4><p>'+techEsc(area)+'</p></div>' + chem +
 
-    '<div class="tech-sec"><h4>Product Description</h4><p>This is a synthetic peptide analog supplied in lyophilized powder form for use in qualified laboratory environments. The compound is intended exclusively for in vitro and analytical research applications involving peptide interaction and assay-based systems under controlled experimental conditions. This material is provided strictly for research use only and has not been evaluated for clinical, therapeutic, or diagnostic use.</p></div>'+
+    '<div class="tech-sec"><h4>Product Description</h4><p>'+TPL[kind].desc+'</p></div>'+
 
     '<div class="tech-sec"><h4>Product Designation Note</h4><p>This product is identified using an internal designation for cataloging and differentiation purposes. It is not marketed, labeled, or represented as any approved pharmaceutical or therapeutic compound.</p></div>'+
 
     '<div class="tech-sec"><h4>Research Applications</h4>'+
-      '<p>In controlled laboratory research settings, this peptide analog is utilized to support investigation of:</p><ul>'+
-      '<li>Receptor binding interaction modeling involving modified peptide analogs</li>'+
-      '<li>Comparative evaluation of synthetic peptide conjugation strategies</li>'+
+      '<p>In controlled laboratory research settings, '+TPL[kind].subject+' is utilized to support investigation of:</p><ul>'+
+      '<li>'+TPL[kind].b1+'</li>'+
+      '<li>'+TPL[kind].b2+'</li>'+
       '<li>Structural integrity, degradation kinetics, and stability analysis</li>'+
       '<li>Screening assay development and analytical evaluation in controlled experimental systems</li>'+
       '</ul><p class="tech-note">All research activities are conducted in non-human, non-clinical experimental models.</p></div>'+
@@ -4221,7 +4325,7 @@ function renderTech(){
 
     '<div class="tech-sec"><h4>Product Specifications</h4><ul>'+
       '<li><b>Purity:</b> ≥99% (HPLC Certified)</li>'+
-      '<li><b>Appearance:</b> Lyophilized white powder</li>'+
+      '<li><b>Appearance:</b> '+(APPEARANCE[techBase(currentProductKey)]||'Lyophilized white powder')+'</li>'+
       '<li><b>Solubility:</b> Soluble in suitable laboratory agents</li>'+
       '</ul></div>'+
 
