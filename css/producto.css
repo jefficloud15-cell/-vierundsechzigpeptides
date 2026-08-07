@@ -135,6 +135,11 @@
 .pp-foot b{color:var(--mu);letter-spacing:2px}
 .pp-foot a{color:var(--go);text-decoration:none}
 .pp-foot a:hover{text-decoration:underline}
+.pp-foot-origen{
+  max-width:640px;margin:16px auto 0;padding-top:14px;
+  border-top:1px solid var(--br);
+  font-size:9.5px;line-height:1.8;color:#6f675c;
+}
 
 @media(max-width:860px){
   .pp-hero{grid-template-columns:1fr;gap:26px}
