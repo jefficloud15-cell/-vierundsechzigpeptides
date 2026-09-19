@@ -149,7 +149,8 @@ body.light{
   --hover:#fffdf8;
 }
 /* smooth theme transition */
-body,#tb,.pc,.fi,.svc-card,.offer-card,.cl,.cc,.cs,#modal,#about,#service,#quality,#how,#featured,#offer,#faq,#contact,.feat-inner,
+body,#tb,.pc,.fi,.svc-card,.offer-card,.cl,.cc,.cs,#modal,#about,#service,#quality,#how,#featured,#offer,#faq,#contact,.feat-inner,.vpanel,.vtile,footer,#search-box,#catnav,
+body{background:var(--bk);color:var(--tx);font-family:'IBM Plex Sans',sans-serif;font-weight:300;overflow-x:hidden;font-size:16px}
 
 /* ── MODAL ─────────────────────────────────────────────── */
 #modal-overlay{
@@ -322,19 +323,6 @@ body,#tb,.pc,.fi,.svc-card,.offer-card,.cl,.cc,.cs,#modal,#about,#service,#quali
 
 .hero-right{position:relative;display:flex;align-items:center;justify-content:center;min-height:480px}
 
-/* Elegant product panel */
-
-
-
-
-
-
-
-
-
-
-
-
 @media(max-width:960px){
   #hero{padding:110px 24px 90px}
   .hero-grid{grid-template-columns:1fr;gap:20px;text-align:center}
@@ -343,11 +331,7 @@ body,#tb,.pc,.fi,.svc-card,.offer-card,.cl,.cc,.cs,#modal,#about,#service,#quali
   #hl{margin-left:0}
   .hero-right{min-height:340px;order:2}
   .vial-showcase{height:340px}
-  
 }
-
-
-
 .o1{width:800px;height:800px;background:radial-gradient(circle,rgba(184,151,42,.07),transparent 65%);top:-200px;left:-250px;animation:od 14s ease-in-out infinite alternate}
 .o2{width:600px;height:600px;background:radial-gradient(circle,rgba(139,26,26,.08),transparent 65%);bottom:-120px;right:-120px;animation:od 18s ease-in-out infinite alternate-reverse}
 .o3{width:450px;height:450px;background:radial-gradient(circle,rgba(184,151,42,.05),transparent 65%);top:35%;right:8%;animation:od 11s ease-in-out infinite alternate}
@@ -377,7 +361,6 @@ body,#tb,.pc,.fi,.svc-card,.offer-card,.cl,.cc,.cs,#modal,#about,#service,#quali
 .fg{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--br);border:1px solid var(--br)}
 .fi{background:var(--d1);padding:44px 30px;text-align:center;transition:background .3s}
 .fi:hover{background:var(--d2)}
-
 .fi-n{font-family:'Spectral',serif;font-size:19px;color:var(--gl);margin-bottom:8px}
 .fi-t{font-size:12.5px;color:var(--mu);line-height:1.85}
 
@@ -414,7 +397,7 @@ body,#tb,.pc,.fi,.svc-card,.offer-card,.cl,.cc,.cs,#modal,#about,#service,#quali
 .pc-name{font-family:'Spectral',serif;font-size:19px;font-weight:600;color:var(--tx);line-height:1.3}
 .pc-short{font-size:12.5px;color:var(--mu);line-height:1.7;flex:1}
 .pc-foot{display:flex;align-items:flex-end;justify-content:space-between;gap:8px;flex-wrap:wrap}.pc-btns{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
-.pc-price{font-family:'IBM Plex Sans','IBM Plex Sans',sans-serif;font-size:20px;font-weight:600;letter-spacing:.01em;font-variant-numeric:tabular-nums;font-feature-settings:'tnum' 1;color:var(--gl)}
+.pc-price{font-family:'IBM Plex Sans',sans-serif;font-size:20px;font-weight:600;letter-spacing:.01em;font-variant-numeric:tabular-nums;font-feature-settings:'tnum' 1;color:var(--gl)}
 .pc-curr{font-size:9px;letter-spacing:1px;color:var(--mu);margin-top:2px}
 .pc-btn{flex-shrink:0;background:transparent;border:1px solid var(--go);color:var(--go);font-family:'IBM Plex Sans',sans-serif;font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:8px 13px;border-radius:30px;text-decoration:none;transition:.25s;white-space:nowrap}
 .pc-btn:hover{background:var(--go);color:var(--bk)}
@@ -892,7 +875,7 @@ body.light .pc-stock-badge{background:rgba(240,240,240,.95);color:#555}
 /* ── OFERTA ──────────────────────────────────────────────── */
 .pc-offer-badge{position:absolute;top:12px;right:12px;z-index:3;background:linear-gradient(135deg,#1e7d52,#27ae60);color:#fff;font-family:'IBM Plex Sans',sans-serif;font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:7px 13px;border-radius:20px;box-shadow:0 4px 14px rgba(39,174,96,.5);animation:offerPulse 1.8s ease-in-out infinite}
 @keyframes offerPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
-.pc-price-old{font-size:13px;color:var(--mu);text-decoration:line-through;margin-right:7px;font-family:'IBM Plex Sans','IBM Plex Sans',sans-serif;font-weight:500;font-variant-numeric:tabular-nums}
+.pc-price-old{font-size:13px;color:var(--mu);text-decoration:line-through;margin-right:7px;font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-variant-numeric:tabular-nums}
 .pc.en-oferta{border:1px solid rgba(39,174,96,.45);box-shadow:0 0 24px rgba(39,174,96,.15)}
 
 
@@ -920,8 +903,13 @@ body.drawer-open{overflow:hidden;position:fixed;width:100%;height:100%}
 }
 
 /* Hero (4 productos destacados): reflejo MÁS LENTO y señorial, en bucle suave */
-
-
+.vtile::after{
+  content:"";position:absolute;top:0;left:-80%;width:55%;height:100%;z-index:3;
+  pointer-events:none;
+  background:linear-gradient(115deg,transparent 0%,rgba(255,255,255,.03) 40%,rgba(255,240,205,.16) 50%,rgba(255,255,255,.03) 60%,transparent 100%);
+  transform:skewX(-18deg);
+  opacity:0;
+}
 @keyframes shineSweepSlow{
   0%{left:-80%;opacity:0}
   15%{opacity:1}
@@ -1151,11 +1139,6 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
 }
 .pc-img[data-fullbleed] .pc-offer-badge{z-index:4}
 
-/* Tiles del hero */
-
-
-
-
 /* Modal: columna de imagen mas ancha y a sangre */
 #modal.fullbleed-modal{grid-template-columns:360px 1fr}
 #modal.fullbleed-modal #modal-img-side{
@@ -1265,7 +1248,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
 .tech-sec li{font-size:12px;line-height:1.8;color:var(--mu);margin-bottom:5px}
 .tech-sec li b{color:var(--tx);font-weight:600}
 .tech-mono{
-  font-family:'IBM Plex Sans','Courier New',monospace;
+  font-family:ui-monospace,'Courier New',monospace;
   color:var(--go);word-break:break-all;letter-spacing:.3px;
 }
 .tech-mono sub{font-size:.72em;letter-spacing:0}
@@ -1317,7 +1300,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
 
 /* ── HERO · FOTO A PANTALLA COMPLETA CON ZONAS CLICKEABLES ─── */
 #hero{background:#020202}
-#hero 
+#hero .hgrid,#hero .orb{display:none}
 .hphoto{position:absolute;inset:0;overflow:hidden;z-index:1;background:#020202}
 .hphoto img{position:absolute;right:0;bottom:0;left:auto;top:auto;
   width:90%;height:90%;object-fit:contain;object-position:right bottom}
