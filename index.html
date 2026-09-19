@@ -1348,12 +1348,11 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
 .modal-full:hover{border-color:var(--go);background:rgba(184,151,42,.07)}
 
 /* ── HERO · FOTO A PANTALLA COMPLETA CON ZONAS CLICKEABLES ─── */
-#hero .hgrid,#hero .orb{z-index:0}
-.hphoto{position:absolute;inset:0;overflow:hidden;z-index:1;background:#140808}
-.hphoto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:right center}
-.hveil{position:absolute;inset:0;pointer-events:none;z-index:2;
-  background:linear-gradient(90deg,rgba(20,8,8,.95) 0%,rgba(22,9,9,.88) 22%,rgba(24,10,10,.55) 42%,rgba(24,10,10,.12) 60%,rgba(24,10,10,0) 72%),
-             linear-gradient(0deg,rgba(8,8,8,.78) 0%,rgba(8,8,8,0) 24%)}
+#hero{background:#020202}
+#hero .hgrid,#hero .orb{display:none}
+.hphoto{position:absolute;inset:0;overflow:hidden;z-index:1;background:#020202}
+.hphoto img{position:absolute;right:0;bottom:0;left:auto;top:auto;
+  width:90%;height:90%;object-fit:contain;object-position:right bottom}
 .hspots{position:absolute;pointer-events:none;z-index:3}
 .hero-grid{position:relative;z-index:4;grid-template-columns:1fr;pointer-events:none}
 .hero-left{pointer-events:auto}
@@ -1363,11 +1362,11 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
   -webkit-tap-highlight-color:transparent;
   transition:background .35s ease,box-shadow .35s ease}
 .vhs:hover,.vhs:focus-visible{
-  background:radial-gradient(ellipse 80% 60% at 50% 55%,rgba(212,175,55,.18),transparent 70%);
-  box-shadow:inset 0 0 0 1px rgba(212,175,55,.5);outline:none}
+  background:radial-gradient(ellipse 80% 60% at 50% 55%,rgba(212,175,55,.16),transparent 70%);
+  box-shadow:inset 0 0 0 1px rgba(212,175,55,.45);outline:none}
 .vhs b{position:absolute;left:50%;bottom:10px;transform:translate(-50%,6px);
   font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;
-  color:#f0e6c8;background:rgba(10,6,6,.85);border:1px solid rgba(212,175,55,.38);
+  color:#f0e6c8;background:rgba(6,6,6,.88);border:1px solid rgba(212,175,55,.38);
   padding:5px 11px;border-radius:999px;opacity:0;transition:.35s ease}
 .vhs:hover b,.vhs:focus-visible b{opacity:1;transform:translate(-50%,0)}
 .vhs1{--l:53.0%;--t:14.5%;--r:64.6%;--b:80%}
@@ -1393,14 +1392,13 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
         min-height:auto;padding:104px 20px 0}
   .hero-grid{order:1;margin-bottom:8px}
   .hphoto{order:2;position:relative;inset:auto;width:calc(100% + 40px);
-          margin:18px -20px 0;height:auto;aspect-ratio:1080/831}
-  .hphoto img{object-position:center center}
-  .hveil{background:linear-gradient(180deg,rgba(20,8,8,.88) 0%,rgba(20,8,8,0) 20%),
-                    linear-gradient(0deg,rgba(8,8,8,.78) 0%,rgba(8,8,8,0) 26%)}
+          margin:14px -20px 0;height:auto;aspect-ratio:1160/817}
+  .hphoto img{position:absolute;inset:0;width:100%;height:100%;
+              object-fit:contain;object-position:center bottom}
   #tkw{order:3;position:relative;margin:0 -20px}
-  .vhs1{--l:15.66%;--r:36.48%}
-  .vhs2{--l:37.56%;--r:58.91%}
-  .vhs3{--l:59.80%;--r:80.44%}
+  .vhs1{--l:22.87%;--r:41.91%}
+  .vhs2{--l:42.89%;--r:62.42%}
+  .vhs3{--l:63.24%;--r:82.11%}
 }
 </style>
   <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,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">
@@ -1630,7 +1628,6 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
       <a class="vhs vhs2" href="#cat" onclick="jumpCat('piel');return false" aria-label="Ver categoría Piel y Belleza"><b>KLOW 80mg</b></a>
       <a class="vhs vhs3" href="#cat" onclick="jumpCat('musculo');return false" aria-label="Ver categoría Músculo y Rendimiento Deportivo"><b>Ipamorelin 10mg</b></a>
     </div>
-    <div class="hveil"></div>
   </div>
     <div class="hgrid"></div>
   <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div><div class="orb o4"></div>
@@ -4655,20 +4652,21 @@ window.openModal = function(key){
 </script>
 
 <script>
-/* Alinea las zonas clickeables con el recorte real de la foto del hero. */
+/* Alinea las zonas clickeables con la caja real de la foto del hero. */
 (function(){
   function fitHeroSpots(){
     var p=document.querySelector('.hphoto'),
         im=document.getElementById('hphotoimg'),
         sp=document.getElementById('hspots');
     if(!p||!im||!sp) return;
-    var cw=p.clientWidth, ch=p.clientHeight,
-        iw=im.naturalWidth||2560, ih=im.naturalHeight||1099,
-        s=Math.max(cw/iw, ch/ih), w=iw*s, h=ih*s,
-        mob=window.matchMedia('(max-width:1024px)').matches;
+    var pr=p.getBoundingClientRect(), br=im.getBoundingClientRect();
+    var cw=br.width, ch=br.height,
+        iw=im.naturalWidth||2560, ih=im.naturalHeight||1099;
+    if(!cw||!ch) return;
+    var s=Math.min(cw/iw, ch/ih), w=iw*s, h=ih*s;
     sp.style.width=w+'px'; sp.style.height=h+'px';
-    sp.style.left=(mob?(cw-w)/2:(cw-w))+'px';
-    sp.style.top=((ch-h)/2)+'px';
+    sp.style.left=((br.left-pr.left)+(cw-w))+'px';
+    sp.style.top=((br.top-pr.top)+(ch-h))+'px';
   }
   window.fitHeroSpots=fitHeroSpots;
   var im=document.getElementById('hphotoimg');
