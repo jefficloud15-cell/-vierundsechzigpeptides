@@ -1280,11 +1280,14 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
 .st{font-size:clamp(28px,3.8vw,46px);letter-spacing:-.01em}
 .hero-left .hh{letter-spacing:-.005em}
 
-/* ── CORRECCION · logo de la barra ────────────────────────
-   Lleva width/height en el HTML (evita el salto al cargar), pero el CSS del
-   sitio solo le fija la altura. Sin esto el ancho se toma del atributo y el
-   emblema sale estirado. */
+/* ── CORRECCION · imagenes con width/height en el HTML ─────
+   Los atributos reservan el espacio y evitan el salto al cargar, pero cuando
+   el CSS del sitio fija UN SOLO eje, el otro se toma del atributo y la imagen
+   se deforma. Aqui se devuelve el eje libre al calculo por proporcion:
+     #tb-logo  el CSS le da la altura (40px)  -> el ancho va automatico
+     #hl       el CSS le da el ancho          -> la altura va automatica    */
 #tb-logo{width:auto}
+#hl{height:auto}
 
 /* ── BARRA SUPERIOR · VIDRIO OSCURO CON FILO DORADO ──────── */
 #tb{background:rgba(12,9,9,.55);
@@ -1637,7 +1640,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
   <div class="fg">
     <div class="fi" data-aos><p class="fi-num">99<small>%</small></p><div class="fi-n" data-es="Pureza certificada" data-en="Certified purity">Pureza certificada</div><div class="fi-t" data-es="Cada vial certificado con los más altos estándares farmacéuticos." data-en="Every vial certified to the highest pharmaceutical standards.">Cada vial certificado con los más altos estándares farmacéuticos.</div></div>
     <div class="fi" data-aos><p class="fi-num">Sin<small> aduanas</small></p><div class="fi-n" data-es="Envío nacional" data-en="Nationwide delivery">Envío nacional</div><div class="fi-t" data-es="Entrega en todo Costa Rica, sin demoras de importación." data-en="Delivery across Costa Rica, with no import delays.">Entrega en todo Costa Rica, sin demoras de importación.</div></div>
-    <div class="fi" data-aos><p class="fi-num">7<small> meses</small></p><div class="fi-n" data-es="Proveedor local" data-en="Local provider">Proveedor local</div><div class="fi-t" data-es="Trayectoria con atención directa y personalizada." data-en="Track record with direct, personalized service.">Trayectoria con atención directa y personalizada.</div></div>
+    <div class="fi" data-aos><p class="fi-num">12<small> meses</small></p><div class="fi-n" data-es="Proveedor local" data-en="Local provider">Proveedor local</div><div class="fi-t" data-es="Trayectoria con atención directa y personalizada." data-en="Track record with direct, personalized service.">Trayectoria con atención directa y personalizada.</div></div>
     <div class="fi" data-aos><p class="fi-num">8878<small>-9080</small></p><div class="fi-n" data-es="Atención directa" data-en="Direct support">Atención directa</div><div class="fi-t" data-es="WhatsApp con respuesta rápida y asesoría de calidad." data-en="WhatsApp with fast response and quality advice.">WhatsApp con respuesta rápida y asesoría de calidad.</div></div>
   </div>
 </div>
@@ -3386,7 +3389,7 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
       <p class="se" data-es="Nuestra Filosofía" data-en="Our Philosophy">Nuestra Filosofía</p>
       <h2 class="st" data-es="Ciencia con <span>distinción</span>" data-en="Science with <span>distinction</span>">Ciencia con <span>distinción</span></h2>
       <p data-es="En <strong>Vierundsechzig Peptides</strong>, no vendemos simplemente péptidos. Ofrecemos la convergencia de precisión científica y excelencia europea en cada vial que llega a tus manos." data-en="At <strong>Vierundsechzig Peptides</strong>, we don't simply sell peptides. We offer the convergence of scientific precision and European excellence in every vial that reaches your hands.">En <strong>Vierundsechzig Peptides</strong>, no vendemos simplemente péptidos. Ofrecemos la convergencia de precisión científica y excelencia europea en cada vial que llega a tus manos.</p>
-      <p data-es="Con más de <strong>7 meses de presencia</strong> en el mercado costarricense, hemos construido una reputación basada en pureza, confiabilidad y un servicio sin igual." data-en="With more than <strong>7 months</strong> in the Costa Rican market, we have built a reputation based on purity, reliability and unparalleled service.">Con más de <strong>7 meses de presencia</strong> en el mercado costarricense, hemos construido una reputación basada en pureza, confiabilidad y un servicio sin igual.</p>
+      <p data-es="Con más de <strong>12 meses de presencia</strong> en el mercado costarricense, hemos construido una reputación basada en pureza, confiabilidad y un servicio sin igual." data-en="With more than <strong>12 months</strong> in the Costa Rican market, we have built a reputation based on purity, reliability and unparalleled service.">Con más de <strong>12 meses de presencia</strong> en el mercado costarricense, hemos construido una reputación basada en pureza, confiabilidad y un servicio sin igual.</p>
       <p data-es="Somos el proveedor <strong>local de confianza</strong>. Sin complicaciones de importación. Tu pedido llega directo, seguro y a tiempo." data-en="We are the <strong>trusted local provider</strong>. No import complications. Your order arrives directly, safely and on time.">Somos el proveedor <strong>local de confianza</strong>. Sin complicaciones de importación. Tu pedido llega directo, seguro y a tiempo.</p>
     </div>
     <div class="sg">
