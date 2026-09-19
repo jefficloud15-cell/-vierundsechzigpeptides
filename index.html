@@ -1280,6 +1280,12 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
 .st{font-size:clamp(28px,3.8vw,46px);letter-spacing:-.01em}
 .hero-left .hh{letter-spacing:-.005em}
 
+/* ── CORRECCION · logo de la barra ────────────────────────
+   Lleva width/height en el HTML (evita el salto al cargar), pero el CSS del
+   sitio solo le fija la altura. Sin esto el ancho se toma del atributo y el
+   emblema sale estirado. */
+#tb-logo{width:auto}
+
 /* ── BARRA SUPERIOR · VIDRIO OSCURO CON FILO DORADO ──────── */
 #tb{background:rgba(12,9,9,.55);
   -webkit-backdrop-filter:blur(14px) saturate(125%);
