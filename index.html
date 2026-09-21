@@ -4682,40 +4682,65 @@ window.openModal = function(key){
 /* ══ TikTok Pixel · eventos ═══════════════════════════════════════════
    Envuelve funciones que ya existen, sin modificarlas. Si el pixel esta
    bloqueado (adblock) todo sigue funcionando igual: cada llamada va en try.
-   No se manda nombre ni id de producto a TikTok, solo evento y monto.      */
+   A TikTok se le manda un codigo opaco por producto (cod()), nunca el nombre. */
 (function(){
   function t(ev, data){
     try{ if(window.ttq && ttq.track) ttq.track(ev, data || {}); }catch(e){}
   }
-  function valor(){
+  /* codigo estable y opaco a partir del nombre: mismo nombre -> mismo codigo */
+  function cod(k){
+    var h = 0;
+    for(var i = 0; i < k.length; i++){ h = (h * 31 + k.charCodeAt(i)) >>> 0; }
+    return 'p' + h.toString(36);
+  }
+  function precio(k){
     try{
-      var v = (typeof cartTotal === 'function') ? cartTotal() : null;
-      if(v && typeof v.usd === 'number')
-        return { value: Math.round(v.usd * 100) / 100, currency: 'USD' };
+      var p = PRODUCTS[k];
+      if(!p || !p.usd) return 0;
+      return parseFloat(String(p.usd).replace(/[^0-9.]/g, '')) || 0;
+    }catch(e){ return 0; }
+  }
+  function item(k, qty){
+    return { content_id: cod(k), content_type: 'product',
+             quantity: qty || 1, price: precio(k) };
+  }
+  function uno(k){
+    var pr = precio(k);
+    return { contents: [item(k, 1)], value: pr, currency: 'USD' };
+  }
+  function carrito(){
+    var lista = [], total = 0;
+    try{
+      for(var k in CART){
+        if(!PRODUCTS[k]) continue;
+        lista.push(item(k, CART[k]));
+        total += precio(k) * CART[k];
+      }
     }catch(e){}
-    return {};
+    return { contents: lista, value: Math.round(total * 100) / 100, currency: 'USD' };
   }
   function envolver(nombre, despues){
     var orig = window[nombre];
     if(typeof orig !== 'function') return;
     window[nombre] = function(){
-      var r = orig.apply(this, arguments);
-      try{ despues(arguments); }catch(e){}
+      var args = arguments;
+      var r = orig.apply(this, args);
+      try{ despues(args); }catch(e){}
       return r;
     };
   }
 
-  envolver('openModal',    function(){ t('ViewContent'); });
-  envolver('addToCart',    function(){ t('AddToCart', valor()); });
-  /* el valor se toma ANTES de abrir el checkout, el carrito aun esta lleno */
-  envolver('checkoutWhatsApp', function(){ t('InitiateCheckout', valor()); t('Contact'); });
-  envolver('checkoutSinpe',    function(){ t('InitiateCheckout', valor()); });
+  envolver('openModal', function(a){ t('ViewContent', a[0] ? uno(a[0]) : {}); });
+  envolver('addToCart', function(a){ t('AddToCart',   a[0] ? uno(a[0]) : {}); });
+  /* el valor se toma ANTES de abrir el checkout: el carrito aun esta lleno */
+  envolver('checkoutWhatsApp', function(){ var c = carrito(); t('InitiateCheckout', c); t('Contact', c); });
+  envolver('checkoutSinpe',    function(){ t('InitiateCheckout', carrito()); });
 
   /* cualquier enlace directo a WhatsApp (tarjetas, barra movil, footer) */
   document.addEventListener('click', function(e){
     var el = e.target;
     if(!el || !el.closest) return;
-    if(el.closest('a[href*="wa.me"]')) t('Contact');
+    if(el.closest('a[href*="wa.me"]')) t('Contact', carrito());
   }, true);
 })();
 </script>
