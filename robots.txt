@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
 Sitemap: https://vierundsechzigpeptides.com/sitemap.xml
+Sitemap: https://vierundsechzigpeptides.com/sitemap-imagenes.xml
