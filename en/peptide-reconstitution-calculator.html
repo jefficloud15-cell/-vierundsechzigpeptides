@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Peptide Reconstitution Calculator (mg, ml, U-100 units) | Vierundsechzig Costa Rica</title>
+<meta name="description" content="Free peptide reconstitution calculator: concentration in mcg/ml, volume per aliquot and U-100 syringe units. Quick table and worked examples.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0a0705">
+<link rel="canonical" href="https://vierundsechzigpeptides.com/en/peptide-reconstitution-calculator.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Vierundsechzig Peptides">
+<meta property="og:locale" content="en_US"><link rel="alternate" hreflang="en" href="https://vierundsechzigpeptides.com/en/peptide-reconstitution-calculator.html"><link rel="alternate" hreflang="es-CR" href="https://vierundsechzigpeptides.com/guias/calculadora-reconstitucion-peptidos.html"><link rel="alternate" hreflang="x-default" href="https://vierundsechzigpeptides.com/guias/calculadora-reconstitucion-peptidos.html">
+<meta property="og:title" content="Peptide reconstitution calculator">
+<meta property="og:description" content="Free peptide reconstitution calculator: concentration in mcg/ml, volume per aliquot and U-100 syringe units. Quick table and worked examples.">
+<meta property="og:url" content="https://vierundsechzigpeptides.com/en/peptide-reconstitution-calculator.html">
+<meta property="og:image" content="https://vierundsechzigpeptides.com/guias/img/portada-guias.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Spectral:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0705;--bg2:#14100b;--line:rgba(214,180,74,.18);--ink:#F5F0E4;--mut:#b9b0a0;--gold:#D6B44A;--gold2:#e9cf7a}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.7 'IBM Plex Sans',system-ui,sans-serif}
+a{color:var(--gold2);text-underline-offset:3px}a:hover{color:var(--ink)}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 20px;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(10,7,5,.92);backdrop-filter:blur(8px);z-index:5}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.brand img{width:32px;height:32px}.brand b{display:block;font:600 14px/1.1 'Spectral',serif;letter-spacing:.22em}
+.brand i{display:block;font-style:normal;font-size:9.5px;letter-spacing:.24em;color:var(--gold);text-transform:uppercase}
+.nav{display:flex;gap:18px;font-size:13px;letter-spacing:.06em}.nav a{text-decoration:none;color:var(--mut)}.nav a:hover{color:var(--gold2)}
+.crumb{max-width:760px;margin:22px auto 0;padding:0 20px;font-size:13px;color:var(--mut)}.crumb a{color:var(--mut)}
+main{max-width:760px;margin:0 auto;padding:10px 20px 60px}
+.kick{font-size:11.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin:26px 0 8px}
+h1{font:500 clamp(30px,5.4vw,42px)/1.15 'Spectral',serif;margin:0 0 14px;letter-spacing:-.005em}
+h2{font:500 25px/1.25 'Spectral',serif;margin:44px 0 10px;color:var(--ink)}
+h3{font:600 17px/1.4 'IBM Plex Sans',sans-serif;margin:26px 0 6px;color:var(--gold2)}
+.lead{font-size:19px;color:#ddd5c6;margin:0 0 8px}
+.meta{font-size:12.5px;color:var(--mut);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:9px 0;margin:22px 0 6px;display:flex;flex-wrap:wrap;gap:6px 18px}
+p,li{color:#e6dfd1}ul,ol{padding-left:22px}li{margin:6px 0}
+.box{border:1px solid var(--line);background:var(--bg2);border-radius:10px;padding:18px 20px;margin:24px 0}
+.box h3{margin-top:0}
+.warn{border-left:3px solid var(--gold);background:rgba(214,180,74,.06);padding:14px 18px;border-radius:0 8px 8px 0;font-size:14.5px;color:#d9d1c2;margin:28px 0}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:15px}th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line)}
+th{font-weight:600;color:var(--gold2);font-size:13px;letter-spacing:.05em}td{color:#e6dfd1}
+.num{font-variant-numeric:tabular-nums}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:22px 0}
+.card{display:block;border:1px solid var(--line);border-radius:10px;padding:18px;text-decoration:none;color:var(--ink);background:var(--bg2);transition:border-color .2s,transform .2s}
+.card:hover{border-color:var(--gold);transform:translateY(-2px);color:var(--ink)}
+.card b{display:block;font:500 19px/1.3 'Spectral',serif;margin-bottom:6px}.card span{display:block;font-size:14px;line-height:1.5;color:var(--mut)}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}.pills a{border:1px solid var(--line);border-radius:99px;padding:6px 13px;font-size:13.5px;text-decoration:none;color:var(--ink)}
+.pills a:hover{border-color:var(--gold)}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin:30px 0 0}
+.btn{display:inline-block;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:500;font-size:15px}
+.btn.g{background:var(--gold);color:#1a1206}.btn.g:hover{background:var(--gold2);color:#1a1206}
+.btn.o{border:1px solid var(--line);color:var(--ink)}.btn.o:hover{border-color:var(--gold)}
+details{border-bottom:1px solid var(--line);padding:12px 0}summary{cursor:pointer;font-weight:500;color:var(--ink);list-style:none}
+summary::after{content:"+";float:right;color:var(--gold)}details[open] summary::after{content:"–"}details p{margin:8px 0 0}
+.calc{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.calc label{display:block;font-size:13px;color:var(--mut);margin-bottom:5px;letter-spacing:.03em}
+.calc input{width:100%;background:#0d0a07;border:1px solid var(--line);border-radius:8px;color:var(--ink);font:500 18px 'IBM Plex Sans',sans-serif;padding:10px 12px}
+.calc input:focus{outline:none;border-color:var(--gold)}
+.res{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:18px}
+.res div{border:1px solid var(--line);border-radius:8px;padding:12px 14px}.res small{display:block;font-size:12px;color:var(--mut);letter-spacing:.04em}
+.res strong{font:500 22px/1.3 'IBM Plex Sans',sans-serif;color:var(--gold2)}
+.syr{margin-top:18px}.syr svg{width:100%;height:auto;display:block}
+.foot{border-top:1px solid var(--line);padding:28px 20px 40px;text-align:center;font-size:13px;color:var(--mut)}.foot p{margin:5px 0;color:var(--mut)}
+@media (max-width:560px){.nav a.hide{display:none}.brand i{display:none}.nav{gap:14px}body{font-size:16px}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://vierundsechzigpeptides.com/"}, {"@type": "ListItem", "position": 2, "name": "English guides", "item": "https://vierundsechzigpeptides.com/en/"}, {"@type": "ListItem", "position": 3, "name": "Reconstitution calculator", "item": "https://vierundsechzigpeptides.com/en/peptide-reconstitution-calculator.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Peptide reconstitution calculator", "description": "Free peptide reconstitution calculator: concentration in mcg/ml, volume per aliquot and U-100 syringe units. Quick table and worked examples.", "inLanguage": "en", "datePublished": "2026-11-11", "dateModified": "2026-11-11", "mainEntityOfPage": "https://vierundsechzigpeptides.com/en/peptide-reconstitution-calculator.html", "image": "https://vierundsechzigpeptides.com/logo.png", "author": {"@type": "Organization", "name": "Vierundsechzig Peptides CR", "url": "https://vierundsechzigpeptides.com/"}, "publisher": {"@type": "Organization", "name": "Vierundsechzig Peptides CR", "logo": {"@type": "ImageObject", "url": "https://vierundsechzigpeptides.com/logo.png"}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Peptide reconstitution calculator", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "inLanguage": "en", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="../index.html"><img src="../logo.png" alt="Vierundsechzig Peptides" width="32" height="32"><span><b>VIERUNDSECHZIG</b><i>Präzision · Kraft · Innovation</i></span></a>
+  <nav class="nav"><a href="../index.html#cat">Catalog</a><a href="index.html">Guides</a><a class="hide" href="https://wa.me/50688789080" target="_blank" rel="noopener">WhatsApp</a></nav>
+</header>
+<nav class="crumb" aria-label="Ruta"><a href="../index.html">Home</a> <span>/</span> <a href="../en/index.html">English guides</a> <span>/</span> <b>Reconstitution calculator</b></nav>
+<main>
+<div class="kick">Tool · Lab math</div>
+<h1>Peptide reconstitution calculator</h1>
+<p class="lead">Enter the vial content, diluent volume and amount per aliquot to get concentration, exact volume and U-100 syringe units.</p>
+<div class="meta"><span>Technical guide · Vierundsechzig Peptides CR</span><span>Updated: Nov 11, 2026</span></div>
+
+<div class="box">
+<div class="calc">
+  <div><label for="mg">Vial content (mg)</label><input id="mg" type="number" inputmode="decimal" min="0" step="any" value="10"></div>
+  <div><label for="ml">Diluent volume (ml)</label><input id="ml" type="number" inputmode="decimal" min="0" step="any" value="2"></div>
+  <div><label for="mcg">Amount per aliquot (mcg)</label><input id="mcg" type="number" inputmode="decimal" min="0" step="any" value="250"></div>
+</div>
+<div class="res">
+  <div><small>Concentration</small><strong class="num" id="r1">—</strong></div>
+  <div><small>Volume per aliquot</small><strong class="num" id="r2">—</strong></div>
+  <div><small>U-100 syringe units</small><strong class="num" id="r3">—</strong></div>
+  <div><small>Aliquots per vial</small><strong class="num" id="r4">—</strong></div>
+</div>
+<div class="syr" aria-hidden="true"><svg id="syr" viewBox="0 0 640 70"></svg></div>
+<p style="font-size:13.5px;color:var(--mut);margin:10px 0 0">1 mg = 1,000 mcg · A 1 ml U-100 syringe = 100 units (each unit = 0.01 ml).</p>
+</div>
+<h2>How the math works</h2>
+<ol>
+<li><b>Concentration</b> = (vial mg × 1,000) ÷ ml of diluent, in mcg per ml.</li>
+<li><b>Volume per aliquot</b> = target mcg ÷ concentration, in ml.</li>
+<li><b>U-100 units</b> = volume in ml × 100.</li>
+</ol>
+<h3>Worked example</h3>
+<p>A 10 mg vial reconstituted with 2 ml of bacteriostatic water gives 5,000 mcg/ml. A 250 mcg aliquot is 0.05 ml — 5 units on a U-100 syringe — and the vial yields 40 equal aliquots.</p>
+<h2>Quick concentration table</h2>
+<table class="num"><thead><tr><th>Vial</th><th>1 ml</th><th>2 ml</th><th>3 ml</th></tr></thead><tbody>
+<tr><td>5 mg</td><td>5,000 mcg/ml</td><td>2,500 mcg/ml</td><td>1,667 mcg/ml</td></tr>
+<tr><td>10 mg</td><td>10,000 mcg/ml</td><td>5,000 mcg/ml</td><td>3,333 mcg/ml</td></tr>
+<tr><td>20 mg</td><td>20,000 mcg/ml</td><td>10,000 mcg/ml</td><td>6,667 mcg/ml</td></tr>
+<tr><td>50 mg</td><td>50,000 mcg/ml</td><td>25,000 mcg/ml</td><td>16,667 mcg/ml</td></tr>
+</tbody></table>
+<h2>Common mistakes</h2>
+<ul>
+<li><b>Mixing up mg and mcg</b> — a factor-of-1,000 error. Always check the vial unit.</li>
+<li><b>Using a non U-100 syringe</b> — U-40 or other scales change the unit conversion.</li>
+<li><b>Not labeling the vial</b> — write the date and concentration once reconstituted.</li>
+</ul>
+<div class="box"><h3>Lab supplies in our catalog</h3><div class="pills"><a href="../producto/agua-bacteriostatica-3ml.html">Bacteriostatic water 3 ml</a><a href="../producto/agua-bacteriostatica-10ml.html">Bacteriostatic water 10 ml</a><a href="../producto/agua-bacteriostatica-30ml.html">Bacteriostatic water 30 ml</a><a href="../producto/agua-esteril-10ml.html">Sterile water 10 ml</a><a href="../producto/jeringa-1ml-x-10-unidades.html">1 ml syringes (x10)</a><a href="../producto/pads-con-alcohol-x-100-uds.html">Alcohol pads (x100)</a></div></div>
+
+<div class="warn"><b>Research use only (RUO).</b> Vierundsechzig Peptides products are supplied exclusively for in vitro laboratory research. They are not drugs, foods, cosmetics or supplements, and are not intended for human or veterinary use. This page is technical information, not a usage recommendation.</div>
+</main>
+<footer class="foot">
+  <p><b>Vierundsechzig Peptides CR</b> · Präzision · Kraft · Innovation</p>
+  <p><a href="../index.html">Catalog</a> · <a href="index.html">English guides</a> · <a href="https://wa.me/50688789080" target="_blank" rel="noopener">WhatsApp 8878-9080</a></p>
+  <p>European-origin compounds. Manufactured by Nova Cell Peptides (NCBL Sciences OÜ, Estonia) and tested by Liquilabs s.r.o. (Czech Republic).</p>
+</footer>
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const f=(n,d)=>n.toLocaleString('en-US',{maximumFractionDigits:d});
+function run(){
+  const mg=parseFloat($('mg').value),ml=parseFloat($('ml').value),mcg=parseFloat($('mcg').value);
+  if(!(mg>0&&ml>0)){['r1','r2','r3','r4'].forEach(i=>$(i).textContent='—');draw(0);return;}
+  const c=mg*1000/ml;$('r1').textContent=f(c,1)+' mcg/ml';
+  if(!(mcg>0)){['r2','r3','r4'].forEach(i=>$(i).textContent='—');draw(0);return;}
+  const v=mcg/c,u=v*100;
+  $('r2').textContent=f(v,3)+' ml';
+  $('r3').textContent=u>100?'> 100 (over 1 ml)':f(u,1)+' units';
+  $('r4').textContent=f(Math.floor(mg*1000/mcg),0);
+  draw(Math.min(u,100));
+}
+function draw(u){
+  const s=$('syr');let g='';const x0=40,w=520;
+  g+=`<rect x="${x0}" y="18" width="${w}" height="30" rx="4" fill="none" stroke="rgba(214,180,74,.45)"/>`;
+  g+=`<rect x="${x0+1}" y="19" width="${Math.max(0,w*u/100-1)}" height="28" rx="3" fill="rgba(214,180,74,.35)"/>`;
+  for(let i=0;i<=100;i+=2){const x=x0+w*i/100,h=i%10?6:12;g+=`<line x1="${x}" y1="18" x2="${x}" y2="${18+h}" stroke="rgba(245,240,228,.55)" stroke-width="1"/>`;
+    if(i%10===0)g+=`<text x="${x}" y="64" fill="#b9b0a0" font-size="10" text-anchor="middle" font-family="IBM Plex Sans">${i}</text>`;}
+  g+=`<rect x="${x0+w}" y="26" width="60" height="14" fill="rgba(245,240,228,.15)"/><rect x="8" y="22" width="${x0-8}" height="22" fill="rgba(245,240,228,.08)"/>`;
+  s.innerHTML=g;
+}
+['mg','ml','mcg'].forEach(i=>$(i).addEventListener('input',run));run();
+})();
+</script>
+</body>
+</html>
