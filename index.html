@@ -376,6 +376,7 @@ body{background:var(--bk);color:var(--tx);font-family:'IBM Plex Sans',sans-serif
 .tab:hover{color:var(--tx);background:rgba(184,151,42,.06)}
 .tab.active{color:var(--gl);background:rgba(184,151,42,.07);border-left-color:var(--go)}
 .cc{background:var(--d2);min-height:600px}
+.cat-wrap{max-width:1280px;margin:0 auto;padding:0 48px 80px}
 .cpanel{padding:32px}
 .phdr{display:flex;align-items:center;gap:16px;padding-bottom:24px;margin-bottom:28px;border-bottom:1px solid var(--br)}
 .picon{font-size:26px}
@@ -1434,6 +1435,11 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
 @media(max-width:600px){
   .pgrid{grid-template-columns:1fr 1fr;gap:10px}
   .cpanel{padding-left:12px;padding-right:12px}
+  .cat-wrap{padding:0 12px 64px}
+  #catnav-toggle{padding:10px 5px 10px 7px;font-size:9px;letter-spacing:1.5px;gap:6px;opacity:.92}
+  #catnav-toggle .cnt-ico{font-size:12px}
+  #wa-float{width:46px;height:46px;bottom:84px!important;right:12px}
+  #wa-float svg{width:22px;height:22px}
   .pgrid>*{min-width:0}
   .pc{border-radius:12px}
   .pc-img{padding:14px 8px 8px;min-height:0}
@@ -1783,7 +1789,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
     <p class="se" data-es="Nuestro Catálogo" data-en="Our Catalogue">Nuestro Catálogo</p>
     <h2 class="st" data-es="Colección de <span>Excelencia</span>" data-en="Collection of <span>Excellence</span>">Colección de <span>Excelencia</span></h2>
   </div>
-  <div style="max-width:1280px;margin:0 auto;padding:0 48px 80px">
+  <div class="cat-wrap">
     <div class="cl">
       <div class="cs">
         <div class="cs-title" data-es="Categorías" data-en="Categories">Categorías</div>
