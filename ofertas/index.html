@@ -13,14 +13,25 @@
 <style>
 :root{--bg:#161A3D;--bg2:#1B1F48;--card:#1F2452;--line:#2E356E;--ink:#EEF1FF;--mut:#A9B1DA;--mint:#6EE7B7;--mint2:#A7F3D0;--ink-on:#101535}
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
 a{color:inherit}
 .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
 h1,h2,h3{font-family:'Space Grotesk',system-ui,sans-serif;line-height:1.1;margin:0}
-.bar{background:linear-gradient(90deg,#2A2F72,#1E4D57);color:var(--ink);font-size:14px}
-.bar .wrap{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-top:10px;padding-bottom:10px;flex-wrap:wrap}
-.bar b{color:var(--mint)}
+.bar{display:block;position:relative;overflow:hidden;background:linear-gradient(90deg,#2A2F72,#1E4D57);color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.bar::after{content:"";position:absolute;top:0;bottom:0;left:-40%;width:35%;background:linear-gradient(100deg,transparent,rgba(167,243,208,.22),transparent);animation:bar-sweep 3.6s ease-in-out infinite;pointer-events:none}
+@keyframes bar-sweep{0%{left:-40%}60%,100%{left:120%}}
+@media (prefers-reduced-motion:reduce){.bar::after{animation:none;display:none}}
+.bf{display:flex;align-items:center;gap:12px;padding-top:12px;padding-bottom:12px}
+.bf-ico{flex:none;width:40px;height:40px;border-radius:50%;background:rgba(110,231,183,.14);color:var(--mint);display:flex;align-items:center;justify-content:center}
+.bf-txt{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.bf-txt b{font-family:'Space Grotesk',sans-serif;font-size:16px;line-height:1.2}
+.bf-txt span{font-size:13px;color:var(--mut)}
+.bf-txt span b{font-family:inherit;font-size:inherit;color:var(--mint)}
+.bf-cd{flex:none;text-align:right;background:rgba(255,255,255,.07);border-radius:10px;padding:6px 10px;display:flex;flex-direction:column}
+.bf-cd small{font-size:10px;letter-spacing:.08em;color:var(--mut)}
+.bf-cd b{font-family:'Space Grotesk',sans-serif;font-size:15px;font-variant-numeric:tabular-nums;white-space:nowrap}
 header.top{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:12px;flex-wrap:wrap}
 header.top img{width:54px;height:54px;border-radius:14px;display:block}
 header.top .wa{margin-left:auto}
@@ -124,7 +135,28 @@ details p{color:var(--mut);margin:10px 0 0;font-size:15px}
   .btns{flex-direction:column;gap:6px;padding-top:4px}
   .btns .add,.btns .ghost{width:100%;padding:9px 6px;font-size:13px;border-radius:10px}
   .btns .ghost{border:0;color:var(--mut);text-decoration:underline;padding:4px}
-  .hero h1{font-size:34px}
+  .hero h1{font-size:30px;margin:12px 0 8px}
+  .bf{gap:10px;padding-top:9px;padding-bottom:9px}
+  .bf-ico{width:32px;height:32px}
+  .bf-ico svg{width:17px;height:17px}
+  .bf-txt b{font-size:14.5px}
+  .bf-txt span{font-size:12px}
+  .bf-cd{padding:5px 8px}
+  .bf-cd small{font-size:9px}
+  .bf-cd b{font-size:14px}
+  header.top{padding:10px 0;gap:8px 12px}
+  header.top img{width:46px;height:46px;border-radius:12px}
+  nav.menu{font-size:13.5px}
+  .hero{padding:18px 0 14px}
+  .hero p.lead{font-size:15px}
+  .hero .timer{display:none}
+  .until{margin:10px 0 14px;font-size:12.5px}
+  .cta a{padding:12px 16px;font-size:14.5px}
+  .trust{margin-top:18px;gap:8px;font-size:12.5px}
+  .trust div{padding-top:8px}
+  .trust b{font-size:14px}
+  #productos{padding-top:28px}
+  #productos .sec-p{font-size:14.5px;margin-bottom:16px}
 }
 
 /* Carrito */
@@ -155,7 +187,13 @@ body.hascart{padding-bottom:110px}
 .green{color:#86EFAC}
 .dnote{color:var(--mut);font-size:13px;margin:6px 0 0}
 .ruo-ck{display:flex;gap:10px;align-items:flex-start;background:rgba(110,231,183,.08);border:1px solid rgba(110,231,183,.3);border-radius:14px;padding:12px;margin:14px 0;font-size:13px;color:var(--ink);cursor:pointer}
-.ruo-ck input{margin-top:3px;accent-color:var(--mint);width:18px;height:18px;flex:none}
+.ruo-ck input,.mk-ck input{margin-top:3px;accent-color:var(--mint);width:18px;height:18px;flex:none}
+.dform{display:grid;gap:10px;margin-top:14px}
+.fld{display:grid;gap:6px;font-size:13px;color:var(--mut)}
+.fld small{color:var(--mut);opacity:.8}
+.fld input{width:100%;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;color:var(--ink);font:inherit;font-size:16px}
+.fld input:focus{outline:2px solid var(--mint);outline-offset:1px;border-color:transparent}
+.mk-ck{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--ink);cursor:pointer}
 .big{display:block;text-align:center;padding:15px;border-radius:14px;font-weight:700;text-decoration:none}
 #wa-send.disabled{opacity:.45;pointer-events:none}
 
@@ -163,7 +201,7 @@ body.hascart{padding-bottom:110px}
 </style>
 </head>
 <body>
-<div class="bar"><div class="wrap"><span><b>20 %</b> de descuento en productos seleccionados</span><span>Termina en <b id="bar-t">--</b></span></div></div>
+<a class="bar" href="#productos"><div class="wrap bf"><span class="bf-ico"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></span><span class="bf-txt"><b>Nos preparamos para el Black Friday</b><span><b>20 %</b> en productos seleccionados</span></span><span class="bf-cd"><small>TERMINA EN</small><b id="bar-t">--</b></span></div></a>
 
 <div class="wrap">
 <header class="top">
@@ -438,6 +476,11 @@ body.hascart{padding-bottom:110px}
     <div id="d-save-row" hidden><span>Ahorro en oferta</span><b class="green" id="d-save">₡0</b></div>
     <p class="dnote">Envío: se coordina por WhatsApp según tu zona. Pagás por SINPE Móvil, transferencia o efectivo.</p>
   </div>
+  <div class="dform">
+    <label class="fld" for="c-name"><span>Nombre <small>(opcional)</small></span><input id="c-name" type="text" autocomplete="name" maxlength="60" placeholder="Para identificar tu pedido"></label>
+    <label class="mk-ck"><input type="checkbox" id="mkt"><span>Acepto recibir promociones vía correo electrónico.</span></label>
+    <label class="fld" id="mail-row" for="c-mail" hidden><span>Correo electrónico <small>(opcional)</small></span><input id="c-mail" type="email" autocomplete="email" maxlength="80" placeholder="tu@correo.com"></label>
+  </div>
   <label class="ruo-ck"><input type="checkbox" id="ruo"><span>Confirmo que estos productos son para <b>uso exclusivo en investigación de laboratorio</b>.</span></label>
   <a id="wa-send" class="solid big disabled" href="https://wa.me/50688789080" target="_blank" rel="noopener" aria-disabled="true">Enviar pedido por WhatsApp</a>
 </aside>
@@ -460,7 +503,7 @@ body.hascart{padding-bottom:110px}
     var dd = Math.floor(d/864e5), hh = Math.floor(d%864e5/36e5), mm = Math.floor(d%36e5/6e4), ss = Math.floor(d%6e4/1e3);
     var vals = [dd, String(hh).padStart(2,"0"), String(mm).padStart(2,"0"), String(ss).padStart(2,"0")];
     ids.forEach(function(id,i){ var el=document.getElementById(id); if(el) el.textContent = vals[i]; });
-    var bar=document.getElementById("bar-t"); if(bar) bar.textContent = dd + " d " + String(hh).padStart(2,"0") + " h";
+    var bar=document.getElementById("bar-t"); if(bar) bar.textContent = dd + "d " + String(hh).padStart(2,"0") + "h";
   }
   tick(); setInterval(tick, 1000);
 })();
@@ -487,11 +530,18 @@ body.hascart{padding-bottom:110px}
   function setQty(k, q){ if (q <= 0) delete cart[k]; else cart[k] = q; save(); render(); }
   function updateWA(){
     var a = $("wa-send");
-    var lines = ["Hola, quiero hacer este pedido:"];
-    items().forEach(function(k){ lines.push("- " + D[k].name + " x" + cart[k] + ": " + fmt(D[k].final * cart[k])); });
-    if (items().length) lines.push("- Agua Bacteriostática 3ml x1: gratis");
-    lines.push("Total: " + fmt(total()));
-    lines.push("Confirmo que son para uso en investigación de laboratorio.");
+    var lines = ["🛒 *NUEVO PEDIDO — Vierundsechzig Peptides*", "_Ventana de precio_", "", "*Productos:*"];
+    items().forEach(function(k){
+      var d = D[k], q = cart[k];
+      lines.push("• " + q + "x " + d.name + (d.pct ? "  (oferta -" + d.pct + "%)" : ""));
+      lines.push("   " + fmt(d.final) + " c/u  =  " + fmt(d.final * q));
+    });
+    if (items().length) lines.push("• 1x Agua Bacteriostática 3ml  →  GRATIS");
+    lines.push("", "————————————————", "*Artículos:* " + count());
+    lines.push("*TOTAL:* " + fmt(total()));
+    var nm = $("c-name").value.trim(), ok = $("mkt").checked, ml = ok ? $("c-mail").value.trim() : "";
+    if (nm || ml) { lines.push(""); if (nm) lines.push("*Cliente:* " + nm); if (ml) lines.push("*Correo:* " + ml); }
+    lines.push("", "*Marketing:* " + (ok ? "✅ Sí acepta promociones vía correo electrónico" : "❌ No acepta promociones vía correo electrónico"));
     a.setAttribute("href", WA + encodeURIComponent(lines.join("\n")));
     a.classList.toggle("disabled", !canSend());
     a.setAttribute("aria-disabled", canSend() ? "false" : "true");
@@ -538,6 +588,8 @@ body.hascart{padding-bottom:110px}
     if (send && !canSend()) e.preventDefault();
   });
   $("ruo").addEventListener("change", updateWA);
+  $("mkt").addEventListener("change", function(){ $("mail-row").hidden = !this.checked; updateWA(); });
+  ["c-name", "c-mail"].forEach(function(id){ $(id).addEventListener("input", updateWA); });
   document.addEventListener("keydown", function(e){ if (e.key === "Escape") closeD(); });
   render();
 })();
