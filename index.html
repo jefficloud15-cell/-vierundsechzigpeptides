@@ -4283,9 +4283,9 @@ function buildOrderText(){
   const consent = consentEl ? consentEl.checked : false;
   lines.push('');
   if(isES){
-    lines.push('*Marketing:* ' + (consent ? '✅ SÍ acepta promociones' : '❌ No acepta promociones'));
+    lines.push('*Marketing:* ' + (consent ? '✅ Sí acepta promociones vía correo electrónico' : '❌ No acepta promociones vía correo electrónico'));
   } else {
-    lines.push('*Marketing:* ' + (consent ? '✅ YES, accepts promotions' : '❌ Does not accept promotions'));
+    lines.push('*Marketing:* ' + (consent ? '✅ Accepts promotions via email' : '❌ Does not accept promotions via email'));
   }
   return lines.join('\n');
 }
