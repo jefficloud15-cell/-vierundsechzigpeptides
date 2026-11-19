@@ -103,6 +103,31 @@ html.vp-loading .hey,html.vp-loading .hh,html.vp-loading .hs,html.vp-loading .hc
   .vpi-bar i{animation:none;transform:scaleX(1)}
   #vp-intro.vpi-out{transition-duration:.2s;transform:none}
 }
+
+/* enlace a ofertas */
+#tb-nav a.nav-of,#mobile-menu a[href]{color:var(--gl);text-decoration:none}
+#tb-nav a.nav-of b{font-weight:500;font-size:9px;letter-spacing:.5px;margin-left:6px;padding:2px 5px;border:1px solid var(--br);border-radius:3px;color:var(--gl)}
+.ofr-wrap{max-width:1280px;margin:-28px auto 36px;padding:0 48px}
+.ofr{position:relative;overflow:hidden;display:flex;align-items:center;gap:28px;padding:22px 28px;border:1px solid var(--br);border-radius:4px;background:linear-gradient(100deg,rgba(184,151,42,.10),rgba(184,151,42,.02) 60%);text-decoration:none;color:var(--tx);transition:border-color .3s,transform .3s}
+.ofr:hover{border-color:var(--go);transform:translateY(-1px)}
+.ofr::after{content:'';position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(212,175,55,.13) 50%,transparent 70%);transform:translateX(-100%);animation:ofr-sweep 5s ease-in-out infinite;pointer-events:none}
+@keyframes ofr-sweep{0%,55%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+.ofr-pct{font-family:'Spectral',serif;font-size:44px;font-weight:300;line-height:1;color:var(--gl);white-space:nowrap}
+.ofr-pct small{font-size:.5em;margin-left:2px}
+.ofr-txt{flex:1;min-width:0}
+.ofr-k{display:block;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--go);font-weight:500;margin-bottom:6px}
+.ofr-h{display:block;font-family:'Spectral',serif;font-size:21px;line-height:1.25}
+.ofr-s{display:block;font-size:13px;color:var(--mu);margin-top:4px}
+.ofr-cta{font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;color:var(--bk);background:var(--gl);padding:12px 20px;border-radius:2px;white-space:nowrap}
+@media(max-width:600px){
+  .ofr-wrap{margin:-36px auto 22px;padding:0 12px}
+  .ofr{gap:14px;padding:14px 14px;flex-wrap:wrap}
+  .ofr-pct{font-size:34px}
+  .ofr-k{font-size:9px;letter-spacing:2px;margin-bottom:3px}
+  .ofr-h{font-size:16px}.ofr-s{font-size:12px;margin-top:2px}
+  .ofr-cta{width:100%;text-align:center;padding:10px}
+}
+@media(prefers-reduced-motion:reduce){.ofr::after{animation:none;display:none}}
 </style>
 <noscript><style>#vp-intro{display:none!important}</style></noscript>
 <!-- ══ FIN INTRO ═════════════════════════════════════════════ -->
@@ -1664,6 +1689,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 <div id="tb">
   <img src="img/ui/vp-6d3a113b.webp" loading="lazy" decoding="async" alt="VP" id="tb-logo" width="320" height="320" onclick="scrollToSec('hero')">
   <nav id="tb-nav">
+    <a class="nav-of" href="ofertas/" data-href-es="ofertas/" data-href-en="en/offers.html" data-es="Ofertas<b>-20%</b>" data-en="Offers<b>-20%</b>">Ofertas<b>-20%</b></a>
     <a onclick="scrollToSec('cat')" data-es="Catálogo" data-en="Catalogue">Catálogo</a>
     <a onclick="scrollToSec('how')" data-es="Cómo Funciona" data-en="How It Works">Cómo Funciona</a>
     <a onclick="scrollToSec('quality')" data-es="Calidad" data-en="Quality">Calidad</a>
@@ -1686,6 +1712,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 
 
 <div id="mobile-menu" style="transform:translateX(100%)">
+  <a href="ofertas/" data-href-es="ofertas/" data-href-en="en/offers.html" data-es="Ofertas · -20%" data-en="Offers · -20%" style="color:var(--gl)">Ofertas · -20%</a>
   <a onclick="scrollToSec('cat');toggleMobileMenu()" data-es="Catálogo" data-en="Catalogue">Catálogo</a>
   <a onclick="scrollToSec('featured');toggleMobileMenu()" data-es="Destacado" data-en="Featured">Destacado</a>
   <a onclick="scrollToSec('how');toggleMobileMenu()" data-es="Cómo Funciona" data-en="How It Works">Cómo Funciona</a>
@@ -1788,6 +1815,17 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
   <div class="sw">
     <p class="se" data-es="Nuestro Catálogo" data-en="Our Catalogue">Nuestro Catálogo</p>
     <h2 class="st" data-es="Colección de <span>Excelencia</span>" data-en="Collection of <span>Excellence</span>">Colección de <span>Excelencia</span></h2>
+  </div>
+  <div class="ofr-wrap">
+    <a class="ofr" href="ofertas/" data-href-es="ofertas/" data-href-en="en/offers.html">
+      <div class="ofr-pct">20<small>%</small></div>
+      <div class="ofr-txt">
+        <div class="ofr-k" data-es="Ventana de precio" data-en="Price window">Ventana de precio</div>
+        <div class="ofr-h" data-es="Hasta 20 % en productos seleccionados" data-en="Up to 20% off selected products">Hasta 20 % en productos seleccionados</div>
+        <div class="ofr-s" data-es="Válido hasta el 30 de noviembre" data-en="Valid until November 30">Válido hasta el 30 de noviembre</div>
+      </div>
+      <div class="ofr-cta" data-es="Ver ofertas →" data-en="See offers →">Ver ofertas →</div>
+    </a>
   </div>
   <div class="cat-wrap">
     <div class="cl">
@@ -3597,6 +3635,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 <footer>
   <img src="img/ui/vp-6d3a113b.webp" loading="lazy" decoding="async" alt="VP">
   <p>© 2026 Vierundsechzig Peptides — Costa Rica</p>
+  <p style="margin-top:6px"><a href="ofertas/" data-href-es="ofertas/" data-href-en="en/offers.html" data-es="Ofertas vigentes" data-en="Current offers" style="color:var(--go);text-decoration:none;font-size:13px;letter-spacing:1px">Ofertas vigentes</a></p>
   <p style="margin-top:6px"><a href="mailto:vierundsechzigpeptidescr@gmail.com" style="color:var(--go);text-decoration:none;font-size:13px">vierundsechzigpeptidescr@gmail.com</a></p>
   <div class="legal-disclaimer">
     <div class="ld-title" data-es="⚠ Aviso Legal" data-en="⚠ Legal Notice">⚠ Aviso Legal</div>
@@ -3747,6 +3786,7 @@ function tL(){
   document.getElementById('hs').textContent=lang==='es'?'Péptidos de investigación de grado farmacéutico. Pureza 99%. Formulados con precisión europea para resultados sin compromiso.':'Pharmaceutical-grade research peptides. 99% purity. Formulated with European precision for uncompromising results.';
   document.getElementById('hcta').textContent=lang==='es'?'Explorar Catálogo':'Explore Catalogue';
   document.querySelectorAll('[data-es]').forEach(el=>{const v=el.getAttribute('data-'+lang);if(v!==null)el.innerHTML=v});
+  document.querySelectorAll('[data-href-es]').forEach(el=>{el.href=el.getAttribute('data-href-'+lang)});
   document.querySelectorAll('.pc-price,.pc-price-old').forEach(el=>{el.textContent=el.getAttribute(lang==='es'?'data-crc':'data-usd')});
   document.querySelectorAll('.pc-curr').forEach(el=>{el.textContent=lang==='es'?'Colones':'US Dollars'});
   const si=document.getElementById('search-input');if(si)si.placeholder=si.getAttribute('data-'+lang+'-ph');
