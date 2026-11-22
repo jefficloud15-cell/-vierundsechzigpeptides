@@ -763,15 +763,7 @@ body:has(#modal-overlay.open) #wa-float{opacity:0;pointer-events:none;transform:
 
 
 #testimonios{max-width:1280px;margin:0 auto;padding:90px 48px;text-align:center}
-.tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1100px;margin:0 auto}
-.tcard{position:relative;background:linear-gradient(160deg,var(--d2),var(--d1));border:1px solid var(--br);border-radius:14px;padding:38px 30px 30px;text-align:left;transition:transform .4s cubic-bezier(.16,1,.3,1),border-color .4s,box-shadow .4s;overflow:hidden}
-.tcard:hover{transform:translateY(-5px);border-color:var(--go);box-shadow:0 14px 40px var(--shadow)}
-.tquote{position:absolute;top:6px;left:22px;font-family:'Spectral',serif;font-size:84px;line-height:1;color:var(--go);opacity:.16;pointer-events:none}
-.ttext{font-family:'Spectral',serif;font-size:21px;font-weight:300;line-height:1.5;color:var(--tx);font-style:italic;margin:0 0 22px;position:relative;z-index:1}
-.tauthor{display:flex;flex-direction:column;gap:3px;border-top:1px solid var(--br);padding-top:16px}
-.tname{font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:600;letter-spacing:.5px;color:var(--gl)}
-.tmeta{font-family:'IBM Plex Sans',sans-serif;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mu)}
-@media(max-width:600px){#testimonios{padding:64px 24px}.tgrid{grid-template-columns:1fr}}
+@media(max-width:600px){#testimonios{padding:64px 24px}}
 
 
 /* ── CARRITO ─────────────────────────────────────────────── */
@@ -854,7 +846,6 @@ body.light .sn-label{background:rgba(250,247,240,.95)}
 /* ── OPTIMIZACIÓN DE SCROLL ──────────────────────────────── */
 section,footer,#testimonios{content-visibility:auto;contain-intrinsic-size:auto 700px}
 .pc{contain:layout style paint}
-.tcard{contain:layout style paint}
 #hl{backface-visibility:hidden}
 
 
@@ -987,7 +978,7 @@ body.light #toast{background:rgba(250,247,240,.98);color:var(--bk)}
 #wa-float{transition:transform .3s cubic-bezier(.16,1,.3,1),box-shadow .3s ease}
 #wa-float:hover{transform:scale(1.08)}
 /* Suavizar TODOS los cambios de color (modo claro/oscuro, hovers) */
-.pc,.tcard,.catnav-item,.mbar-item,.tb-nav a{transition:color .3s ease,background-color .3s ease,border-color .3s ease,transform .4s cubic-bezier(.16,1,.3,1),box-shadow .4s ease}
+.pc,.rv,.catnav-item,.mbar-item,.tb-nav a{transition:color .3s ease,background-color .3s ease,border-color .3s ease,transform .4s cubic-bezier(.16,1,.3,1),box-shadow .4s ease}
 
 
 /* ── REFINAMIENTO MÓVIL: menos apretado, elementos más respirables ── */
@@ -1330,10 +1321,12 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
 }
 
 /* ── HERO · FOTO A PANTALLA COMPLETA CON ZONAS CLICKEABLES ─── */
-#hero{background:#020202}
-.hphoto{position:absolute;inset:0;overflow:hidden;z-index:1;background:#020202}
+#hero{background:#3b352f}
+.hphoto{position:absolute;inset:0;overflow:hidden;z-index:1;background:#3b352f}
 .hphoto img{position:absolute;right:0;bottom:0;left:auto;top:auto;
-  width:90%;height:90%;object-fit:contain;object-position:right bottom}
+  width:100%;height:100%;object-fit:cover;object-position:right bottom}
+@media(min-width:1025px){.hphoto::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:linear-gradient(90deg,rgba(18,15,12,.66) 0%,rgba(18,15,12,.46) 30%,rgba(18,15,12,0) 52%)}}
 .hspots{position:absolute;pointer-events:none;z-index:3}
 .hero-grid{position:relative;z-index:4;grid-template-columns:1fr;pointer-events:none}
 .hero-left{pointer-events:auto}
@@ -1371,6 +1364,8 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
   transition:opacity .35s ease,transform .35s ease}
 .vial:hover .copy{transform:translateY(-1.1%)}
 .vial:hover .sombra{opacity:1}
+/* La jeringa de la foto nueva pasa por delante de las bases: sin levitar, solo etiqueta y clic */
+.lift,.sombra{display:none}
 .vial:hover .hit b,.hit:focus-visible b{opacity:1;transform:translate(-50%,0)}
 @media(prefers-reduced-motion:reduce){
   .copy,.sombra,.hit b{transition:none}
@@ -1393,21 +1388,27 @@ body.light #catnav{background:rgba(12,12,12,.98)!important}
 }
 @media(max-width:1024px){
   #hero{display:flex;flex-direction:column;justify-content:flex-start;
-        min-height:auto;padding:92px 20px 0}
+        min-height:auto;padding:84px 20px 0}
   .hero-grid{order:1;margin-bottom:8px}
   .hero-left .hey{display:none}            /* el eslogan ya viene en el emblema */
-  #hl{margin-bottom:22px}
-  .hero-left .hh{margin-bottom:20px}
-  .hero-left .hs{margin-bottom:30px}
+  #hl{margin-bottom:10px;aspect-ratio:680/420;object-fit:cover;object-position:50% 15%}  /* recorta el aire transparente del emblema */
+  .hero-left .hh{margin-bottom:14px}
+  .hero-left .hs{margin-bottom:22px}
   .hphoto{order:2;position:relative;inset:auto;width:calc(100% + 40px);
-          margin:20px -20px 0;height:auto;aspect-ratio:1160/817}
+          margin:6px -20px 0;height:auto;aspect-ratio:1160/817}
+  /* Fondo que pasa del tono de arriba al de la foto desde el subtítulo, sin corte */
+  #hero{background:
+    radial-gradient(ellipse 70% 26% at 88% 70%,rgba(176,140,100,.30),rgba(176,140,100,0) 70%),
+    linear-gradient(180deg,#3b352f 0%,#3b352f 40%,#4d443c 52%,#64584f 64%,#6b5e55 100%)}
+  .hphoto{background:transparent}
   .hphoto img{position:absolute;inset:0;width:100%;height:100%;
-              object-fit:contain;object-position:center bottom}
+              object-fit:contain;object-position:center bottom;
+              -webkit-mask-image:linear-gradient(to bottom,transparent 0,rgba(0,0,0,.6) 7%,#000 15%);mask-image:linear-gradient(to bottom,transparent 0,rgba(0,0,0,.6) 7%,#000 15%)}
   #tkw{order:3;position:relative;margin:0 -20px}
   .lift,.sombra{display:none}          /* sin cursor no hay a que reaccionar */
-  .v1{--l:22.87;--w:19.04}
-  .v2{--l:42.89;--w:19.53}
-  .v3{--l:63.24;--w:18.87}
+  .v1{--l:24.05;--w:18.86}
+  .v2{--l:43.85;--w:19.22}
+  .v3{--l:64.16;--w:18.70}
   .hit b{opacity:0}
 }
 
@@ -1499,6 +1500,99 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 #tb-nav a.nav-news{text-decoration:none}
 @media (min-width:1025px) and (max-width:1480px){#tb{padding-left:28px;padding-right:28px;gap:16px}#tb-nav{gap:18px}#tb-nav a{font-size:11px;letter-spacing:1px}#tb-r{gap:8px}.twa{padding:7px 10px}}
 @media (min-width:1025px) and (max-width:1260px){#tb-nav{gap:14px}.twa span+span{display:none}#tb-nav a[data-es="Testimonios"]{display:none}}
+
+/* ── OPINIONES DE GOOGLE ─────────────────────────────────── */
+#testimonios .rv-grid{display:grid;grid-template-columns:minmax(260px,310px) 1fr;gap:22px;max-width:1180px;margin:0 auto;text-align:left;align-items:stretch}
+.rv-sum{background:linear-gradient(160deg,var(--d2),var(--d1));border:1px solid var(--go);border-radius:14px;padding:34px 28px;display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.rv-score{font-family:'Spectral',serif;font-weight:300;font-size:78px;line-height:1;color:var(--gl);letter-spacing:-.02em}
+.rv-stars{display:flex;gap:3px;color:var(--gl)}
+.rv-stars svg{width:15px;height:15px;fill:currentColor}
+.rv-stars.lg svg{width:22px;height:22px}
+.rv-count{font-family:'IBM Plex Sans',sans-serif;font-size:13.5px;line-height:1.55;color:var(--mu);margin:4px 0 14px}
+.rv-btn{display:inline-block;border:1px solid var(--go);color:var(--gl);font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;padding:13px 24px;border-radius:40px;text-decoration:none;transition:background .3s,color .3s}
+.rv-btn:hover{background:var(--go);color:var(--bk)}
+.rv-link{font-family:'IBM Plex Sans',sans-serif;font-size:12.5px;color:var(--tx);opacity:.78;text-decoration:underline;text-underline-offset:3px;margin-top:4px}
+.rv-track{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.rv{background:linear-gradient(160deg,var(--d2),var(--d1));border:1px solid var(--br);border-radius:14px;padding:24px 22px;display:flex;flex-direction:column;gap:12px;transition:transform .4s cubic-bezier(.16,1,.3,1),border-color .4s}
+.rv:hover{transform:translateY(-4px);border-color:var(--go)}
+.rv.wide{grid-column:span 2}
+.rv.ph{border-style:dashed;opacity:.65}
+.rv-h{display:flex;align-items:center;gap:12px}
+.rv-av{width:40px;height:40px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-family:'Spectral',serif;font-size:19px;color:var(--gl);background:var(--d3);border:1px solid var(--br)}
+.rv-who{display:flex;flex-direction:column;line-height:1.3;font-family:'IBM Plex Sans',sans-serif}
+.rv-n{font-size:14px;font-weight:600;color:var(--tx)}
+.rv-src{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mu)}
+.rv-t{font-family:'Spectral',serif;font-size:19px;font-weight:300;line-height:1.5;color:var(--tx);margin:0}
+@media(max-width:900px){#testimonios .rv-grid{grid-template-columns:1fr}.rv-sum{align-items:center;text-align:center}}
+@media(max-width:700px){
+  .rv-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:0 -24px;padding:4px 24px 14px;scrollbar-width:none}
+  .rv-track::-webkit-scrollbar{display:none}
+  .rv{flex:0 0 80%;scroll-snap-align:center}
+  .rv.wide{grid-column:auto}
+  .rv-score{font-size:56px}
+  .rv-sum{padding:24px 20px;gap:6px}
+  .rv-count{margin:2px 0 10px}
+  .rv-t{font-size:17px}
+}
+
+/* Insignia VP del encabezado, un poco mas chica */
+#tb-logo{height:34px}
+@media(max-width:1024px){#tb-logo{height:30px}}
+
+/* ── CENTRO DE INFORMACIÓN ────────────────────────────────── */
+#info{padding:120px 48px;background:var(--bk);position:relative}
+.info-inner{max-width:1240px;margin:0 auto}
+.info-head{text-align:center;max-width:720px;margin:0 auto 52px}
+.info-head .st{margin-bottom:14px}
+.info-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.ic{display:flex;flex-direction:column;gap:10px;text-decoration:none;background:linear-gradient(160deg,var(--d2),var(--d1));border:1px solid var(--br);border-radius:14px;overflow:hidden;padding-bottom:22px;transition:transform .4s cubic-bezier(.16,1,.3,1),border-color .4s}
+.ic:hover{transform:translateY(-4px);border-color:var(--go)}
+.ic-img{display:block;aspect-ratio:16/10;overflow:hidden;background:var(--d3)}
+.ic-img img{width:100%;height:100%;object-fit:cover;object-position:center 8%;display:block;transition:transform .6s ease}
+.ic:hover .ic-img img{transform:scale(1.04)}
+.ic-k{font-family:'IBM Plex Sans',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--go);padding:6px 22px 0}
+.ic-t{font-family:'Spectral',serif;font-size:21px;font-weight:400;line-height:1.3;color:var(--tx);padding:0 22px}
+.ic-d{font-size:14px;line-height:1.7;color:var(--mu)}
+.ic-go{font-family:'IBM Plex Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:1px;color:var(--gl);padding:4px 22px 0;margin-top:auto}
+.ic-lead{grid-column:1/-1;flex-direction:row;padding-bottom:0}
+.ic-lead .ic-img{flex:0 0 auto;width:min(34%,340px);aspect-ratio:4/5}
+.ic-lead .ic-img img{object-position:center}
+.ic-lead .ic-body{flex:1 1 0;display:flex;flex-direction:column;gap:16px;justify-content:center;padding:44px 56px;max-width:720px}
+.ic-lead .ic-k,.ic-lead .ic-t,.ic-lead .ic-go{padding:0}
+.ic-lead .ic-t{font-size:clamp(28px,2.8vw,42px);font-weight:300;line-height:1.15}
+.ic-lead .ic-d{font-size:15px}
+.ic-lead .ic-go{margin-top:8px}
+.info-cta{text-align:center;margin-top:48px}
+.info-btn{opacity:1;animation:none}
+@media(max-width:1024px){.info-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){#info{padding:70px 20px}
+  .info-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:0 -20px;padding:4px 20px 14px;scrollbar-width:none}
+  .info-grid::-webkit-scrollbar{display:none}
+  .ic{flex:0 0 78%;scroll-snap-align:center}
+  .ic-lead{flex:0 0 88%;flex-direction:column}
+  .ic-lead .ic-img{width:100%;aspect-ratio:16/10;flex:none}
+  .ic-lead .ic-img img{object-position:center 8%}
+  .info-btn{padding:16px 26px;letter-spacing:2px;font-size:10.5px}
+  .ic-lead .ic-body{padding:6px 22px 22px;gap:10px}
+  .ic-lead .ic-t{font-size:23px}.ic-lead .ic-d{display:none}
+  .ic-t{font-size:19px}}
+
+/* ── VIERUNDSECHZIG JOURNAL ───────────────────────────────── */
+#journal{padding:40px 48px 110px;background:var(--bk)}
+.jr-inner{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);border:1px solid var(--br);border-radius:16px;overflow:hidden;background:linear-gradient(160deg,var(--d2),var(--d1))}
+.jr-lead{display:block;min-height:100%;overflow:hidden}
+.jr-lead img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+.jr-lead:hover img{transform:scale(1.03)}
+.jr-body{padding:44px 48px;display:flex;flex-direction:column}
+.jr-title{font-family:'Spectral',serif;font-weight:300;font-size:clamp(30px,3vw,42px);color:var(--tx);margin:0 0 6px;letter-spacing:-.01em}
+.jr-title span{color:var(--gl);font-style:italic}
+.jr-list{display:flex;flex-direction:column;margin:22px 0 18px;border-top:1px solid var(--br)}
+.jn{display:flex;flex-direction:column;gap:4px;padding:14px 0;border-bottom:1px solid var(--br);text-decoration:none}
+.jn-k{font-family:'IBM Plex Sans',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--go)}
+.jn-t{font-family:'Spectral',serif;font-size:18px;line-height:1.35;color:var(--tx);transition:color .3s}
+.jn:hover .jn-t{color:var(--gl)}
+.jr-go{font-family:'IBM Plex Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:1px;color:var(--gl);text-decoration:none;margin-top:auto}
+@media(max-width:900px){#journal{padding:20px 20px 70px}.jr-inner{grid-template-columns:1fr}.jr-lead{aspect-ratio:16/9}.jr-body{padding:28px 22px}}
 </style>
 </head>
 <body>
@@ -1693,7 +1787,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 
 
 <div id="tb">
-  <img src="img/ui/vp-6d3a113b.webp" loading="lazy" decoding="async" alt="VP" id="tb-logo" width="320" height="320" onclick="scrollToSec('hero')">
+  <img src="img/ui/vp-badge.webp" decoding="async" alt="Vierundsechzig Peptides" id="tb-logo" width="192" height="192" onclick="scrollToSec('hero')">
   <nav id="tb-nav">
     <a class="nav-of" href="ofertas/" data-href-es="ofertas/" data-href-en="en/offers.html" data-es="Ofertas<b>-20%</b>" data-en="Offers<b>-20%</b>">Ofertas<b>-20%</b></a>
     <a class="nav-news" href="noticias/" data-href-es="noticias/" data-href-en="en/news.html" data-es="Noticias" data-en="News">Noticias</a>
@@ -1742,9 +1836,9 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
            alt="Viales de Vierundsechzig Peptides: Retatrutide 20mg, KLOW 80mg e Ipamorelin 10mg">
     </picture>
     <div class="hspots" id="hspots">
-      <div class="vial v1" style="--l:53.0;--t:7.5;--w:11.6;--h:72.5;--gt:7"><span class="lift"><i class="fill"></i><i class="copy"></i></span><span class="sombra"></span><a class="hit" href="#cat" onclick="jumpCat('glp1');return false" aria-label="Ver categoria GLP-1 y Triple Agonistas"><b>Retatrutide 20mg</b></a></div>
-      <div class="vial v2" style="--l:65.2;--t:16.5;--w:11.9;--h:70.0;--gt:7"><span class="lift"><i class="fill"></i><i class="copy"></i></span><span class="sombra"></span><a class="hit" href="#cat" onclick="jumpCat('piel');return false" aria-label="Ver categoria Piel y Belleza"><b>KLOW 80mg</b></a></div>
-      <div class="vial v3" style="--l:77.6;--t:8.5;--w:11.5;--h:72.5;--gt:7"><span class="lift"><i class="fill"></i><i class="copy"></i></span><span class="sombra"></span><a class="hit" href="#cat" onclick="jumpCat('musculo');return false" aria-label="Ver categoria Musculo y Rendimiento"><b>Ipamorelin 10mg</b></a></div>
+      <div class="vial v1" style="--l:53.69;--t:14.51;--w:11.50;--h:65.48;--gt:7"><span class="lift"><i class="fill"></i><i class="copy"></i></span><span class="sombra"></span><a class="hit" href="#cat" onclick="jumpCat('glp1');return false" aria-label="Ver categoria GLP-1 y Triple Agonistas"><b>Retatrutide 20mg</b></a></div>
+      <div class="vial v2" style="--l:65.76;--t:18.45;--w:11.72;--h:67.86;--gt:7"><span class="lift"><i class="fill"></i><i class="copy"></i></span><span class="sombra"></span><a class="hit" href="#cat" onclick="jumpCat('piel');return false" aria-label="Ver categoria Piel y Belleza"><b>KLOW 80mg</b></a></div>
+      <div class="vial v3" style="--l:78.15;--t:14.96;--w:11.40;--h:65.25;--gt:7"><span class="lift"><i class="fill"></i><i class="copy"></i></span><span class="sombra"></span><a class="hit" href="#cat" onclick="jumpCat('musculo');return false" aria-label="Ver categoria Musculo y Rendimiento"><b>Ipamorelin 10mg</b></a></div>
     </div>
   </div>
     
@@ -3389,6 +3483,66 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
   </div>
 </div>
 
+<div id="info">
+  <div class="info-inner">
+    <div class="info-head reveal">
+      <p class="se" data-es="Centro de información" data-en="Information center">Centro de información</p>
+      <h2 class="st" data-es="Aprendé antes de <span>investigar</span>" data-en="Learn before you <span>research</span>">Aprendé antes de <span>investigar</span></h2>
+      <p class="offer-sub" data-es="Guías y artículos escritos por nuestro equipo, con fuentes, sobre cómo funcionan los péptidos, cómo se verifica su calidad y cómo se conservan." data-en="Guides and articles written by our team, with sources, on how peptides work, how their quality is verified and how they are stored.">Guías y artículos escritos por nuestro equipo, con fuentes, sobre cómo funcionan los péptidos, cómo se verifica su calidad y cómo se conservan.</p>
+    </div>
+    <div class="info-grid">
+      <a class="ic ic-lead reveal" href="articulos/que-son-los-peptidos-de-investigacion.html" data-href-es="articulos/que-son-los-peptidos-de-investigacion.html" data-href-en="en/what-are-research-peptides.html">
+        <span class="ic-img"><img src="articulos/img/que-es-un-peptido.webp" alt="" loading="lazy" decoding="async" width="1200" height="750"></span>
+        <span class="ic-body">
+          <span class="ic-k" data-es="Guía pilar · Empezá aquí" data-en="Core guide · Start here">Guía pilar · Empezá aquí</span>
+          <span class="ic-t" data-es="Qué son los péptidos de investigación: guía completa" data-en="What research peptides are: the complete guide">Qué son los péptidos de investigación: guía completa</span>
+          <span class="ic-d" data-es="Qué es un péptido, cómo se fabrica, qué significa grado investigación y cómo se verifica su pureza por HPLC." data-en="What a peptide is, how it is made, what research grade means and how purity is verified by HPLC.">Qué es un péptido, cómo se fabrica, qué significa grado investigación y cómo se verifica su pureza por HPLC.</span>
+          <span class="ic-go" data-es="Leer la guía →" data-en="Read the guide →">Leer la guía →</span>
+        </span>
+      </a>
+      <a class="ic reveal" href="articulos/retatrutida-vs-tirzepatida.html" data-href-es="articulos/retatrutida-vs-tirzepatida.html" data-href-en="en/retatrutide-vs-tirzepatide.html">
+        <span class="ic-img"><img src="img/f/retatrutide-20mg.webp" alt="" loading="lazy" decoding="async" width="640" height="400"></span>
+        <span class="ic-k" data-es="Artículo · GLP-1 e incretinas" data-en="Article · GLP-1 and incretins">Artículo · GLP-1 e incretinas</span>
+        <span class="ic-t" data-es="Retatrutida vs. tirzepatida: el agonista triple frente al doble" data-en="Retatrutide vs. tirzepatide: triple vs. dual agonist">Retatrutida vs. tirzepatida: el agonista triple frente al doble</span>
+        <span class="ic-go" data-es="Leer →" data-en="Read →">Leer →</span>
+      </a>
+      <a class="ic reveal" href="articulos/como-leer-certificado-de-analisis.html" data-href-es="articulos/como-leer-certificado-de-analisis.html" data-href-en="en/how-to-read-a-certificate-of-analysis.html">
+        <span class="ic-img"><img src="articulos/img/como-leer-certificado-de-analisis.webp" alt="" loading="lazy" decoding="async" width="640" height="400"></span>
+        <span class="ic-k" data-es="Artículo · Calidad" data-en="Article · Quality">Artículo · Calidad</span>
+        <span class="ic-t" data-es="Cómo leer un certificado de análisis (CoA)" data-en="How to read a certificate of analysis (CoA)">Cómo leer un certificado de análisis (CoA)</span>
+        <span class="ic-go" data-es="Leer →" data-en="Read →">Leer →</span>
+      </a>
+      <a class="ic reveal" href="articulos/como-elegir-proveedor-de-peptidos-confiable.html" data-href-es="articulos/como-elegir-proveedor-de-peptidos-confiable.html" data-href-en="en/how-to-choose-a-reliable-peptide-supplier.html">
+        <span class="ic-img"><img src="articulos/img/como-elegir-proveedor-de-peptidos-confiable.webp" alt="" loading="lazy" decoding="async" width="640" height="400"></span>
+        <span class="ic-k" data-es="Artículo · Calidad" data-en="Article · Quality">Artículo · Calidad</span>
+        <span class="ic-t" data-es="Cómo elegir un proveedor de péptidos confiable" data-en="How to choose a reliable peptide supplier">Cómo elegir un proveedor de péptidos confiable</span>
+        <span class="ic-go" data-es="Leer →" data-en="Read →">Leer →</span>
+      </a>
+      <a class="ic reveal" href="articulos/que-es-un-peptido-liofilizado.html" data-href-es="articulos/que-es-un-peptido-liofilizado.html" data-href-en="en/what-is-a-lyophilized-peptide.html">
+        <span class="ic-img"><img src="articulos/img/que-es-liofilizar.webp" alt="" loading="lazy" decoding="async" width="640" height="400"></span>
+        <span class="ic-k" data-es="Artículo · Fundamentos" data-en="Article · Fundamentals">Artículo · Fundamentos</span>
+        <span class="ic-t" data-es="Qué es un péptido liofilizado y por qué viene en polvo" data-en="What a lyophilized peptide is and why it comes as a powder">Qué es un péptido liofilizado y por qué viene en polvo</span>
+        <span class="ic-go" data-es="Leer →" data-en="Read →">Leer →</span>
+      </a>
+      <a class="ic reveal" href="guias/almacenamiento-peptidos.html" data-href-es="guias/almacenamiento-peptidos.html" data-href-en="en/">
+        <span class="ic-img"><img src="guias/img/almacenamiento-peptidos.webp" alt="" loading="lazy" decoding="async" width="640" height="400"></span>
+        <span class="ic-k" data-es="Guía técnica · Conservación" data-en="Technical guide · Storage">Guía técnica · Conservación</span>
+        <span class="ic-t" data-es="Cómo almacenar péptidos, liofilizados y reconstituidos" data-en="How to store peptides, lyophilized and reconstituted">Cómo almacenar péptidos, liofilizados y reconstituidos</span>
+        <span class="ic-go" data-es="Leer →" data-en="Read →">Leer →</span>
+      </a>
+      <a class="ic reveal" href="guias/peptidos-costa-rica.html" data-href-es="guias/peptidos-costa-rica.html" data-href-en="en/peptides-costa-rica.html">
+        <span class="ic-img"><img src="guias/img/peptidos-costa-rica.webp" alt="" loading="lazy" decoding="async" width="640" height="400"></span>
+        <span class="ic-k" data-es="Costa Rica · Distribuidor" data-en="Costa Rica · Distributor">Costa Rica · Distribuidor</span>
+        <span class="ic-t" data-es="Péptidos de investigación en Costa Rica" data-en="Research peptides in Costa Rica">Péptidos de investigación en Costa Rica</span>
+        <span class="ic-go" data-es="Leer →" data-en="Read →">Leer →</span>
+      </a>
+    </div>
+    <div class="info-cta reveal">
+      <a class="hcta info-btn" href="articulos/" data-href-es="articulos/" data-href-en="en/" data-es="Ver todos los artículos y guías" data-en="See all articles and guides">Ver todos los artículos y guías</a>
+    </div>
+  </div>
+</div>
+
 <div id="how">
   <div class="hl"></div>
   <div class="how-inner">
@@ -3581,49 +3735,66 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 
 
 <section id="testimonios">
-  <p class="se" data-es="Lo que dicen nuestros clientes" data-en="What our clients say">Lo que dicen nuestros clientes</p>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="rvstar" viewBox="0 0 24 24"><path d="M12 2.6l2.85 6.07 6.65.78-4.92 4.56 1.3 6.57L12 17.3l-5.88 3.28 1.3-6.57L2.5 9.45l6.65-.78z"/></symbol></svg>
+  <p class="se" data-es="Opiniones verificadas en Google" data-en="Verified Google reviews">Opiniones verificadas en Google</p>
   <h2 class="st" data-es="Confianza <span>comprobada</span>" data-en="Proven <span>trust</span>">Confianza <span>comprobada</span></h2>
-  <div class="tgrid">
-
-    <div class="tcard" data-aos>
-      <div class="tquote">"</div>
-      <p class="ttext" data-es="Muchas gracias, la verdad excelente persona." data-en="Thank you so much, truly an excellent person.">Muchas gracias, la verdad excelente persona.</p>
-      <div class="tauthor"><span class="tname">Cliente verificado</span><span class="tmeta" data-es="San José · 2024" data-en="San José · 2024">San José · 2024</span></div>
+  <div class="rv-grid">
+    <div class="rv-sum" data-aos>
+      <div class="rv-score">5,0</div>
+      <div class="rv-stars lg" role="img" aria-label="5 de 5 estrellas"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#rvstar"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#rvstar"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#rvstar"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#rvstar"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#rvstar"/></svg></div>
+      <p class="rv-count" data-es="5 opiniones en Google, todas de cinco estrellas." data-en="5 Google reviews, all five stars.">5 opiniones en Google, todas de cinco estrellas.</p>
+      <a class="rv-btn" href="https://maps.google.com/?cid=11963793450956893282" target="_blank" rel="noopener" data-es="Ver en Google" data-en="See on Google">Ver en Google</a>
+      <a class="rv-link" href="https://maps.google.com/?cid=11963793450956893282" target="_blank" rel="noopener" data-es="¿Ya compraste? Dejá tu opinión" data-en="Already ordered? Leave a review">¿Ya compraste? Dejá tu opinión</a>
     </div>
-
-    <div class="tcard" data-aos>
-      <div class="tquote">"</div>
-      <p class="ttext" data-es="Todo listo, muchas gracias. Excelente servicio." data-en="All set, thank you. Excellent service.">Todo listo, muchas gracias. Excelente servicio.</p>
-      <div class="tauthor"><span class="tname">Cliente verificado</span><span class="tmeta" data-es="Heredia · 2024" data-en="Heredia · 2024">Heredia · 2024</span></div>
+    <div class="rv-track">
+    <article class="rv wide" data-aos>
+      <header class="rv-h"><span class="rv-av" aria-hidden="true">S</span><span class="rv-who"><b class="rv-n">Sheldom Vargas</b><span class="rv-src" data-es="Reseña en Google" data-en="Google review">Reseña en Google</span></span></header>
+      <div class="rv-stars" role="img" aria-label="5 de 5 estrellas"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#rvstar"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#rvstar"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#rvstar"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#rvstar"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#rvstar"/></svg></div>
+      <p class="rv-t" data-es="Buen producto y buena atención al cliente así como una eficiencia grandiosa con el tiempo de entrega. 10/10 super recomendada." data-en="Good product and good customer service, plus great efficiency with delivery time. 10/10, highly recommended.">Buen producto y buena atención al cliente así como una eficiencia grandiosa con el tiempo de entrega. 10/10 super recomendada.</p>
+    </article>
+    <article class="rv" data-aos>
+      <header class="rv-h"><span class="rv-av" aria-hidden="true">S</span><span class="rv-who"><b class="rv-n">SJ</b><span class="rv-src" data-es="Local Guide · Google" data-en="Local Guide · Google">Local Guide · Google</span></span></header>
+      <div class="rv-stars" role="img" aria-label="5 de 5 estrellas"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#rvstar"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#rvstar"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#rvstar"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#rvstar"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#rvstar"/></svg></div>
+      <p class="rv-t" data-es="I’m glad I found this place! Fast service and good prices." data-en="I’m glad I found this place! Fast service and good prices.">I’m glad I found this place! Fast service and good prices.</p>
+    </article>
+    <article class="rv" data-aos>
+      <header class="rv-h"><span class="rv-av" aria-hidden="true">I</span><span class="rv-who"><b class="rv-n">Ivan Fernández García</b><span class="rv-src" data-es="Reseña en Google" data-en="Google review">Reseña en Google</span></span></header>
+      <div class="rv-stars" role="img" aria-label="5 de 5 estrellas"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#rvstar"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#rvstar"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#rvstar"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#rvstar"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#rvstar"/></svg></div>
+      <p class="rv-t" data-es="Excelente servicio" data-en="Excellent service">Excelente servicio</p>
+    </article>
+    <article class="rv" data-aos>
+      <header class="rv-h"><span class="rv-av" aria-hidden="true">L</span><span class="rv-who"><b class="rv-n">Lua Pitty</b><span class="rv-src" data-es="Reseña en Google" data-en="Google review">Reseña en Google</span></span></header>
+      <div class="rv-stars" role="img" aria-label="5 de 5 estrellas"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#rvstar"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#rvstar"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#rvstar"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#rvstar"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#rvstar"/></svg></div>
+      <p class="rv-t" data-es="buen servicio" data-en="good service">buen servicio</p>
+    </article>
+    <article class="rv" data-aos>
+      <header class="rv-h"><span class="rv-av" aria-hidden="true">J</span><span class="rv-who"><b class="rv-n">Jaikel Freer</b><span class="rv-src" data-es="Reseña en Google" data-en="Google review">Reseña en Google</span></span></header>
+      <div class="rv-stars" role="img" aria-label="5 de 5 estrellas"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#rvstar"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#rvstar"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#rvstar"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#rvstar"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#rvstar"/></svg></div>
+      <p class="rv-t" data-es="Exc servicio" data-en="Excellent service">Exc servicio</p>
+    </article>
     </div>
-
-    <div class="tcard" data-aos>
-      <div class="tquote">"</div>
-      <p class="ttext" data-es="Todo bien con el pedido, muchas gracias." data-en="Everything good with the order, thank you.">Todo bien con el pedido, muchas gracias.</p>
-      <div class="tauthor"><span class="tname">N. J.</span><span class="tmeta" data-es="Cliente verificado" data-en="Verified client">Cliente verificado</span></div>
-    </div>
-
-    <div class="tcard" data-aos>
-      <div class="tquote">"</div>
-      <p class="ttext" data-es="Recibido, todo perfecto. Mil gracias." data-en="Received, all perfect. Many thanks.">Recibido, todo perfecto. Mil gracias.</p>
-      <div class="tauthor"><span class="tname">Cliente verificado</span><span class="tmeta" data-es="Entrega confirmada" data-en="Confirmed delivery">Entrega confirmada</span></div>
-    </div>
-
-    <div class="tcard" data-aos>
-      <div class="tquote">"</div>
-      <p class="ttext" data-es="En todas. A la orden siempre." data-en="Always count on it. At your service.">En todas. A la orden siempre.</p>
-      <div class="tauthor"><span class="tname">D. M.</span><span class="tmeta" data-es="Cartago · Cliente recurrente" data-en="Cartago · Returning client">Cartago · Cliente recurrente</span></div>
-    </div>
-
-    <div class="tcard" data-aos>
-      <div class="tquote">"</div>
-      <p class="ttext" data-es="Confirmo recibido, todo en orden. Gracias por la atención." data-en="Confirming receipt, all in order. Thanks for the attention.">Confirmo recibido, todo en orden. Gracias por la atención.</p>
-      <div class="tauthor"><span class="tname">Cliente verificado</span><span class="tmeta" data-es="San José · 2025" data-en="San José · 2025">San José · 2025</span></div>
-    </div>
-
   </div>
 </section>
 
+
+<div id="journal">
+  <div class="jr-inner reveal">
+    <a class="jr-lead" href="noticias/" data-href-es="noticias/" data-href-en="en/news.html">
+      <img src="noticias/img/hhs.webp" alt="" loading="lazy" decoding="async" width="1024" height="572">
+    </a>
+    <div class="jr-body">
+      <p class="se" data-es="Noticias de la industria" data-en="Industry news">Noticias de la industria</p>
+      <h2 class="jr-title">Vierundsechzig <span>Journal</span></h2>
+      <p class="offer-sub" data-es="Regulación, ensayos clínicos y ciencia de péptidos, explicados desde Costa Rica." data-en="Regulation, clinical trials and peptide science, explained from Costa Rica.">Regulación, ensayos clínicos y ciencia de péptidos, explicados desde Costa Rica.</p>
+      <div class="jr-list">
+        <a class="jn" href="noticias/eeuu-politica-provisional-seis-peptidos.html" data-href-es="noticias/eeuu-politica-provisional-seis-peptidos.html" data-href-en="en/us-interim-policy-six-peptides.html"><span class="jn-k" data-es="Regulación · 29 oct 2026" data-en="Regulation · Oct 29, 2026">Regulación · 29 oct 2026</span><span class="jn-t" data-es="EE. UU. abre una vía provisional para preparar compuestos con seis péptidos" data-en="US opens an interim path to compound six peptides">EE. UU. abre una vía provisional para preparar compuestos con seis péptidos</span></a>
+        <a class="jn" href="noticias/retatrutida-triumph-2-triumph-3.html" data-href-es="noticias/retatrutida-triumph-2-triumph-3.html" data-href-en="en/retatrutide-triumph-2-triumph-3.html"><span class="jn-k" data-es="Ensayos · 23 jul 2026" data-en="Trials · Jul 23, 2026">Ensayos · 23 jul 2026</span><span class="jn-t" data-es="Retatrutida también cumple en TRIUMPH-2 y TRIUMPH-3" data-en="Retatrutide also delivers in TRIUMPH-2 and TRIUMPH-3">Retatrutida también cumple en TRIUMPH-2 y TRIUMPH-3</span></a>
+        <a class="jn" href="noticias/comite-fda-recomienda-seis-peptidos.html" data-href-es="noticias/comite-fda-recomienda-seis-peptidos.html" data-href-en="en/fda-committee-backs-six-peptides.html"><span class="jn-k" data-es="Regulación · 24 jul 2026" data-en="Regulation · Jul 24, 2026">Regulación · 24 jul 2026</span><span class="jn-t" data-es="Comité de la FDA recomienda sumar seis péptidos a la lista 503A" data-en="FDA committee backs adding six peptides to the 503A list">Comité de la FDA recomienda sumar seis péptidos a la lista 503A</span></a>
+      </div>
+      <a class="jr-go" href="noticias/" data-href-es="noticias/" data-href-en="en/news.html" data-es="Leer el Journal →" data-en="Read the Journal →">Leer el Journal →</a>
+    </div>
+  </div>
+</div>
 
 <section id="contact">
   <p class="se" data-es="Contacto" data-en="Contact">Contacto</p>
@@ -4817,7 +4988,7 @@ window.openModal = function(key){
     var cw=br.width, ch=br.height,
         iw=im.naturalWidth||2560, ih=im.naturalHeight||1099;
     if(!cw||!ch) return;
-    var s=Math.min(cw/iw, ch/ih), w=iw*s, h=ih*s;
+    var s=Math.max(cw/iw, ch/ih), w=iw*s, h=ih*s;
     sp.style.width=w+'px'; sp.style.height=h+'px';
     sp.style.left=((br.left-pr.left)+(cw-w))+'px';
     sp.style.top=((br.top-pr.top)+(ch-h))+'px';
