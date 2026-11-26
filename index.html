@@ -10,7 +10,7 @@
 <meta name="theme-color" content="#0a0705">
 <!-- ══ INTRO DE ENTRADA ══════════════════════════════════════ -->
 <link rel="preload" as="image" href="img/ui/hl-be6b29e9.webp" fetchpriority="high">
-<script>(function(){try{if(sessionStorage.getItem('vpIntroSeen')==='1'){document.documentElement.className+=' vp-nointro';return}sessionStorage.setItem('vpIntroSeen','1')}catch(e){}document.documentElement.className+=' vp-loading'})();</script>
+<script>(function(){var h=document.documentElement;try{if(matchMedia('(prefers-reduced-motion: reduce)').matches||sessionStorage.getItem('vpIntroSeen')==='1'){h.classList.add('vp-nointro');return}sessionStorage.setItem('vpIntroSeen','1')}catch(e){}h.classList.add('vp-loading');})();</script>
 <style>
 html.vp-loading,html.vp-loading body{overflow:hidden!important}
 html.vp-nointro #vp-intro{display:none!important}
@@ -1595,6 +1595,23 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 .jr-go{font-family:'IBM Plex Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:1px;color:var(--gl);text-decoration:none;margin-top:auto}
 @media(max-width:900px){#journal{padding:20px 20px 70px}.jr-inner{grid-template-columns:1fr}.jr-lead{aspect-ratio:16/9}.jr-body{padding:28px 22px}}
 </style>
+<style>
+/* Mobile intro: short decorative transition, no artificial hero hiding. */
+@media(max-width:1024px){
+html.vp-loading,html.vp-loading body{overflow:visible!important}
+html.vp-loading #hl{opacity:1;transform:none}
+html.vp-loading .hey,html.vp-loading .hh,html.vp-loading .hs,html.vp-loading .hcta{animation-play-state:running}
+#vp-intro{animation:vpiMobileFallback 0s linear .95s forwards}
+#vp-intro.vpi-out{transition:opacity .24s ease,transform .24s ease;transform:none}
+.vpi-halo,#vpi-logo{animation-duration:.32s;animation-delay:0s}
+.vpi-bar{animation-delay:.08s;animation-duration:.18s}
+.vpi-bar i{animation-delay:.08s;animation-duration:.36s}
+.vpi-shine::after{animation-delay:.12s;animation-duration:.38s}
+}
+@keyframes vpiMobileFallback{to{opacity:0;visibility:hidden;pointer-events:none}}
+@media(prefers-reduced-motion:reduce){#vp-intro{display:none!important}html.vp-loading #hl{opacity:1;transform:none}}
+.legal-disclaimer p,.legal-disclaimer .ld-origen,.legal-disclaimer .ld-title{color:var(--tx)}
+</style>
 </head>
 <body><script>try{if(localStorage.getItem('vp_theme')==='light')document.body.classList.add('light')}catch(e){}</script><svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></symbol><symbol id="i-bandage" viewBox="0 0 24 24"><path d="M10 10.01h.01"/><path d="M10 14.01h.01"/><path d="M14 10.01h.01"/><path d="M14 14.01h.01"/><path d="M18 6v11.5"/><path d="M6 6v12"/><rect x="2" y="6" width="20" height="12" rx="2"/></symbol><symbol id="i-battery-charging" viewBox="0 0 24 24"><path d="M15 7h1a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-2"/><path d="M6 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h1"/><path d="m11 7-3 5h4l-3 5"/><line x1="22" x2="22" y1="11" y2="13"/></symbol><symbol id="i-brain" viewBox="0 0 24 24"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"/><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"/><path d="M3.477 10.896a4 4 0 0 1 .585-.396"/><path d="M19.938 10.5a4 4 0 0 1 .585.396"/><path d="M6 18a4 4 0 0 1-1.967-.516"/><path d="M19.967 17.484A4 4 0 0 1 18 18"/></symbol><symbol id="i-credit-card" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></symbol><symbol id="i-dna" viewBox="0 0 24 24"><path d="m10 16 1.5 1.5"/><path d="m14 8-1.5-1.5"/><path d="M15 2c-1.798 1.998-2.518 3.995-2.807 5.993"/><path d="m16.5 10.5 1 1"/><path d="m17 6-2.891-2.891"/><path d="M2 15c6.667-6 13.333 0 20-6"/><path d="m20 9 .891.891"/><path d="M3.109 14.109 4 15"/><path d="m6.5 12.5 1 1"/><path d="m7 18 2.891 2.891"/><path d="M9 22c1.798-1.998 2.518-3.995 2.807-5.993"/></symbol><symbol id="i-droplets" viewBox="0 0 24 24"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"/></symbol><symbol id="i-dumbbell" viewBox="0 0 24 24"><path d="M14.4 14.4 9.6 9.6"/><path d="M18.657 21.485a2 2 0 1 1-2.829-2.828l-1.767 1.768a2 2 0 1 1-2.829-2.829l6.364-6.364a2 2 0 1 1 2.829 2.829l-1.768 1.767a2 2 0 1 1 2.828 2.829z"/><path d="m21.5 21.5-1.4-1.4"/><path d="M3.9 3.9 2.5 2.5"/><path d="M6.404 12.768a2 2 0 1 1-2.829-2.829l1.768-1.767a2 2 0 1 1-2.828-2.829l2.828-2.828a2 2 0 1 1 2.829 2.828l1.767-1.768a2 2 0 1 1 2.829 2.829z"/></symbol><symbol id="i-flame" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol><symbol id="i-flask-conical" viewBox="0 0 24 24"><path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"/><path d="M8.5 2h7"/><path d="M7 16h10"/></symbol><symbol id="i-handshake" viewBox="0 0 24 24"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></symbol><symbol id="i-heart-pulse" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></symbol><symbol id="i-hourglass" viewBox="0 0 24 24"><path d="M5 22h14"/><path d="M5 2h14"/><path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22"/><path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2"/></symbol><symbol id="i-instagram" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></symbol><symbol id="i-layout-grid" viewBox="0 0 24 24"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></symbol><symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></symbol><symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol><symbol id="i-message-circle" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol><symbol id="i-package" viewBox="0 0 24 24"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/><path d="M12 22V12"/><path d="m3.3 7 7.703 4.734a2 2 0 0 0 1.994 0L20.7 7"/><path d="m7.5 4.27 9 5.15"/></symbol><symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol><symbol id="i-scale" viewBox="0 0 24 24"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></symbol><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol><symbol id="i-shopping-cart" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></symbol><symbol id="i-smartphone" viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></symbol><symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></symbol><symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol><symbol id="i-syringe" viewBox="0 0 24 24"><path d="m18 2 4 4"/><path d="m17 7 3-3"/><path d="M19 9 8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5"/><path d="m9 11 4 4"/><path d="m5 19-3 3"/><path d="m14 4 6 6"/></symbol><symbol id="i-triangle-alert" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol><symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol><symbol id="i-zap" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></symbol></svg>
 <!-- ══ INTRO DE ENTRADA ══════════════════════════════════════ -->
@@ -1613,15 +1630,18 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
   function unlock(){h.className=h.className.replace(/\s*vp-loading/,'')}
   if(h.className.indexOf('vp-nointro')>-1){unlock();if(el.parentNode)el.parentNode.removeChild(el);return}
   var slow=false;try{slow=window.matchMedia('(prefers-reduced-motion:reduce)').matches}catch(e){}
-  var MIN=slow?400:1400,MAX=2500,t0=Date.now(),done=false;
+  var mobile=window.matchMedia&&matchMedia('(max-width: 1024px)').matches;
+  var MIN=slow?0:1400,MAX=2500,t0=Date.now(),done=false;
   function close(){
     if(done)return;done=true;
     el.className+=' vpi-out';unlock();
     setTimeout(function(){if(el.parentNode)el.parentNode.removeChild(el)},750);
   }
   function ready(){setTimeout(close,Math.max(0,MIN-(Date.now()-t0)))}
-  if(document.readyState!=='loading')ready();else document.addEventListener('DOMContentLoaded',ready);
-  setTimeout(close,MAX);
+  if(mobile||slow){setTimeout(close,slow?0:520)}else{
+    if(document.readyState!=='loading')ready();else document.addEventListener('DOMContentLoaded',ready);
+    setTimeout(close,MAX);
+  }
   el.addEventListener('click',close);
   el.addEventListener('touchstart',close,{passive:true});
 })();
@@ -1642,7 +1662,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
         data-es-ph="Busca productos o por objetivo: pérdida de peso, masa muscular, antiedad..."
         data-en-ph="Search products or by goal: weight loss, muscle, anti-aging..."
         placeholder="Busca productos o por objetivo: pérdida de peso, masa muscular, antiedad...">
-      <button onclick="closeSearch()" class="sb-close"><svg class="vpi" aria-hidden="true"><use href="#i-x"/></svg></button>
+      <button type="button" onclick="closeSearch()" class="sb-close" aria-label="Cerrar búsqueda / Close search"><svg class="vpi" aria-hidden="true"><use href="#i-x"/></svg></button>
     </div>
     <div class="search-hints" data-es="Sugerencias: pérdida de peso · masa muscular · antiedad · piel · recuperación · sueño" data-en="Suggestions: weight loss · muscle · anti-aging · skin · recovery · sleep">Sugerencias: pérdida de peso · masa muscular · antiedad · piel · recuperación · sueño</div>
     <div id="search-results"></div>
@@ -1657,7 +1677,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 <aside id="catnav">
   <div class="catnav-head">
     <span data-es="Categorías" data-en="Categories">Categorías</span>
-    <button onclick="toggleCatNav()" class="catnav-close"><svg class="vpi" aria-hidden="true"><use href="#i-x"/></svg></button>
+    <button type="button" onclick="toggleCatNav()" class="catnav-close" aria-label="Cerrar categorías / Close categories"><svg class="vpi" aria-hidden="true"><use href="#i-x"/></svg></button>
   </div>
   <div class="catnav-list">
     <button class="catnav-item" data-cat="glp1" onclick="jumpCat('glp1')"><span class="catnav-ico"><svg class="vpi" aria-hidden="true"><use href="#i-zap"/></svg></span><span class="catnav-label" data-es="GLP-1 & Triple Agonistas" data-en="GLP-1 & Triple Agonists">GLP-1 & Triple Agonistas</span></button>
@@ -1691,7 +1711,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 
 <div id="modal-overlay" onclick="closeModalOutside(event)">
   <div id="modal">
-    <button id="modal-close" onclick="closeModal()"><svg class="vpi" aria-hidden="true"><use href="#i-x"/></svg></button>
+    <button type="button" id="modal-close" onclick="closeModal()" aria-label="Cerrar ventana / Close dialog"><svg class="vpi" aria-hidden="true"><use href="#i-x"/></svg></button>
     <div id="modal-img-side">
       <img id="modal-vial" alt="">
       <div id="modal-zoom-hint" data-es="Click para ampliar" data-en="Click to enlarge">Click para ampliar</div>
@@ -1792,13 +1812,13 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
   <nav id="tb-nav">
     <a class="nav-of" href="ofertas/" data-href-es="ofertas/" data-href-en="en/offers.html" data-es="Ofertas<b>-20%</b>" data-en="Offers<b>-20%</b>">Ofertas<b>-20%</b></a>
     <a class="nav-news" href="noticias/" data-href-es="noticias/" data-href-en="en/news.html" data-es="Noticias" data-en="News">Noticias</a>
-    <a onclick="scrollToSec('cat')" data-es="Catálogo" data-en="Catalogue">Catálogo</a>
-    <a onclick="scrollToSec('how')" data-es="Cómo Funciona" data-en="How It Works">Cómo Funciona</a>
-    <a onclick="scrollToSec('quality')" data-es="Calidad" data-en="Quality">Calidad</a>
-    <a onclick="scrollToSec('service')" data-es="Servicio" data-en="Service">Servicio</a>
-    <a onclick="scrollToSec('testimonios')" data-es="Testimonios" data-en="Testimonials">Testimonios</a>
-    <a onclick="scrollToSec('faq')" data-es="FAQ" data-en="FAQ">FAQ</a>
-    <a onclick="scrollToSec('contact')" data-es="Contacto" data-en="Contact">Contacto</a>
+    <a href="#cat" onclick="scrollToSec('cat');return false" data-es="Catálogo" data-en="Catalogue">Catálogo</a>
+    <a href="#how" onclick="scrollToSec('how');return false" data-es="Cómo Funciona" data-en="How It Works">Cómo Funciona</a>
+    <a href="#quality" onclick="scrollToSec('quality');return false" data-es="Calidad" data-en="Quality">Calidad</a>
+    <a href="#service" onclick="scrollToSec('service');return false" data-es="Servicio" data-en="Service">Servicio</a>
+    <a href="#testimonios" onclick="scrollToSec('testimonios');return false" data-es="Testimonios" data-en="Testimonials">Testimonios</a>
+    <a href="#faq" onclick="scrollToSec('faq');return false" data-es="FAQ" data-en="FAQ">FAQ</a>
+    <a href="#contact" onclick="scrollToSec('contact');return false" data-es="Contacto" data-en="Contact">Contacto</a>
   </nav>
   <div id="tb-r">
     <button id="cart-btn" onclick="openCart()" aria-label="Carrito"><svg class="vpi" aria-hidden="true"><use href="#i-shopping-cart"/></svg><span id="cart-count"></span></button>
@@ -1806,7 +1826,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
     <button id="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar tema">
       <span class="tt-track"><span class="tt-thumb"><span class="tt-icon tt-sun"><svg class="vpi" aria-hidden="true"><use href="#i-sun"/></svg></span><span class="tt-icon tt-moon"><svg class="vpi" aria-hidden="true"><use href="#i-moon"/></svg></span></span></span>
     </button>
-    <a class="twa" href="https://wa.me/50688789080" target="_blank"><svg class="vpi" aria-hidden="true"><use href="#i-message-circle"/></svg><span>8878-9080</span></a>
+    <a class="twa" href="https://wa.me/50688789080" target="_blank" aria-label="WhatsApp +506 8878-9080"><svg class="vpi" aria-hidden="true"><use href="#i-message-circle"/></svg><span>8878-9080</span></a>
     <button id="lb" onclick="tL()">EN</button>
     <button id="burger" onclick="toggleMobileMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
@@ -1816,19 +1836,20 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 <div id="mobile-menu" style="transform:translateX(100%)">
   <a href="ofertas/" data-href-es="ofertas/" data-href-en="en/offers.html" data-es="Ofertas · -20%" data-en="Offers · -20%" style="color:var(--gl)">Ofertas · -20%</a>
   <a href="noticias/" data-href-es="noticias/" data-href-en="en/news.html" data-es="Noticias y artículos" data-en="News and articles">Noticias y artículos</a>
-  <a onclick="scrollToSec('cat');toggleMobileMenu()" data-es="Catálogo" data-en="Catalogue">Catálogo</a>
-  <a onclick="scrollToSec('featured');toggleMobileMenu()" data-es="Destacado" data-en="Featured">Destacado</a>
-  <a onclick="scrollToSec('how');toggleMobileMenu()" data-es="Cómo Funciona" data-en="How It Works">Cómo Funciona</a>
-  <a onclick="scrollToSec('quality');toggleMobileMenu()" data-es="Calidad" data-en="Quality">Calidad</a>
-  <a onclick="scrollToSec('service');toggleMobileMenu()" data-es="Servicio" data-en="Service">Servicio</a>
-  <a onclick="scrollToSec('about');toggleMobileMenu()" data-es="Nosotros" data-en="About">Nosotros</a>
-  <a onclick="scrollToSec('testimonios');toggleMobileMenu()" data-es="Testimonios" data-en="Testimonials">Testimonios</a>
-  <a onclick="scrollToSec('faq');toggleMobileMenu()" data-es="FAQ" data-en="FAQ">FAQ</a>
-  <a onclick="scrollToSec('contact');toggleMobileMenu()" data-es="Contacto" data-en="Contact">Contacto</a>
+  <a href="#cat" onclick="scrollToSec('cat');toggleMobileMenu();return false" data-es="Catálogo" data-en="Catalogue">Catálogo</a>
+  <a href="#featured" onclick="scrollToSec('featured');toggleMobileMenu();return false" data-es="Destacado" data-en="Featured">Destacado</a>
+  <a href="#how" onclick="scrollToSec('how');toggleMobileMenu();return false" data-es="Cómo Funciona" data-en="How It Works">Cómo Funciona</a>
+  <a href="#quality" onclick="scrollToSec('quality');toggleMobileMenu();return false" data-es="Calidad" data-en="Quality">Calidad</a>
+  <a href="#service" onclick="scrollToSec('service');toggleMobileMenu();return false" data-es="Servicio" data-en="Service">Servicio</a>
+  <a href="#about" onclick="scrollToSec('about');toggleMobileMenu();return false" data-es="Nosotros" data-en="About">Nosotros</a>
+  <a href="#testimonios" onclick="scrollToSec('testimonios');toggleMobileMenu();return false" data-es="Testimonios" data-en="Testimonials">Testimonios</a>
+  <a href="#faq" onclick="scrollToSec('faq');toggleMobileMenu();return false" data-es="FAQ" data-en="FAQ">FAQ</a>
+  <a href="#contact" onclick="scrollToSec('contact');toggleMobileMenu();return false" data-es="Contacto" data-en="Contact">Contacto</a>
 </div>
 
 
 
+<main id="main-content">
 <section id="hero">
   <div class="hphoto">
     <picture>
@@ -3817,7 +3838,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 
 <div id="journal">
   <div class="jr-inner reveal">
-    <a class="jr-lead" href="noticias/" data-href-es="noticias/" data-href-en="en/news.html">
+    <a class="jr-lead" href="noticias/" data-href-es="noticias/" data-href-en="en/news.html" aria-label="Vierundsechzig Journal — Noticias / News">
       <img src="noticias/img/hhs.webp" alt="" loading="lazy" decoding="async" width="1024" height="572">
     </a>
     <div class="jr-body">
@@ -3849,6 +3870,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 </section>
 
 
+</main>
 <footer>
   <img src="img/ui/vp-6d3a113b.webp" loading="lazy" decoding="async" alt="VP">
   <p>© 2026 Vierundsechzig Peptides — Costa Rica</p>
@@ -4308,24 +4330,24 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMsnPhoto();});
 
 
 <nav id="mbar" aria-label="Navegación rápida">
-  <button class="mbar-item" data-sec="hero" onclick="scrollToSec('hero')">
+  <button type="button" class="mbar-item" aria-label="Inicio / Home" data-sec="hero" onclick="scrollToSec('hero')">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 11l9-8 9 8M5 9.5V21h14V9.5"/></svg>
     <span data-es="Inicio" data-en="Home">Inicio</span>
   </button>
-  <button class="mbar-item" data-sec="cat" onclick="scrollToSec('cat')">
+  <button type="button" class="mbar-item" aria-label="Catálogo / Catalogue" data-sec="cat" onclick="scrollToSec('cat')">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
     <span data-es="Catálogo" data-en="Shop">Catálogo</span>
   </button>
-  <button class="mbar-item" onclick="openSearch()">
+  <button type="button" class="mbar-item" aria-label="Buscar / Search" onclick="openSearch()">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
     <span data-es="Buscar" data-en="Search">Buscar</span>
   </button>
-  <button class="mbar-item" onclick="openCart()">
+  <button type="button" class="mbar-item" aria-label="Carrito / Cart" onclick="openCart()">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="21" r="1.4"/><circle cx="18" cy="21" r="1.4"/><path d="M2 3h3l2.4 12.4a1.5 1.5 0 0 0 1.5 1.2h9a1.5 1.5 0 0 0 1.5-1.2L22 7H6"/></svg>
     <span data-es="Carrito" data-en="Cart">Carrito</span>
     <span class="mbar-cart-count" id="mbar-cart-count"></span>
   </button>
-  <button class="mbar-item" data-sec="contact" onclick="scrollToSec('contact')">
+  <button type="button" class="mbar-item" aria-label="Contacto / Contact" data-sec="contact" onclick="scrollToSec('contact')">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
     <span data-es="Contacto" data-en="Contact">Contacto</span>
   </button>
@@ -4636,7 +4658,7 @@ document.addEventListener('keydown', e=>{
 (function(){function fill(){try{if(typeof PRODUCTS==='undefined')return;var ims=document.querySelectorAll('.pc img');for(var i=0;i<ims.length;i++){var a=ims[i].getAttribute('alt');if(a&&PRODUCTS[a]&&!PRODUCTS[a].img){var s=ims[i].getAttribute('src')||'';PRODUCTS[a].img=s.replace(/^data:image\/[^;]+;base64,/,'');}}}catch(e){}}
 if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',fill);}else{fill();}})();
 </script>
-<div id="lightbox" role="dialog" aria-modal="true">
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Imagen ampliada / Enlarged image">
   <button id="lightbox-close" aria-label="Cerrar">&times;</button>
   <img id="lightbox-img" alt="">
   <div id="lightbox-caption"></div>
