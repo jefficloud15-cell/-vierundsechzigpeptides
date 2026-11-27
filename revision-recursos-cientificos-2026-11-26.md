@@ -1,0 +1,3 @@
+# Recursos educativos bilingües
+
+35 conceptos en dos idiomas, referencias localizadas en fuentes públicas, buscador local sin dependencias, anclas compartidas, DefinedTermSet y BreadcrumbList. Registro de actualizaciones y correcciones creado; ninguna corrección histórica se declara finalizada. Enlaces desde ambos índices y criterios editoriales, sitemap actualizado. No se añadieron páginas de producto ni recomendaciones de uso ni se modificaron ventas, catálogo, seguimiento o DNS. No se efectuó revisión clínica independiente ni pruebas visuales o Lighthouse. La auditoría histórica de referencias sigue pendiente. No hay garantía de indexación, tráfico o posicionamiento.
