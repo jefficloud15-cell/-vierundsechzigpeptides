@@ -1,0 +1,21 @@
+/* Article catalog navigation and factual inventory references. */
+.nav .vp-catalog-link{display:inline-flex!important;align-items:center;white-space:nowrap;font-weight:600;text-decoration:none}
+.vp-resource-gallery .vials{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:12px;margin:16px 0}
+.vp-resource-gallery .vials a{display:block;color:inherit;text-align:center;text-decoration:none;font-size:13px;line-height:1.4}
+.vp-resource-gallery .vials img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:contain;border-radius:10px;margin-bottom:6px;background:#f2f4f8}
+.vp-resource-note{font-size:13px;line-height:1.5;color:var(--mut,#4a5677)}
+.vp-resource-gallery a:focus-visible,.vp-resource-rail a:focus-visible,.vp-catalog-link:focus-visible{outline:2px solid #f28a2e;outline-offset:3px}
+.vp-resource-rail{display:none}
+.vp-resource-rail .prod,.vp-resource-side .prod{display:flex;align-items:center;gap:10px;margin:10px 0;color:var(--sink,#fff);text-decoration:none;font-size:14px}
+.vp-resource-rail img,.vp-resource-side img{width:44px;height:44px;object-fit:contain;border-radius:6px;background:#eef2fa}
+.vp-resource-rail .sbox{border:1px solid rgba(255,255,255,.22);border-top:3px solid #f28a2e;border-radius:10px;padding:16px;color:#fff;background:rgba(255,255,255,.06)}
+.vp-resource-rail .lbl,.vp-resource-side .lbl{font-weight:600;font-size:12px;letter-spacing:.08em}
+.vp-resource-rail small,.vp-resource-side small{display:block;font-size:11px;opacity:.85}
+.vp-resource-rail .vp-resource-note,.vp-resource-side .vp-resource-note{color:var(--smut,#e1e7f6)}
+@media(min-width:1100px){.vp-resource-layout{display:grid;grid-template-columns:minmax(0,900px) 230px;gap:26px;max-width:1240px;margin:0 auto;padding:0 24px;align-items:start}.vp-resource-layout>main{width:100%;max-width:none;min-width:0;margin-inline:0}.vp-resource-rail{display:block;position:sticky;top:86px;margin-top:24px}}
+@media(max-width:600px){.nav{gap:8px!important;font-size:12px!important}.nav .vp-catalog-link{font-size:12px!important}.vp-resource-gallery .vials{grid-template-columns:repeat(auto-fit,minmax(84px,1fr))}}
+.vp-editorial-header{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+
+.vp-resource-gallery .vials a{width:100%;max-width:230px;justify-self:center}
+.vp-resource-gallery small{display:block;font-size:11px;color:var(--mut,#4a5677)}
+@media(max-width:600px){header.top{flex-wrap:wrap;gap:8px}.nav{margin-left:auto;flex-wrap:wrap;justify-content:flex-end}}
