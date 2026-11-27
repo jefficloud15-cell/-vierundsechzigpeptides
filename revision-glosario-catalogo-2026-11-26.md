@@ -1,0 +1,58 @@
+# Ampliación educativa del glosario
+
+80 entradas del objeto PRODUCTS de index.html, agrupadas en 54 denominaciones. 88 definiciones por idioma. No se verificó inventario real ni identidad de lotes. Las nuevas entradas sin referencia individual se marcan pendientes de revisión. No se añaden enlaces de compra, precios, instrucciones de administración ni afirmaciones clínicas. Las presentaciones son alias de búsqueda. Comprobaciones estáticas de anclas y recuentos; sin prueba visual ni revisión clínica independiente.
+
+- Retatrutida: Retatrutide 10mg; Retatrutide 20mg; Retatrutide 30mg; Retatrutide 40mg; Retatrutide 50mg; Retatrutide 60mg
+- TR: TR 15mg; TR 20mg; TR 30mg; TR 40mg
+- Semaglutida: Semaglutide 10mg; Semaglutide 20mg
+- Cagrilintida: Cagrilintide 5mg
+- AOD-9604: AOD-9604 5mg; AOD-9604 10mg
+- 5-amino-1MQ: 5-amino-1MQ 5mg; 5-amino-1MQ 10mg
+- Melanotan II: Melanotan 2 10mg
+- L-carnitina: L-Carnitine 1200mg
+- Ipamorelina: Ipamorelin 10mg
+- CJC-1295 sin DAC: CJC-1295 No DAC 10mg
+- CJC-1295 con DAC: CJC-1295 with DAC 5mg
+- Ipamorelina + CJC-1295 sin DAC: Ipamorelin + CJC-1295 No DAC 10mg; Ipamorelin + CJC-1295 No DAC 20mg
+- IGF-1 LR3: IGF-1 LR3 1mg
+- SLU-PP-332: SLU-PP-332 5mg; SLU-PP-332 10mg
+- KLOW: KLOW 80mg
+- Epithalone (Epitalon): Epithalone 10mg; Epithalone 20mg; Epithalone 50mg
+- Cartalax: Cartalax 10mg; Cartalax 20mg
+- NAD+: NAD+ 1000mg; NAD+ 500mg
+- MOTS-c: Mots-C 10mg; Mots-C 20mg; Mots-C 40mg
+- SS-31 (elamipretida): SS-31 10mg
+- Thymalin: Thymalin 10mg
+- GHK-Cu: GHK-Cu 50mg; GHK-Cu 100mg
+- Glutatión: Glutathione 1500mg
+- GLOW: GLOW 70mg
+- Selank: Selank 10mg
+- Semax: Semax 10mg
+- DSIP: DSIP 10mg; DSIP 15mg
+- Adamax: Adamax 5mg
+- BPC-157: BPC-157 10mg
+- TB-500: TB-500 10mg
+- TB-4 (timosina beta-4): TB-4 10mg
+- KPV: KPV 10mg
+- LL-37: LL-37 10mg
+- PT-141 (bremelanotida): PT-141 10mg
+- Tesamorelina: Tesamorelin 10mg
+- AICAR: AICAR 50mg
+- HGH (hormona de crecimiento humana): HGH 12 IU; HGH 24 IU; HGH 50 IU — Pfizer Genotropin
+- hCG (gonadotropina coriónica humana): HCG 10,000 IU
+- Agua bacteriostática: Agua Bacteriostática 3ml; Agua Bacteriostática 10ml; Agua Bacteriostática 30ml
+- Agua estéril: Agua Estéril 10ml
+- Inyectadora tipo lapicero: Inyectadora Automática V2 Tipo Lapicero
+- Jeringa: Jeringa 1ml x 10 unidades
+- Aguja tipo lapicero: Aguja Tipo Lapicero
+- Vial recargable: Vial Recargable 3ml x 5
+- Toallitas con alcohol: Pads con Alcohol x 100 uds
+- Botella para aerosol nasal: Botella para Spray Nasal
+- DMSO (dimetilsulfóxido): DMSO 5ml
+- Pinealon: Pinealon 10mg; Pinealon 20mg
+- Folistatina 344: Follistatin 344 1mg
+- Sermorelina: Sermorelin 10mg
+- Kisspeptina: Kisspeptin 10mg
+- Timosina alfa-1: Thymosin Alpha-1 10mg
+- ARA-290 (cibinetida): ARA-290 10mg
+- FOXO4-DRI: FOXO4-DRI 10mg
