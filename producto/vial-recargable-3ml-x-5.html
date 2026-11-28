@@ -41,7 +41,7 @@
   <div class="pp-hero">
     <div class="pp-media">
       <img id="pp-img" src="../img/f/vial-recargable-3ml-x-5.webp" alt="Vial Recargable 3ml x 5 en Costa Rica — vial de investigación Vierundsechzig Peptides"
-           width="1254" height="1254" fetchpriority="high" onclick="ppZoom()"><script>if(document.body.classList.contains('light')){(function(i){var s=i.getAttribute('src'),d=s;i.onerror=function(){this.onerror=null;this.setAttribute('src',d)};i.setAttribute('src',s.replace('img/f/','img/fl/'));})(document.getElementById('pp-img'))}</script>
+           width="1254" height="1254" fetchpriority="high" onclick="ppZoom()">
       <span class="pp-zoom-hint">Click para ampliar</span>
     </div>
     <div class="pp-info">
@@ -129,10 +129,8 @@ function ppAdd(){
     setTimeout(()=>{ b.innerHTML=b.dataset.h; b.classList.remove('ok'); }, 1800);
   }catch(e){ location.href='../index.html#cat'; }
 }
-/* modo claro: misma preferencia que el catálogo; foto clara si existe, si no la normal */
-function ppImgs(l){document.querySelectorAll('img').forEach(function(i){var s=i.getAttribute('src');if(!s)return;var n=s.replace(/img\/([ft])l?\//,'img/$1'+(l?'l':'')+'/');if(n===s)return;var d=n.replace(/img\/([ft])l\//,'img/$1/');i.onerror=l?function(){this.onerror=null;this.setAttribute('src',d);}:null;i.setAttribute('src',n);});}
-function ppTheme(){var l=document.body.classList.toggle('light');try{localStorage.setItem('vp_theme',l?'light':'dark')}catch(e){}ppImgs(l);}
-if(document.body.classList.contains('light'))ppImgs(true);
+/* modo claro: misma preferencia que el catálogo */
+function ppTheme(){var l=document.body.classList.toggle('light');try{localStorage.setItem('vp_theme',l?'light':'dark')}catch(e){}}
 </script>
 </body>
 </html>
